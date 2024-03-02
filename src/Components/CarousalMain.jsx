@@ -10,9 +10,6 @@ import { LowCredits } from "./Alerts/LowCredits";
 
 export const CarousalMain = () => {
   const { alert } = useSelector((state) => state);
-
-  console.log("Alert is", alert);
-
   return (
     <Box overflow={"hidden"} width={"100%"} borderRadius={"10px"}>
       <Carousel

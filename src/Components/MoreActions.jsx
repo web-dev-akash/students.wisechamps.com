@@ -45,9 +45,7 @@ export const MoreActions = () => {
 
         <Button
           onClick={() =>
-            window.location.assign(
-              `https://report.wisechamps.com/?email=${user.email}`
-            )
+            window.open(`https://report.wisechamps.com/?email=${user.email}`)
           }
           mt={3}
           bg={"#4E46E4"}

@@ -48,7 +48,7 @@ export const CreditsExhausted = () => {
             bg={"white"}
             border={"none"}
             onClick={() =>
-              window.location.assign(
+              window.open(
                 `https://quizbalance.wisechamps.com?email=${user.email}`
               )
             }

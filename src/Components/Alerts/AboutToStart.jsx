@@ -49,9 +49,7 @@ export const AboutToStart = () => {
             bg={"white"}
             border={"none"}
             onClick={() =>
-              window.location.assign(
-                `https://zoom.wisechamps.com?email=${user.email}`
-              )
+              window.open(`https://zoom.wisechamps.com?email=${user.email}`)
             }
           >
             Join Meeting Now

@@ -18,7 +18,6 @@ export const Dashboard = () => {
   // useEffect(() => {
   //   dispatch(getStoreURL(user.email));
   // }, []);
-
   return (
     <Box padding={"2.3rem 15px 1rem 15px"} className="dashboard">
       <Header />
