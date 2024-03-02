@@ -10,52 +10,71 @@ import {
   Tr,
 } from "@chakra-ui/react";
 import React from "react";
+import { useSelector } from "react-redux";
 
 export const Schedule = () => {
+  const { session } = useSelector((state) => state.user);
   return (
-    <Box
-      background="white"
-      border={"1px solid #4E46E4"}
-      padding={"1rem"}
-      borderRadius={"10px"}
-    >
-      <Text fontWeight={700} fontSize={["15px", "15px", "18px", "18px"]}>
+    <Box background="white" border={"1px solid #4E46E4"} borderRadius={"10px"}>
+      <Text
+        m={"1rem 0 0 1rem"}
+        fontWeight={700}
+        fontSize={["15px", "15px", "18px", "18px"]}
+      >
         Quiz Schedule
       </Text>
       <TableContainer
         width={"100%"}
         maxWidth={"100%"}
-        border={"1px solid #cccffcca"}
-        borderRadius={"10px"}
+        borderRadius={"0 0 10px 10px"}
+        whiteSpace={"none"}
         mt={4}
       >
-        <Table variant="striped" colorScheme="purple">
-          <Thead>
+        <Table variant="striped" colorScheme="purple" className="scheduleTable">
+          <Thead
+            borderTop={"1px solid #cccffc"}
+            fontSize={["11px", "11px", "13px", "15px"]}
+          >
             <Tr>
-              <Th fontSize={"15px"} fontWeight={500}>
-                Day
+              <Th>
+                <Text fontSize={["10px", "10px", "13px", "15px"]}>Topic</Text>
               </Th>
-              <Th fontSize={"15px"} fontWeight={500}>
-                Time
+              <Th>
+                <Text fontSize={["10px", "10px", "13px", "15px"]}>Day</Text>
+              </Th>
+              <Th>
+                <Text fontSize={["10px", "10px", "13px", "15px"]}>Time</Text>
               </Th>
             </Tr>
           </Thead>
-          <Tbody fontSize={["12px", "12px", "15px", "15px"]}>
+          <Tbody fontSize={["11px", "11px", "13px", "15px"]}>
             <Tr>
+              <Td width={"100%"}>
+                {session[0] ? session[0].Session_Name : "Science Live Quiz"}
+              </Td>
               <Td>Thursday</Td>
-              <Td>7PM - 8PM</Td>
+              <Td>7PM</Td>
             </Tr>
             <Tr>
+              <Td width={"100%"}>
+                {session[1] ? session[1].Session_Name : "Maths Live Quiz"}
+              </Td>
               <Td>Friday</Td>
-              <Td>7PM - 8PM</Td>
+              <Td>7PM</Td>
             </Tr>
             <Tr>
+              <Td width={"100%"}>
+                {session[2] ? session[2].Session_Name : "Maths Live Quiz"}
+              </Td>
               <Td>Saturday</Td>
-              <Td>7PM - 8PM</Td>
+              <Td>7PM</Td>
             </Tr>
             <Tr>
+              <Td width={"100%"}>
+                {session[3] ? session[3].Session_Name : "Maths Live Quiz"}
+              </Td>
               <Td>Sunday</Td>
-              <Td>11AM - 12AM</Td>
+              <Td>11AM</Td>
             </Tr>
           </Tbody>
         </Table>

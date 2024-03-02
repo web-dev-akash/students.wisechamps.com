@@ -43,34 +43,34 @@ export const fetchUser = (email) => async (dispatch) => {
     const dayOfWeek = today.getDay();
     const hours = today.getHours();
     const minutes = today.getMinutes();
+    const previousCoins = Number(localStorage.getItem("wise_coins") || 0);
     const url = `https://backend.wisechamps.com/student`;
     const res = await axios.post(url, { email: email });
     const mode = res.data.mode;
+    const alertObj = [];
     if (res.data.credits === 0) {
-      dispatch(setAlert("credits"));
-    } else if (
-      (dayOfWeek >= 4 &&
-        dayOfWeek <= 6 &&
-        (hours > 18 || (hours === 18 && minutes >= 50)) &&
-        (hours < 19 || (hours === 19 && minutes < 0))) ||
-      (dayOfWeek === 0 &&
-        hours === 10 &&
-        minutes >= 50 &&
-        hours === 11 &&
-        minutes < 0)
-    ) {
-      dispatch(setAlert("aboutToStart"));
-    } else if (
+      alertObj.push("credits");
+    }
+    if (
       (dayOfWeek >= 4 &&
         dayOfWeek <= 6 &&
         ((hours === 19 && minutes >= 0) || (hours === 19 && minutes < 30))) ||
       (dayOfWeek === 0 &&
         ((hours === 11 && minutes >= 0) || (hours === 11 && minutes < 30)))
     ) {
-      dispatch(setAlert("inProgress"));
-    } else if (res.data.credits <= 2) {
-      dispatch(setAlert("lowCredits"));
+      alertObj.push("inProgress");
     }
+    if (res.data.credits <= 2 && !alertObj.includes("credits")) {
+      alertObj.push("lowCredits");
+    }
+    if (Number(res.data.coins) > previousCoins) {
+      localStorage.setItem("wise_coins", res.data.coins);
+      alertObj.push("coins");
+    }
+    if (!alertObj.includes("inProgess")) {
+      alertObj.push("aboutToStart");
+    }
+    dispatch(setAlert([...alertObj]));
     if (res.data.status === 200) {
       dispatch(
         setUser({
@@ -85,6 +85,7 @@ export const fetchUser = (email) => async (dispatch) => {
           quizzes: res.data.quizzes,
           age: res.data.age,
           category: res.data.category,
+          session: res.data.session,
         })
       );
     }

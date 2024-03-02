@@ -85,7 +85,7 @@ html {
   font-size: 12px;
   color: red;
 }
-#root {
+.App {
   display: flex !important;
   align-items: center !important;
   justify-content: center !important;
@@ -318,4 +318,51 @@ select {
 
 .wrongAnswer {
   background-color: #f44336;
+}
+
+.dashboard button {
+  border: 2px solid transparent !important;
+  transition: 0.5s ease;
+}
+
+.dashboard button:hover,
+.dashboard button:focus {
+  outline: none;
+  color: black;
+  border-color: rgb(94, 110, 255) !important;
+  background-color: #fff;
+  box-shadow: 0 0 0 5px rgb(94 110 255 / 30%);
+}
+
+.carousel .control-dots .dot {
+  background: #4e46e4 !important;
+  box-shadow: none !important;
+}
+.carousel .control-dots {
+  margin: 1px 0 !important;
+}
+
+.scheduleTable th,
+.scheduleTable td {
+  padding-left: 15px !important;
+  padding-right: 10px !important;
+}
+
+.plansTable th,
+.plansTable td {
+  padding-left: 0px !important;
+  padding-right: 0px !important;
+}
+
+#plansPackage {
+  padding-left: 5px !important;
+}
+
+.chakra-step__indicator {
+  background: white !important;
+  border: none !important;
+}
+
+.chakra-step__separator[data-status="complete"] {
+  background-color: #4e46e4 !important;
 }

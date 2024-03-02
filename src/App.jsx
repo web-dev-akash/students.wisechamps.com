@@ -9,6 +9,7 @@ import { Dashboard } from "./Pages/Dashboard";
 import { PrivateRoute } from "./Components/PrivateRoute";
 import { Referrals } from "./Pages/Referrals";
 import { Store } from "./Pages/Store";
+import { Box, Heading, Text } from "@chakra-ui/react";
 
 export const App = () => {
   return (
@@ -45,16 +46,18 @@ export const App = () => {
         <Route
           path="*"
           element={
-            <div style={{ textAlign: "center" }}>
-              <h1>OOPS!</h1>
-              <p
-                style={{
-                  fontSize: "18px",
-                }}
-              >
-                Page not Found..
-              </p>
-            </div>
+            <Box
+              height={["80vh", "80vh", "90vh", "95vh"]}
+              display={"flex"}
+              justifyContent={"center"}
+              alignItems={"center"}
+              flexDirection={"column"}
+            >
+              <Heading>OOPS!</Heading>
+              <Text fontSize={["15px", "15px", "18px", "18px"]}>
+                Page not Found...
+              </Text>
+            </Box>
           }
         ></Route>
       </Routes>

@@ -10,6 +10,7 @@ export const Loading = () => {
         justifyContent: "center",
         alignItems: "center",
         flexDirection: "column",
+        height: "90vh",
       }}
     >
       <p

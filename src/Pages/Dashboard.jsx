@@ -1,5 +1,5 @@
 import { Box, Heading, Image, Tag } from "@chakra-ui/react";
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Header } from "../Components/Header";
 import hi from "../assets/hi.gif";
@@ -8,36 +8,26 @@ import { UserSystemStatics } from "../Components/UserSystemStatics";
 import { Schedule } from "../Components/Schedule";
 import { MoreActions } from "../Components/MoreActions";
 import { getStoreURL } from "../Redux/action";
-import { CustomAlert } from "../Components/CustomAlert";
+import { CarousalMain } from "../Components/CarousalMain";
+import { Pricing } from "../Components/Pricing";
+
 export const Dashboard = () => {
-  const { user, alert } = useSelector((state) => state);
-  const [showAlert, setShowAlert] = useState(false);
-  const dispatch = useDispatch();
-  useEffect(() => {
-    console.log(alert);
-    const showAlertTimeout = setTimeout(() => {
-      setShowAlert(true);
-    }, 2000);
-    const hideAlertTimeout = setTimeout(() => {
-      setShowAlert(false);
-    }, 10000);
-    dispatch(getStoreURL(user.email));
-    return () => {
-      clearTimeout(showAlertTimeout);
-      clearTimeout(hideAlertTimeout);
-    };
-  }, []);
+  const { user } = useSelector((state) => state);
+  // const dispatch = useDispatch();
+
+  // useEffect(() => {
+  //   dispatch(getStoreURL(user.email));
+  // }, []);
 
   return (
-    <Box padding={"2rem 15px 1rem 15px"}>
+    <Box padding={"2.3rem 15px 1rem 15px"} className="dashboard">
       <Header />
-      {showAlert && <CustomAlert />}
+      <UserSystemStatics />
       <Box
         display={"flex"}
         alignItems={"center"}
         justifyContent={"space-between"}
-        mt={"20px"}
-        mb={[0, 0, 5, 5]}
+        m={"10px 0"}
       >
         <Box display={"flex"} gap={"5px"}>
           <Heading
@@ -49,30 +39,28 @@ export const Dashboard = () => {
           </Heading>
           <Image
             position={"relative"}
-            bottom={["5px", "5px", "0", "0"]}
+            bottom={["4px", "4px", "0", "0"]}
             src={hi}
             alt="👋"
             width={"30px"}
           />
         </Box>
-        <Box>
-          {user.category && user.category !== "" && (
-            <Tag
-              size={["sm", "sm", "md", "md"]}
-              colorScheme={
-                user.category === "Active" || user.category === "Regular"
-                  ? "whatsapp"
-                  : user.category === "Inactive" ||
-                    user.category === "AtRisk" ||
-                    user.category === "Dropout"
-                  ? "red"
-                  : "linkedin"
-              }
-            >
-              {user.category}
-            </Tag>
-          )}
-        </Box>
+        {user.category && user.category !== "" && (
+          <Tag
+            fontSize={["10px", "10px", "15px", "15px"]}
+            colorScheme={
+              user.category === "Active" || user.category === "Regular"
+                ? "whatsapp"
+                : user.category === "Inactive" ||
+                  user.category === "AtRisk" ||
+                  user.category === "Dropout"
+                ? "red"
+                : "linkedin"
+            }
+          >
+            {user.category}
+          </Tag>
+        )}
       </Box>
       <Box
         display={"grid"}
@@ -84,11 +72,11 @@ export const Dashboard = () => {
           "repeat(2, 1fr)",
         ]}
         gap={["10px", "10px", "20px", "20px"]}
-        mt={4}
       >
+        <CarousalMain />
         <ReferralComponent />
-        <UserSystemStatics />
         <Schedule />
+        <Pricing />
         <MoreActions />
       </Box>
     </Box>

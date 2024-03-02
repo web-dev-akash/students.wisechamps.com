@@ -14,6 +14,12 @@ export const NoUserFound = () => {
       className="email-not-found"
       style={{
         textAlign: "center",
+        display: "flex",
+        justifyContent: "center",
+        alignItems: "center",
+        flexDirection: "column",
+        height: "90vh",
+        fontSize: "15px",
       }}
     >
       <p
@@ -24,7 +30,7 @@ export const NoUserFound = () => {
         This Email is not registered with us. <br />
         Please use a registered Email Address
       </p>
-      <div>
+      <div style={{ width: "90%" }}>
         <Link id="submit-btn" to={"/"}>
           Try Again
         </Link>

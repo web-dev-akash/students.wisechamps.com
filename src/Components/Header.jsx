@@ -11,11 +11,11 @@ export const Header = () => {
         className="animate__animated animate__fadeInLeft"
         style={{
           position: "absolute",
-          top: "1rem",
+          top: "0.7rem",
           left: "15px",
         }}
       >
-        <img src={logo} alt="Wisechamps" width={"90px"} />
+        <img src={logo} alt="Wisechamps" width={"100px"} />
       </header>
       {mode === "user" && (
         <Box
@@ -23,17 +23,24 @@ export const Header = () => {
           display={"flex"}
           justifyContent={"center"}
           alignItems={"center"}
-          gap={"10px"}
+          gap={"5px"}
           position={"absolute"}
           top={"1rem"}
           right={"15px"}
         >
-          <Tag colorScheme="purple" fontSize={["11px", "11px", "14px", "14px"]}>
+          <Tag
+            colorScheme="purple"
+            fontSize={["10px", "10px", "15px", "15px"]}
+            fontWeight={500}
+          >
+            Quiz Taken : {user.quizzes}
+          </Tag>
+          <Tag colorScheme="purple" fontSize={["10px", "10px", "15px", "15px"]}>
             Quiz Balance : {user.credits}
           </Tag>
-          <Tag colorScheme="purple" fontSize={["11px", "11px", "14px", "14px"]}>
+          {/* <Tag colorScheme="purple" fontSize={["10px", "10px", "15px", "15px"]}>
             Coins : {user.coins}
-          </Tag>
+          </Tag> */}
         </Box>
       )}
     </Box>
