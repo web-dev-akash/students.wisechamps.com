@@ -31,10 +31,11 @@ export const NoUserFound = () => {
         Please use a registered Email Address
       </p>
       <div style={{ width: "90%" }}>
-        <Link id="submit-btn" to={"/"}>
+        <Link id="submit-btn" to={"/"} style={{ maxWidth: "400px" }}>
           Try Again
         </Link>
         <Link
+          style={{ maxWidth: "400px" }}
           to={"/"}
           id="submit-btn"
           onClick={() => {

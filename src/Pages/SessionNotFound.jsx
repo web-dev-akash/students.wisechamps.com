@@ -30,6 +30,7 @@ export const SessionNotFound = () => {
         id="submit-btn"
         style={{
           padding: "0.7rem 2rem",
+          maxWidth: "400px",
         }}
       >
         Try Again
