@@ -10,6 +10,7 @@ import { MoreActions } from "../Components/MoreActions";
 import { getStoreURL } from "../Redux/action";
 import { CarousalMain } from "../Components/CarousalMain";
 import { Pricing } from "../Components/Pricing";
+import { Footer } from "../Components/Footer";
 
 export const Dashboard = () => {
   const { user } = useSelector((state) => state);
@@ -52,7 +53,7 @@ export const Dashboard = () => {
                 ? "whatsapp"
                 : user.category === "Inactive" ||
                   user.category === "AtRisk" ||
-                  user.category === "Dropout"
+                  user.category === "Dropouts"
                 ? "red"
                 : "linkedin"
             }
@@ -78,6 +79,7 @@ export const Dashboard = () => {
         <Pricing />
         <MoreActions />
       </Box>
+      <Footer />
     </Box>
   );
 };

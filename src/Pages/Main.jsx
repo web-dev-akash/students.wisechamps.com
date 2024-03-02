@@ -11,7 +11,10 @@ import { fetchUser } from "../Redux/action";
 export const Main = () => {
   const dispatch = useDispatch();
   const query = new URLSearchParams(window.location.search);
-  const [email, setEmail] = useState(query.get("email"));
+  const localEmail = localStorage.getItem("wise_email") || null;
+  const [email, setEmail] = useState(
+    query.get("email") ? query.get("email") : localEmail
+  );
   const { loading, error, mode } = useSelector((state) => state);
 
   useEffect(() => {

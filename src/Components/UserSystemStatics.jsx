@@ -25,7 +25,7 @@ export const UserSystemStatics = () => {
         fontSize={["10px", "10px", "15px", "15px"]}
         fontWeight={500}
       >
-        Age :{" "}
+        Age in system :{" "}
         {user.age >= 365
           ? Math.floor(user.age / 365) > 1
             ? `${Math.floor(user.age / 365)} years`

@@ -59,19 +59,25 @@ export const fetchUser = (email) => async (dispatch) => {
         ((hours === 11 && minutes >= 0) || (hours === 11 && minutes < 30)))
     ) {
       alertObj.push("inProgress");
+    } else if (
+      (dayOfWeek >= 4 &&
+        dayOfWeek <= 6 &&
+        ((hours === 18 && minutes >= 45) || (hours === 19 && minutes <= 0))) ||
+      (dayOfWeek === 0 &&
+        ((hours === 10 && minutes >= 45) || (hours === 11 && minutes <= 0)))
+    ) {
+      alertObj.push("aboutToStart");
     }
     if (res.data.credits <= 2 && !alertObj.includes("credits")) {
       alertObj.push("lowCredits");
     }
-    if (Number(res.data.coins) > previousCoins) {
-      localStorage.setItem("wise_coins", res.data.coins);
-      alertObj.push("coins");
-    }
-    if (!alertObj.includes("inProgess")) {
-      alertObj.push("aboutToStart");
-    }
+    // if (Number(res.data.coins) > previousCoins) {
+    //   localStorage.setItem("wise_coins", res.data.coins);
+    //   alertObj.push("coins");
+    // }
     dispatch(setAlert([...alertObj]));
     if (res.data.status === 200) {
+      localStorage.setItem("wise_email", email);
       dispatch(
         setUser({
           name: res.data.name,
@@ -89,7 +95,6 @@ export const fetchUser = (email) => async (dispatch) => {
         })
       );
     }
-
     dispatch(setMode(mode));
   } catch (error) {
     dispatch(getError());
