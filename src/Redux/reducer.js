@@ -26,7 +26,7 @@ const initialState = {
   },
   mode: "",
   store: "",
-  alert: [""],
+  alert: [],
 };
 
 export const reducer = (state = initialState, { type, payload }) => {
