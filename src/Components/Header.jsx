@@ -1,9 +1,10 @@
 import React from "react";
 import logo from "../assets/logo.png";
-import { Box, Tag } from "@chakra-ui/react";
+import { Box, Tag, Text } from "@chakra-ui/react";
 import { useSelector } from "react-redux";
+import { Link } from "react-router-dom";
 
-export const Header = () => {
+export const Header = ({ hidetags }) => {
   const { user, mode } = useSelector((state) => state);
   return (
     <Box>
@@ -28,16 +29,37 @@ export const Header = () => {
           top={"1rem"}
           right={"15px"}
         >
-          <Tag
-            colorScheme="purple"
-            fontSize={["10px", "10px", "15px", "15px"]}
-            fontWeight={500}
-          >
-            Quiz Taken : {user.quizzes}
-          </Tag>
-          <Tag colorScheme="purple" fontSize={["10px", "10px", "15px", "15px"]}>
-            Quiz Balance : {user.credits}
-          </Tag>
+          {hidetags ? (
+            <Link to={"/dashboard"}>
+              <Text
+                fontSize={["11px", "11px", "13px", "14px"]}
+                padding={"1px 10px"}
+                background={"#4E46E4"}
+                border={"1px solid #4E46E4"}
+                borderRadius={"5px"}
+                color={"white"}
+              >
+                Dashboard
+              </Text>
+            </Link>
+          ) : (
+            <>
+              <Tag
+                colorScheme="purple"
+                fontSize={["10px", "10px", "15px", "15px"]}
+                fontWeight={500}
+              >
+                Quiz Taken : {user.quizzes}
+              </Tag>
+              <Tag
+                colorScheme="purple"
+                fontSize={["10px", "10px", "15px", "15px"]}
+              >
+                Quiz Balance : {user.credits}
+              </Tag>
+            </>
+          )}
+
           {/* <Tag colorScheme="purple" fontSize={["10px", "10px", "15px", "15px"]}>
             Coins : {user.coins}
           </Tag> */}

@@ -9,7 +9,7 @@ export const Referrals = () => {
   const { referrals } = useSelector((state) => state.user);
   return (
     <Box padding={"2.5rem 15px 1rem 15px"}>
-      <Header />
+      <Header hidetags={true} />
       <Box
         className="animate__animated animate__fadeInUp"
         mt={"20px"}
