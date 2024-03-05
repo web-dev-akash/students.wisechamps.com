@@ -15,7 +15,10 @@ export const Main = () => {
   const [email, setEmail] = useState(
     query.get("email") ? query.get("email") : localEmail
   );
-  const { loading, error, mode } = useSelector((state) => state);
+
+  const loading = useSelector((state) => state.loading);
+  const error = useSelector((state) => state.error);
+  const mode = useSelector((state) => state.mode);
 
   useEffect(() => {
     if (email) {

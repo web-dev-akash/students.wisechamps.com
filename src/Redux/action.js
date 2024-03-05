@@ -92,6 +92,8 @@ export const fetchUser = (email) => async (dispatch) => {
           age: res.data.age,
           category: res.data.category,
           session: res.data.session,
+          coinsHistory:
+            res.data.coinsHistory === 0 ? [] : res.data.coinsHistory,
         })
       );
     }

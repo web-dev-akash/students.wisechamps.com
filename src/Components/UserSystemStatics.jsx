@@ -3,7 +3,7 @@ import React from "react";
 import { useSelector } from "react-redux";
 
 export const UserSystemStatics = () => {
-  const { user } = useSelector((state) => state);
+  const user = useSelector((state) => state.user);
   return (
     <Box
       display={"flex"}

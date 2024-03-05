@@ -6,7 +6,7 @@ import { useSelector } from "react-redux";
 import { ReferralSteps } from "../Components/ReferralSteps";
 
 export const Referrals = () => {
-  const { referrals } = useSelector((state) => state.user);
+  const referrals = useSelector((state) => state.user.referrals);
   return (
     <Box padding={"2.5rem 15px 1rem 15px"}>
       <Header hidetags={true} />

@@ -11,9 +11,11 @@ import { getStoreURL } from "../Redux/action";
 import { CarousalMain } from "../Components/CarousalMain";
 import { Pricing } from "../Components/Pricing";
 import { Footer } from "../Components/Footer";
+import { Coins } from "./Coins";
+import { CoinsComponent } from "../Components/CoinsComponent";
 
 export const Dashboard = () => {
-  const { user } = useSelector((state) => state);
+  const user = useSelector((state) => state.user);
   // const dispatch = useDispatch();
 
   // useEffect(() => {
@@ -75,6 +77,7 @@ export const Dashboard = () => {
       >
         <CarousalMain />
         <ReferralComponent />
+        <CoinsComponent />
         <Schedule />
         <Pricing />
         <MoreActions />

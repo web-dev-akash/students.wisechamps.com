@@ -9,7 +9,7 @@ import { MeetingInProgress } from "./Alerts/MeetingInProgress";
 import { LowCredits } from "./Alerts/LowCredits";
 
 export const CarousalMain = () => {
-  const { alert } = useSelector((state) => state);
+  const alert = useSelector((state) => state.alert);
   return (
     <Box
       gridColumn={["unset", "unset", "1 / span 2", "1 / span 2"]}
@@ -28,18 +28,18 @@ export const CarousalMain = () => {
         centerSlidePercentage={100}
       >
         {alert.length > 0
-          ? alert.map((alert) => {
+          ? alert.map((alert, index) => {
               if (alert === "credits") {
-                return <CreditsExhausted />;
+                return <CreditsExhausted key={index} />;
               }
               if (alert === "aboutToStart") {
-                return <AboutToStart />;
+                return <AboutToStart key={index} />;
               }
               if (alert === "inProgress") {
-                return <MeetingInProgress />;
+                return <MeetingInProgress key={index} />;
               }
               if (alert === "lowCredits") {
-                return <LowCredits />;
+                return <LowCredits key={index} />;
               }
               return null;
             })

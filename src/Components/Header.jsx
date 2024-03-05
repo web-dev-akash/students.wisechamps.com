@@ -5,7 +5,8 @@ import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 
 export const Header = ({ hidetags }) => {
-  const { user, mode } = useSelector((state) => state);
+  const user = useSelector((state) => state.user);
+  const mode = useSelector((state) => state.mode);
   return (
     <Box>
       <header

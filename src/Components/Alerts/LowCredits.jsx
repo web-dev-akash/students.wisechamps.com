@@ -11,7 +11,7 @@ import React from "react";
 import { useSelector } from "react-redux";
 
 export const LowCredits = () => {
-  const { user } = useSelector((state) => state);
+  const user = useSelector((state) => state.user);
   return (
     <Box display={"flex"} justifyContent={"center"} textAlign={"left"}>
       <Alert

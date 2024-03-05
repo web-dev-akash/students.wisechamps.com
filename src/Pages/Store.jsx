@@ -5,7 +5,7 @@ import { Loading } from "../Components/Loading";
 import { Link } from "react-router-dom";
 
 export const Store = () => {
-  const { store } = useSelector((state) => state);
+  const store = useSelector((state) => state.store);
   const [forcedLoading, setForcedLoading] = useState(true);
 
   useEffect(() => {

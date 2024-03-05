@@ -13,7 +13,7 @@ import React from "react";
 import { useSelector } from "react-redux";
 
 export const Schedule = () => {
-  const { session } = useSelector((state) => state.user);
+  const session = useSelector((state) => state.user.session);
   return (
     <Box background="white" border={"1px solid #4E46E4"} borderRadius={"10px"}>
       <Text

@@ -4,7 +4,7 @@ import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 
 export const MoreActions = () => {
-  const { user } = useSelector((state) => state);
+  const user = useSelector((state) => state.user);
   return (
     <Box
       background="white"

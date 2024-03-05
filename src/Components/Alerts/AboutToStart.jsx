@@ -11,7 +11,8 @@ import React from "react";
 import { useSelector } from "react-redux";
 
 export const AboutToStart = () => {
-  const { user } = useSelector((state) => state);
+  const user = useSelector((state) => state.user);
+
   return (
     <Box display={"flex"} justifyContent={"center"} textAlign={"left"}>
       <Alert

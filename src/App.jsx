@@ -10,6 +10,7 @@ import { PrivateRoute } from "./Components/PrivateRoute";
 import { Referrals } from "./Pages/Referrals";
 import { Store } from "./Pages/Store";
 import { Box, Heading, Text } from "@chakra-ui/react";
+import { Coins } from "./Pages/Coins";
 
 export const App = () => {
   return (
@@ -37,6 +38,14 @@ export const App = () => {
           element={
             <PrivateRoute>
               <Store />
+            </PrivateRoute>
+          }
+        ></Route>
+        <Route
+          path="/dashboard/coins"
+          element={
+            <PrivateRoute>
+              <Coins />
             </PrivateRoute>
           }
         ></Route>
