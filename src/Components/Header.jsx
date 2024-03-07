@@ -45,25 +45,27 @@ export const Header = ({ hidetags }) => {
             </Link>
           ) : (
             <>
-              <Tag
+              {/* <Tag
                 colorScheme="purple"
                 fontSize={["10px", "10px", "15px", "15px"]}
                 fontWeight={500}
               >
                 Quiz Taken : {user.quizzes}
-              </Tag>
+              </Tag> */}
               <Tag
                 colorScheme="purple"
                 fontSize={["10px", "10px", "15px", "15px"]}
               >
                 Quiz Balance : {user.credits}
               </Tag>
+              <Tag
+                colorScheme="purple"
+                fontSize={["10px", "10px", "15px", "15px"]}
+              >
+                Coins : {user.coins}
+              </Tag>
             </>
           )}
-
-          {/* <Tag colorScheme="purple" fontSize={["10px", "10px", "15px", "15px"]}>
-            Coins : {user.coins}
-          </Tag> */}
         </Box>
       )}
     </Box>

@@ -12,13 +12,13 @@ export const UserSystemStatics = () => {
       gap={2}
       mt={"10px"}
     >
-      {/* <Tag
+      <Tag
         colorScheme="purple"
         fontSize={["10px", "10px", "15px", "15px"]}
         fontWeight={500}
       >
         Quiz Taken : {user.quizzes}
-      </Tag> */}
+      </Tag>
 
       <Tag
         colorScheme="purple"
