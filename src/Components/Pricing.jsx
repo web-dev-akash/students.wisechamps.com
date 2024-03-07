@@ -85,8 +85,8 @@ export const Pricing = () => {
               </Td>
               <Td>₹499</Td>
               <Td>
-                20 Quizzes <br />
-                (₹25 per quiz)
+                25 Quizzes <br />
+                (₹20 per quiz)
               </Td>
               <Td>6 Months</Td>
             </Tr>
