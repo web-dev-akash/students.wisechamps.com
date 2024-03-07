@@ -1,9 +1,10 @@
-import { Box, Tag, Text } from "@chakra-ui/react";
+import { Box, Image, Text } from "@chakra-ui/react";
 import { FaPhoneAlt } from "react-icons/fa";
 import React from "react";
 import { Header } from "../Components/Header";
 import { useSelector } from "react-redux";
 import { ReferralSteps } from "../Components/ReferralSteps";
+import referral from "../assets/referral.png";
 
 export const Referrals = () => {
   const referrals = useSelector((state) => state.user.referrals);
@@ -22,6 +23,22 @@ export const Referrals = () => {
         ]}
         gap={"20px"}
       >
+        <Box
+          gridColumn={["unset", "unset", "1 / span 2", "1 / span 2"]}
+          width={"100%"}
+          display={"flex"}
+          justifyContent={"center"}
+        >
+          <Image
+            src={referral}
+            alt="Referral benefits"
+            width={"100%"}
+            maxWidth={"500px"}
+            border={"1px solid #4E46E4"}
+            borderRadius={"10px"}
+          />
+        </Box>
+
         {referrals.map(({ Student_Name, Phone, id, quizAttempted }) => (
           <Box
             border={"1px solid #4E46E4"}
@@ -66,7 +83,9 @@ export const Referrals = () => {
               <Box
                 background={"#4E46E4"}
                 height={"100%"}
-                width={`${quizAttempted * 20}%`}
+                width={
+                  quizAttempted >= 5 ? `${5 * 20}%` : `${quizAttempted * 20}%`
+                }
                 borderRadius={"50px"}
                 zIndex={0}
               ></Box>
@@ -77,7 +96,7 @@ export const Referrals = () => {
                 color={quizAttempted < 3 ? "black" : "white"}
                 zIndex={1}
               >
-                {quizAttempted}/5
+                {quizAttempted >= 5 ? 5 : quizAttempted}/5
               </Text>
             </Box>
           </Box>

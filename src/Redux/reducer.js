@@ -25,10 +25,34 @@ const initialState = {
         id: "4878003000003001028",
         quizAttempted: 4,
       },
+      {
+        Student_Name: "Akash Kumar",
+        Phone: "91407878454",
+        id: "4878003000003001028",
+        quizAttempted: 4,
+      },
+      {
+        Student_Name: "Akash Kumar",
+        Phone: "91407878454",
+        id: "4878003000003001028",
+        quizAttempted: 4,
+      },
+      {
+        Student_Name: "Akash Kumar",
+        Phone: "91407878454",
+        id: "4878003000003001028",
+        quizAttempted: 12,
+      },
+      {
+        Student_Name: "Akash Kumar",
+        Phone: "91407878454",
+        id: "4878003000003001028",
+        quizAttempted: 4,
+      },
     ],
     quizzes: 54,
     age: 213,
-    category: "Active",
+    category: "Regular",
     session: [],
     coinsHistory: [
       {

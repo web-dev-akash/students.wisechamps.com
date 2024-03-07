@@ -28,20 +28,18 @@ export const ReferralComponent = () => {
         </Tag>{" "}
         friends or cousins.
       </Text>
-      {user.referrals.length > 0 && (
-        <Button
-          mt={3}
-          bg={"#4E46E4"}
-          color={"white"}
-          fontSize={"13px"}
-          fontWeight={400}
-          width={"100%"}
-        >
-          <Link style={{ width: "100%" }} to={"/dashboard/referrals"}>
-            View Referral Details
-          </Link>
-        </Button>
-      )}
+      <Button
+        mt={3}
+        bg={"#4E46E4"}
+        color={"white"}
+        fontSize={"13px"}
+        fontWeight={400}
+        width={"100%"}
+      >
+        <Link style={{ width: "100%" }} to={"/dashboard/referrals"}>
+          View Referral Gifts
+        </Link>
+      </Button>
     </Box>
   );
 };

@@ -1,4 +1,4 @@
-import { Box, Heading, Image, Tag } from "@chakra-ui/react";
+import { Box, Heading, Image, Tag, Text } from "@chakra-ui/react";
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Header } from "../Components/Header";
@@ -13,6 +13,8 @@ import { Pricing } from "../Components/Pricing";
 import { Footer } from "../Components/Footer";
 import { Coins } from "./Coins";
 import { CoinsComponent } from "../Components/CoinsComponent";
+import active from "../assets/active_badge.png";
+import regular from "../assets/regular_badge.png";
 
 export const Dashboard = () => {
   const user = useSelector((state) => state.user);
@@ -51,8 +53,10 @@ export const Dashboard = () => {
           <Tag
             fontSize={["10px", "10px", "15px", "15px"]}
             colorScheme={
-              user.category === "Active" || user.category === "Regular"
-                ? "whatsapp"
+              user.category === "Active"
+                ? "green"
+                : user.category === "Regular"
+                ? "green"
                 : user.category === "Inactive" ||
                   user.category === "AtRisk" ||
                   user.category === "Dropouts"
@@ -60,7 +64,30 @@ export const Dashboard = () => {
                 : "linkedin"
             }
           >
-            {user.category}
+            {user.category === "Active" ? (
+              <>
+                <Text mr={1}>Consistent</Text>
+                <Image src={active} alt="" width={"25px"} />
+              </>
+            ) : user.category === "Regular" ? (
+              <>
+                <Text ml={1}>Rockstar</Text>
+                <Image
+                  src={regular}
+                  alt=""
+                  width={"20px"}
+                  transform={"rotate(-45deg)"}
+                />
+              </>
+            ) : user.category === "Inactive" ? (
+              "Explorer"
+            ) : user.category === "AtRisk" ? (
+              "Never give up!"
+            ) : user.category === "Dropouts" ? (
+              "We miss you!"
+            ) : (
+              "We missed you!"
+            )}
           </Tag>
         )}
       </Box>
@@ -77,7 +104,7 @@ export const Dashboard = () => {
       >
         <CarousalMain />
         <ReferralComponent />
-        <CoinsComponent />
+        {/* <CoinsComponent /> */}
         <Schedule />
         <Pricing />
         <MoreActions />
