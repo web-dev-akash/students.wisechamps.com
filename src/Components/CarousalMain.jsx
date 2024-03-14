@@ -7,6 +7,8 @@ import { CreditsExhausted } from "./Alerts/CreditsExhausted";
 import { AboutToStart } from "./Alerts/AboutToStart";
 import { MeetingInProgress } from "./Alerts/MeetingInProgress";
 import { LowCredits } from "./Alerts/LowCredits";
+import { CoinsUpdated } from "./Alerts/CoinsUpdated";
+import { AddressUpdate } from "./Alerts/AddressUpdate";
 
 export const CarousalMain = () => {
   const alert = useSelector((state) => state.alert);
@@ -40,6 +42,12 @@ export const CarousalMain = () => {
               }
               if (alert === "lowCredits") {
                 return <LowCredits key={index} />;
+              }
+              if (alert === "coins") {
+                return <CoinsUpdated key={index} />;
+              }
+              if (alert === "address") {
+                return <AddressUpdate key={index} />;
               }
               return null;
             })

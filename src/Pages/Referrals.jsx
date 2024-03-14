@@ -9,7 +9,7 @@ import referral from "../assets/referral.png";
 export const Referrals = () => {
   const referrals = useSelector((state) => state.user.referrals);
   return (
-    <Box padding={"2.5rem 15px 1rem 15px"}>
+    <Box padding={"1.5rem 15px 1rem 15px"}>
       <Header hidetags={true} />
       <Box
         className="animate__animated animate__fadeInUp"
@@ -21,7 +21,7 @@ export const Referrals = () => {
           "repeat(2, 1fr)",
           "repeat(2, 1fr)",
         ]}
-        gap={"20px"}
+        gap={"10px"}
       >
         <Box
           gridColumn={["unset", "unset", "1 / span 2", "1 / span 2"]}

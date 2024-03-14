@@ -366,3 +366,7 @@ select {
 .chakra-step__separator[data-status="complete"] {
   background-color: #4e46e4 !important;
 }
+
+#city {
+  text-transform: capitalize;
+}

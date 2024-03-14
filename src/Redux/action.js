@@ -6,10 +6,20 @@ import {
   GET_USER_LOADING,
   GET_USER_MODE,
   GET_USER_STORE,
+  SET_USER_LOADING,
 } from "./actionTypes";
+
+const emailRegex = new RegExp(
+  /^[A-Za-z0-9_!#$%&'*+\/=?`{|}~^.-]+@[A-Za-z0-9.-]+$/,
+  "gm"
+);
 
 export const getLoading = () => ({
   type: GET_USER_LOADING,
+});
+
+export const setLoading = () => ({
+  type: SET_USER_LOADING,
 });
 
 export const getError = () => ({
@@ -38,6 +48,10 @@ export const setAlert = (payload) => ({
 
 export const fetchUser = (email) => async (dispatch) => {
   try {
+    if (!emailRegex.test(email)) {
+      alert("Please Enter a Valid Email");
+      return;
+    }
     dispatch(getLoading());
     const today = new Date();
     const dayOfWeek = today.getDay();
@@ -71,6 +85,9 @@ export const fetchUser = (email) => async (dispatch) => {
     if (res.data.credits <= 2 && !alertObj.includes("credits")) {
       alertObj.push("lowCredits");
     }
+    if (!res.data.address || res.data.address === null) {
+      alertObj.push("address");
+    }
     // if (Number(res.data.coins) > previousCoins) {
     //   localStorage.setItem("wise_coins", res.data.coins);
     //   alertObj.push("coins");
@@ -87,6 +104,7 @@ export const fetchUser = (email) => async (dispatch) => {
           phone: res.data.phone,
           id: res.data.contactId,
           studentName: res.data.studentName,
+          address: res.data.address,
           referrals: res.data.referrals === 0 ? [] : res.data.referrals,
           quizzes: res.data.quizzes,
           age: res.data.age,

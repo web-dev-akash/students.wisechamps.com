@@ -9,8 +9,9 @@ import {
 } from "@chakra-ui/react";
 import React from "react";
 import { useSelector } from "react-redux";
+import { Link } from "react-router-dom";
 
-export const CoinsUpdated = () => {
+export const AddressUpdate = () => {
   const user = useSelector((state) => state.user);
   return (
     <Box display={"flex"} justifyContent={"center"} textAlign={"left"}>
@@ -20,7 +21,7 @@ export const CoinsUpdated = () => {
         flexDirection={"column"}
         alignItems={"flex-start"}
         variant="subtle"
-        status={"success"}
+        colorScheme={"purple"}
         borderRadius={"10px"}
         position={"relative"}
       >
@@ -31,16 +32,27 @@ export const CoinsUpdated = () => {
           gap={"5px"}
         >
           <AlertIcon margin={0} />
-          <AlertTitle>Congratulations!</AlertTitle>
+          <AlertTitle>Add Your Address</AlertTitle>
         </Box>
-        <AlertDescription>
+        <AlertDescription width={"100%"}>
           <Text
             fontSize={["13px", "13px", "15px", "15px"]}
             m={"5px 0"}
-            width={["100%", "100%", "100%", "80%"]}
+            width={["100%", "100%", "100%", "70%"]}
           >
-            Coins added successfully. Your coins have updated to {user.coins}.
+            Please fill your mailing address to recieve gifts from Wisechamps.
           </Text>
+          <Button
+            fontSize={"13px"}
+            margin={"10px 0 5px 0"}
+            width={"100%"}
+            bg={"white"}
+            border={"none"}
+          >
+            <Link style={{ width: "100%" }} to={"/dashboard/address"}>
+              Add Your Address
+            </Link>
+          </Button>
         </AlertDescription>
       </Alert>
     </Box>

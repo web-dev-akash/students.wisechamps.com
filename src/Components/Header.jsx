@@ -1,23 +1,31 @@
 import React from "react";
 import logo from "../assets/logo.png";
-import { Box, Tag, Text } from "@chakra-ui/react";
-import { useSelector } from "react-redux";
+import { Box, Button, Tag, Text } from "@chakra-ui/react";
+import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
+import { setMode } from "../Redux/action";
 
 export const Header = ({ hidetags }) => {
   const user = useSelector((state) => state.user);
   const mode = useSelector((state) => state.mode);
+  const dispatch = useDispatch();
+
+  const handleLogoutClick = () => {
+    localStorage.removeItem("wise_email");
+    dispatch(setMode(""));
+  };
+
   return (
     <Box>
       <header
         className="animate__animated animate__fadeInLeft"
         style={{
           position: "absolute",
-          top: "0.7rem",
+          top: "0.6rem",
           left: "15px",
         }}
       >
-        <img src={logo} alt="Wisechamps" width={"100px"} />
+        <img src={logo} alt="Wisechamps" width={"90px"} />
       </header>
       {mode === "user" && (
         <Box
@@ -25,9 +33,9 @@ export const Header = ({ hidetags }) => {
           display={"flex"}
           justifyContent={"center"}
           alignItems={"center"}
-          gap={"5px"}
+          gap={"8px"}
           position={"absolute"}
-          top={"1rem"}
+          top={"12px"}
           right={"15px"}
         >
           {hidetags ? (
@@ -47,23 +55,20 @@ export const Header = ({ hidetags }) => {
             <>
               <Tag
                 colorScheme="purple"
-                fontSize={["10px", "10px", "15px", "15px"]}
-                fontWeight={500}
-              >
-                Quiz Taken : {user.quizzes}
-              </Tag>
-              <Tag
-                colorScheme="purple"
-                fontSize={["10px", "10px", "15px", "15px"]}
+                fontSize={["9px", "9px", "12px", "14px"]}
               >
                 Quiz Balance : {user.credits}
               </Tag>
-              {/* <Tag
-                colorScheme="purple"
-                fontSize={["10px", "10px", "15px", "15px"]}
+              <Button
+                fontSize={["10px", "10px", "13px", "15px"]}
+                width={["60px", "60px", "70px", "80px"]}
+                height={["25px", "25px", "25px", "30px"]}
+                background={"#4e46e4"}
+                color={"white"}
+                onClick={handleLogoutClick}
               >
-                Coins : {user.coins}
-              </Tag> */}
+                Logout
+              </Button>
             </>
           )}
         </Box>

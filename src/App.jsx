@@ -11,6 +11,7 @@ import { Referrals } from "./Pages/Referrals";
 import { Store } from "./Pages/Store";
 import { Box, Heading, Text } from "@chakra-ui/react";
 import { Coins } from "./Pages/Coins";
+import { Address } from "./Pages/Address";
 
 export const App = () => {
   return (
@@ -46,6 +47,14 @@ export const App = () => {
           element={
             <PrivateRoute>
               <Coins />
+            </PrivateRoute>
+          }
+        ></Route>
+        <Route
+          path="/dashboard/address"
+          element={
+            <PrivateRoute>
+              <Address />
             </PrivateRoute>
           }
         ></Route>
