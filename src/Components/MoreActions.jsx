@@ -30,7 +30,7 @@ export const MoreActions = () => {
           Invite a Cousin / Friend
         </Button>
 
-        {/* <Button
+        <Button
           mt={3}
           bg={"#4E46E4"}
           color={"white"}
@@ -38,10 +38,19 @@ export const MoreActions = () => {
           fontWeight={400}
           width={"100%"}
         >
-          <Link style={{ width: "100%" }} to={"/dashboard/store"}>
+          <Link
+            style={{
+              width: "100%",
+              height: "100%",
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "center",
+            }}
+            to={"/dashboard/store"}
+          >
             Redeem Coins
           </Link>
-        </Button> */}
+        </Button>
 
         <Button
           onClick={() =>

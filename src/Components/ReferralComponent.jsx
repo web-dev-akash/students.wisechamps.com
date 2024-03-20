@@ -36,7 +36,16 @@ export const ReferralComponent = () => {
         fontWeight={400}
         width={"100%"}
       >
-        <Link style={{ width: "100%" }} to={"/dashboard/referrals"}>
+        <Link
+          style={{
+            width: "100%",
+            height: "100%",
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "center",
+          }}
+          to={"/dashboard/referrals"}
+        >
           View Referral Gifts
         </Link>
       </Button>

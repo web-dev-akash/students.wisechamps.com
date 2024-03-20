@@ -49,7 +49,16 @@ export const AddressUpdate = () => {
             bg={"white"}
             border={"none"}
           >
-            <Link style={{ width: "100%" }} to={"/dashboard/address"}>
+            <Link
+              style={{
+                width: "100%",
+                height: "100%",
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "center",
+              }}
+              to={"/dashboard/address"}
+            >
               Add Your Address
             </Link>
           </Button>

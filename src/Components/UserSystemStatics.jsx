@@ -10,7 +10,7 @@ export const UserSystemStatics = () => {
         display={"flex"}
         alignItems={"center"}
         justifyContent={"flex-end"}
-        gap={"8px"}
+        gap={"5px"}
         mt={"8px"}
       >
         <Tag
@@ -20,9 +20,9 @@ export const UserSystemStatics = () => {
         >
           Quiz Taken : {user.quizzes}
         </Tag>
-        {/* <Tag colorScheme="purple" fontSize={["9px", "9px", "12px", "14px"]}>
+        <Tag colorScheme="purple" fontSize={["9px", "9px", "12px", "14px"]}>
           Coins : {user.coins}
-        </Tag> */}
+        </Tag>
         <Tag
           colorScheme="purple"
           fontSize={["9px", "9px", "12px", "14px"]}

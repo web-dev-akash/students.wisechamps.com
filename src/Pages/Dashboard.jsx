@@ -18,11 +18,11 @@ import regular from "../assets/regular_badge.png";
 
 export const Dashboard = () => {
   const user = useSelector((state) => state.user);
-  // const dispatch = useDispatch();
+  const dispatch = useDispatch();
 
-  // useEffect(() => {
-  //   dispatch(getStoreURL(user.email));
-  // }, []);
+  useEffect(() => {
+    dispatch(getStoreURL(user.email));
+  }, []);
   return (
     <Box padding={"2.3rem 15px 1rem 15px"} className="dashboard">
       <Header />
@@ -104,7 +104,7 @@ export const Dashboard = () => {
       >
         <CarousalMain />
         <ReferralComponent />
-        {/* <CoinsComponent /> */}
+        <CoinsComponent />
         <Schedule />
         <Pricing />
         <MoreActions />

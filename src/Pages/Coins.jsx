@@ -8,7 +8,7 @@ export const Coins = () => {
   const coinsHistory = useSelector((state) => state.user.coinsHistory);
 
   return (
-    <Box padding={"2.5rem 15px 1rem 15px"}>
+    <Box padding={"1.7rem 15px 1rem 15px"}>
       <Header hidetags={true} />
       <Box
         className="animate__animated animate__fadeInUp"

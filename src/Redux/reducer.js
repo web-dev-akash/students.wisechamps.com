@@ -40,7 +40,7 @@ const initialState = {
 //     phone: "917018178377",
 //     name: "Akash",
 //     credits: 155,
-//     coins: 40505,
+//     coins: 40500,
 //     id: "4878003000003001027",
 //     studentName: "Akash",
 //     address: null,
@@ -76,7 +76,7 @@ const initialState = {
 //         quizAttempted: 4,
 //       },
 //     ],
-//     quizzes: 54650,
+//     quizzes: 65450,
 //     age: 213,
 //     category: "Active",
 //     session: [],
@@ -106,7 +106,7 @@ const initialState = {
 //   },
 //   mode: "user",
 //   store: "",
-//   alert: ["address"],
+//   alert: [],
 // };
 
 export const reducer = (state = initialState, { type, payload }) => {

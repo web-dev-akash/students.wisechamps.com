@@ -19,7 +19,8 @@ export const CoinsComponent = () => {
             Coins
           </Text>
           <Text fontSize={["12px", "12px", "15px", "15px"]} fontWeight={500}>
-            Check your coins history by clicking on the below button.
+            Check your coins transactions history by clicking on the below
+            button.
           </Text>
           <Button
             mt={3}
@@ -29,8 +30,17 @@ export const CoinsComponent = () => {
             fontWeight={400}
             width={"100%"}
           >
-            <Link style={{ width: "100%" }} to={"/dashboard/coins"}>
-              View Coins Details
+            <Link
+              style={{
+                width: "100%",
+                height: "100%",
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "center",
+              }}
+              to={"/dashboard/coins"}
+            >
+              View Transaction History
             </Link>
           </Button>
         </Box>

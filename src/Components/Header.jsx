@@ -33,7 +33,7 @@ export const Header = ({ hidetags }) => {
           display={"flex"}
           justifyContent={"center"}
           alignItems={"center"}
-          gap={"8px"}
+          gap={"5px"}
           position={"absolute"}
           top={"12px"}
           right={"15px"}
