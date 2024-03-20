@@ -88,10 +88,10 @@ export const fetchUser = (email) => async (dispatch) => {
     if (!res.data.address || res.data.address === null) {
       alertObj.push("address");
     }
-    // if (Number(res.data.coins) > previousCoins) {
-    //   localStorage.setItem("wise_coins", res.data.coins);
-    //   alertObj.push("coins");
-    // }
+    if (Number(res.data.coins) > previousCoins) {
+      localStorage.setItem("wise_coins", res.data.coins);
+      alertObj.push("coins");
+    }
     dispatch(setAlert([...alertObj]));
     if (res.data.status === 200) {
       localStorage.setItem("wise_email", email);
