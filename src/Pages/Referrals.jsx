@@ -1,10 +1,11 @@
-import { Box, Image, Text } from "@chakra-ui/react";
+import { Box, Image, List, ListIcon, ListItem, Text } from "@chakra-ui/react";
 import { FaPhoneAlt } from "react-icons/fa";
 import React from "react";
 import { Header } from "../Components/Header";
 import { useSelector } from "react-redux";
 import { ReferralSteps } from "../Components/ReferralSteps";
 import referral from "../assets/referral.png";
+import { FaCheckCircle } from "react-icons/fa";
 
 export const Referrals = () => {
   const referrals = useSelector((state) => state.user.referrals);
@@ -26,17 +27,38 @@ export const Referrals = () => {
         <Box
           gridColumn={["unset", "unset", "1 / span 2", "1 / span 2"]}
           width={"100%"}
-          display={"flex"}
-          justifyContent={"center"}
+          border={"1px solid #4E46E4"}
+          borderRadius={"10px"}
+          padding={"15px"}
+          // display={"flex"}
+          // justifyContent={"center"}
         >
-          <Image
+          <Text fontWeight={700} fontSize={["15px", "15px", "18px", "18px"]}>
+            Coin System
+          </Text>
+          <List spacing={2} fontSize={["12px", "12px", "14px", "15px"]} mt={2}>
+            <ListItem>
+              <ListIcon as={FaCheckCircle} color="#4E46E4" fontSize={"15px"} />
+              When referral takes the first quiz you will get 300 coins (₹30)
+            </ListItem>
+            <ListItem>
+              <ListIcon as={FaCheckCircle} color="#4E46E4" fontSize={"15px"} />
+              When Referral takes first 8 quizzes you will get 1500 coins (₹150)
+            </ListItem>
+            <ListItem>
+              <ListIcon as={FaCheckCircle} color="#4E46E4" fontSize={"15px"} />
+              Additionally, when 5 Referrals take first 8 quizzes each, you will
+              get 5000 coins (₹500)
+            </ListItem>
+          </List>
+          {/* <Image
             src={referral}
             alt="Referral benefits"
             width={"100%"}
             maxWidth={"500px"}
             border={"1px solid #4E46E4"}
             borderRadius={"10px"}
-          />
+          /> */}
         </Box>
 
         {referrals.map(({ Student_Name, Phone, id, quizAttempted }) => (
@@ -84,7 +106,11 @@ export const Referrals = () => {
                 background={"#4E46E4"}
                 height={"100%"}
                 width={
-                  quizAttempted >= 5 ? `${5 * 20}%` : `${quizAttempted * 20}%`
+                  quizAttempted >= 8
+                    ? `100%`
+                    : quizAttempted === 4
+                    ? `${quizAttempted * 14}%`
+                    : `${quizAttempted * 12.5}%`
                 }
                 borderRadius={"50px"}
                 zIndex={0}
@@ -93,10 +119,10 @@ export const Referrals = () => {
                 fontSize={"13px"}
                 position={"relative"}
                 top={"-21px"}
-                color={quizAttempted < 3 ? "black" : "white"}
+                color={quizAttempted < 4 ? "black" : "white"}
                 zIndex={1}
               >
-                {quizAttempted >= 5 ? 5 : quizAttempted}/5
+                {quizAttempted >= 8 ? 8 : quizAttempted}/8
               </Text>
             </Box>
           </Box>

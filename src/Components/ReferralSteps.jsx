@@ -22,21 +22,21 @@ export const ReferralSteps = ({ quizAttempted }) => {
         quizAttempted > 0 ? "First Quiz Attempted" : "First Quiz Not Attempted",
       description:
         quizAttempted > 0
-          ? `You won free 5 quiz balance`
-          : "Not eligible for the 5 quiz balance",
+          ? `You won free 300 coins (₹30)`
+          : "Not eligible for the 300 coins (₹30)",
     },
     {
       title:
-        quizAttempted >= 5 ? "5 Quizzes Attempted" : "5 Quizzes Not Attempted",
+        quizAttempted >= 8 ? "8 Quizzes Attempted" : "8 Quizzes Not Attempted",
       description:
-        quizAttempted >= 5
-          ? `Congratulations! You won a ₹300 Amazon Voucher`
-          : "Not eligible for the voucher",
+        quizAttempted >= 8
+          ? `Congratulations! You won 1500 coins (₹150)`
+          : "Not eligible for 1500 coins (₹150)",
     },
   ];
   const { activeStep } = useSteps({
     index:
-      quizAttempted > 0 && quizAttempted < 5 ? 1 : quizAttempted >= 5 ? 2 : 0,
+      quizAttempted > 0 && quizAttempted < 8 ? 1 : quizAttempted >= 8 ? 2 : 0,
     count: steps.length,
   });
   return (
