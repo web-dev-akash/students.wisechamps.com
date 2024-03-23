@@ -9,6 +9,7 @@ import { MeetingInProgress } from "./Alerts/MeetingInProgress";
 import { LowCredits } from "./Alerts/LowCredits";
 import { CoinsUpdated } from "./Alerts/CoinsUpdated";
 import { AddressUpdate } from "./Alerts/AddressUpdate";
+import { DoubtSession } from "./Alerts/DoubtSession";
 
 export const CarousalMain = () => {
   const alert = useSelector((state) => state.alert);
@@ -48,6 +49,9 @@ export const CarousalMain = () => {
               }
               if (alert === "address") {
                 return <AddressUpdate key={index} />;
+              }
+              if (alert === "doubt") {
+                return <DoubtSession key={index} />;
               }
               return null;
             })

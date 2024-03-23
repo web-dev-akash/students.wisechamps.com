@@ -85,6 +85,14 @@ export const fetchUser = (email) => async (dispatch) => {
     if (res.data.credits <= 2 && !alertObj.includes("credits")) {
       alertObj.push("lowCredits");
     }
+    if (
+      dayOfWeek === 6 &&
+      ((hours > 16 && hours < 18) ||
+        (hours === 16 && minutes >= 45) ||
+        (hours === 18 && minutes <= 0))
+    ) {
+      alertObj.push("doubt");
+    }
     if (!res.data.address || res.data.address === null) {
       alertObj.push("address");
     }

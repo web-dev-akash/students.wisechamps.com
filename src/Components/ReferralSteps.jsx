@@ -22,16 +22,16 @@ export const ReferralSteps = ({ quizAttempted }) => {
         quizAttempted > 0 ? "First Quiz Attempted" : "First Quiz Not Attempted",
       description:
         quizAttempted > 0
-          ? `You won free 300 coins (₹30)`
-          : "Not eligible for the 300 coins (₹30)",
+          ? `Congratulations! You won 300 coins`
+          : "Not eligible for the 300 coins",
     },
     {
       title:
         quizAttempted >= 8 ? "8 Quizzes Attempted" : "8 Quizzes Not Attempted",
       description:
         quizAttempted >= 8
-          ? `Congratulations! You won 1500 coins (₹150)`
-          : "Not eligible for 1500 coins (₹150)",
+          ? `Congratulations! You won 3000 coins`
+          : "Not eligible for 3000 coins",
     },
   ];
   const { activeStep } = useSteps({

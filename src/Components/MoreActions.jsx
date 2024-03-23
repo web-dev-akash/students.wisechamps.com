@@ -37,6 +37,7 @@ export const MoreActions = () => {
           fontSize={["13px", "13px", "15px", "15px"]}
           fontWeight={400}
           width={"100%"}
+          padding={0}
         >
           <Link
             style={{

@@ -36,11 +36,11 @@ const initialState = {
 //   loading: false,
 //   error: false,
 //   user: {
-//     email: "akash1.wisechamps@gmail.com",
+//     email: "akash@gmail.com",
 //     phone: "917018178377",
 //     name: "Akash",
 //     credits: 155,
-//     coins: 40500,
+//     coins: 3456,
 //     id: "4878003000003001027",
 //     studentName: "Akash",
 //     address: null,
@@ -97,10 +97,10 @@ const initialState = {
 //         Student_Name: "Akash Kumar",
 //         Phone: "91407878454",
 //         id: "4878003000003001028",
-//         quizAttempted: 8,
+//         quizAttempted: 50,
 //       },
 //     ],
-//     quizzes: 65450,
+//     quizzes: 45,
 //     age: 213,
 //     category: "Active",
 //     session: [],
@@ -130,7 +130,7 @@ const initialState = {
 //   },
 //   mode: "user",
 //   store: "",
-//   alert: [],
+//   alert: ["credits", "doubt"],
 // };
 
 export const reducer = (state = initialState, { type, payload }) => {

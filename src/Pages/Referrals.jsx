@@ -1,4 +1,24 @@
-import { Box, Image, List, ListIcon, ListItem, Text } from "@chakra-ui/react";
+import {
+  Accordion,
+  AccordionButton,
+  AccordionIcon,
+  AccordionItem,
+  AccordionPanel,
+  Box,
+  Image,
+  List,
+  ListIcon,
+  ListItem,
+  Table,
+  TableCaption,
+  TableContainer,
+  Tbody,
+  Td,
+  Text,
+  Th,
+  Thead,
+  Tr,
+} from "@chakra-ui/react";
 import { FaPhoneAlt } from "react-icons/fa";
 import React from "react";
 import { Header } from "../Components/Header";
@@ -6,6 +26,7 @@ import { useSelector } from "react-redux";
 import { ReferralSteps } from "../Components/ReferralSteps";
 import referral from "../assets/referral.png";
 import { FaCheckCircle } from "react-icons/fa";
+import { GiTwoCoins } from "react-icons/gi";
 
 export const Referrals = () => {
   const referrals = useSelector((state) => state.user.referrals);
@@ -14,7 +35,7 @@ export const Referrals = () => {
       <Header hidetags={true} />
       <Box
         className="animate__animated animate__fadeInUp"
-        mt={"20px"}
+        mt={"25px"}
         display={"grid"}
         gridTemplateColumns={[
           "repeat(1, 1fr)",
@@ -27,39 +48,132 @@ export const Referrals = () => {
         <Box
           gridColumn={["unset", "unset", "1 / span 2", "1 / span 2"]}
           width={"100%"}
-          border={"1px solid #4E46E4"}
-          borderRadius={"10px"}
-          padding={"15px"}
-          // display={"flex"}
-          // justifyContent={"center"}
         >
-          <Text fontWeight={700} fontSize={["15px", "15px", "18px", "18px"]}>
-            Coin System
-          </Text>
-          <List spacing={2} fontSize={["12px", "12px", "14px", "15px"]} mt={2}>
-            <ListItem>
-              <ListIcon as={FaCheckCircle} color="#4E46E4" fontSize={"15px"} />
-              When referral takes the first quiz you will get 300 coins (₹30)
-            </ListItem>
-            <ListItem>
-              <ListIcon as={FaCheckCircle} color="#4E46E4" fontSize={"15px"} />
-              When Referral takes first 8 quizzes you will get 1500 coins (₹150)
-            </ListItem>
-            <ListItem>
-              <ListIcon as={FaCheckCircle} color="#4E46E4" fontSize={"15px"} />
-              Additionally, when 5 Referrals take first 8 quizzes each, you will
-              get 5000 coins (₹500)
-            </ListItem>
-          </List>
-          {/* <Image
-            src={referral}
-            alt="Referral benefits"
-            width={"100%"}
-            maxWidth={"500px"}
-            border={"1px solid #4E46E4"}
-            borderRadius={"10px"}
-          /> */}
+          <Accordion
+            defaultIndex={referrals.length === 0 ? [0] : null}
+            allowToggle
+          >
+            <AccordionItem border={"1px solid #4e46e4"} borderRadius={"10px"}>
+              <h2>
+                <AccordionButton>
+                  <Box
+                    as="span"
+                    flex="1"
+                    textAlign="left"
+                    fontSize={["13px", "13px", "14px", "15px"]}
+                    padding={"3px 0"}
+                  >
+                    How does the coin system work
+                  </Box>
+                  <AccordionIcon />
+                </AccordionButton>
+              </h2>
+              <AccordionPanel p={0}>
+                <TableContainer whiteSpace={"none"} maxWidth={"100%"}>
+                  <Table
+                    variant="striped"
+                    bg={"white"}
+                    colorScheme="purple"
+                    fontSize={["11px", "11px", "13px", "14px"]}
+                  >
+                    <TableCaption padding={"10px 0"} m={0}>
+                      <Text fontSize={["13px", "13px", "14px", "15px"]}>
+                        Note : 10 Coins = ₹1
+                      </Text>
+                    </TableCaption>
+                    <Thead>
+                      <Tr>
+                        <Th>
+                          <Text>Criteria</Text>
+                        </Th>
+                        <Th>
+                          <Text>Coins</Text>
+                        </Th>
+                      </Tr>
+                    </Thead>
+                    <Tbody>
+                      <Tr>
+                        <Td>Referral takes the first quiz</Td>
+                        <Td>
+                          <Text
+                            display={"flex"}
+                            alignItems={"center"}
+                            gap={"5px"}
+                          >
+                            300{" "}
+                            <GiTwoCoins
+                              color={"gold"}
+                              style={{
+                                filter:
+                                  "drop-shadow(0 0 0.5px rgba(0, 0, 0, 0.9))",
+                              }}
+                            />
+                          </Text>
+                        </Td>
+                      </Tr>
+                      <Tr>
+                        <Td>Referral takes first 8 quizzes</Td>
+                        <Td>
+                          <Text
+                            display={"flex"}
+                            alignItems={"center"}
+                            gap={"5px"}
+                          >
+                            3000{" "}
+                            <GiTwoCoins
+                              color={"gold"}
+                              style={{
+                                filter:
+                                  "drop-shadow(0 0 0.5px rgba(0, 0, 0, 0.9))",
+                              }}
+                            />
+                          </Text>
+                        </Td>
+                      </Tr>
+                      <Tr>
+                        <Td>5 Referrals take first 8 quizzes each</Td>
+                        <Td>
+                          <Text
+                            display={"flex"}
+                            alignItems={"center"}
+                            gap={"5px"}
+                          >
+                            5000{" "}
+                            <GiTwoCoins
+                              color={"gold"}
+                              style={{
+                                filter:
+                                  "drop-shadow(0 0 0.5px rgba(0, 0, 0, 0.9))",
+                              }}
+                            />
+                          </Text>
+                        </Td>
+                      </Tr>
+                    </Tbody>
+                  </Table>
+                </TableContainer>
+              </AccordionPanel>
+            </AccordionItem>
+          </Accordion>
         </Box>
+
+        {referrals.length === 0 && (
+          <Box
+            minHeight={"300px"}
+            display={"flex"}
+            justifyContent={"center"}
+            alignItems={"center"}
+          >
+            <Text
+              fontWeight={700}
+              fontSize={["30px"]}
+              textAlign={"center"}
+              opacity={0.3}
+            >
+              No Referrals <br /> Found
+            </Text>
+          </Box>
+        )}
 
         {referrals.map(({ Student_Name, Phone, id, quizAttempted }) => (
           <Box

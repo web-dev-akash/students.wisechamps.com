@@ -35,6 +35,7 @@ export const ReferralComponent = () => {
         fontSize={"13px"}
         fontWeight={400}
         width={"100%"}
+        padding={0}
       >
         <Link
           style={{
@@ -46,7 +47,7 @@ export const ReferralComponent = () => {
           }}
           to={"/dashboard/referrals"}
         >
-          View Referral Gifts
+          View Referral Coins
         </Link>
       </Button>
     </Box>

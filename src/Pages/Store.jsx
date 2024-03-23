@@ -15,6 +15,7 @@ export const Store = () => {
   }, []);
 
   if (!store || store === "") {
+    window.scrollTo({ top: 0 });
     return (
       <Box
         height={"85vh"}
@@ -24,8 +25,8 @@ export const Store = () => {
         textAlign={"center"}
       >
         <Text>
-          <Text mb={2}>Unable to load the Reward Store.</Text>
-          <Link style={{ fontSize: "12px" }} to={"/dashboard"} id="submit-btn">
+          <Text mb={4}>The Reward Store will be available soon..</Text>
+          <Link style={{ fontSize: "13px" }} to={"/dashboard"} id="submit-btn">
             Try Again
           </Link>
         </Text>

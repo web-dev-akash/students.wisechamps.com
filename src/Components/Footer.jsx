@@ -27,10 +27,10 @@ export const Footer = () => {
         <Box display={"flex"} alignItems={"center"} gap={"10px"} mt={2}>
           <BsTelephoneFill color=" #4E46E4" />
           <Link
-            href="tel:9717094422"
+            href="tel:8527074411"
             fontSize={["12px", "12px", "14px", "15px"]}
           >
-            +91 9717094422
+            +91 8527074411
           </Link>
         </Box>
       </Box>
