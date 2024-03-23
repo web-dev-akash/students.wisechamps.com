@@ -49,7 +49,9 @@ export const DoubtSession = () => {
             bg={"white"}
             border={"none"}
             onClick={() => {
-              window.location.assign(`#`);
+              window.location.assign(
+                `https://us06web.zoom.us/meeting/register/tZUkceuuqjkoGtEVagJxmLrwXckzPZEf2k72`
+              );
             }}
           >
             Join Session Now
