@@ -5,10 +5,6 @@ import {
   AccordionItem,
   AccordionPanel,
   Box,
-  Image,
-  List,
-  ListIcon,
-  ListItem,
   Table,
   TableCaption,
   TableContainer,
@@ -24,8 +20,6 @@ import React from "react";
 import { Header } from "../Components/Header";
 import { useSelector } from "react-redux";
 import { ReferralSteps } from "../Components/ReferralSteps";
-import referral from "../assets/referral.png";
-import { FaCheckCircle } from "react-icons/fa";
 import { GiTwoCoins } from "react-icons/gi";
 
 export const Referrals = () => {
@@ -159,6 +153,7 @@ export const Referrals = () => {
 
         {referrals.length === 0 && (
           <Box
+            gridColumn={["unset", "unset", "1 / span 2", "1 / span 2"]}
             minHeight={"300px"}
             display={"flex"}
             justifyContent={"center"}

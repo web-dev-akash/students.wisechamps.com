@@ -8,11 +8,8 @@ import {
   Text,
 } from "@chakra-ui/react";
 import React from "react";
-import { useSelector } from "react-redux";
-import { Link } from "react-router-dom";
 
 export const DoubtSession = () => {
-  const user = useSelector((state) => state.user);
   return (
     <Box display={"flex"} justifyContent={"center"} textAlign={"left"}>
       <Alert
@@ -50,7 +47,7 @@ export const DoubtSession = () => {
             border={"none"}
             onClick={() => {
               window.location.assign(
-                `https://us06web.zoom.us/meeting/register/tZUkceuuqjkoGtEVagJxmLrwXckzPZEf2k72`
+                `https://us06web.zoom.us/meeting/register/tZEscu6gpjwtGNA4s2yUdlJ6n3436Jw1jDp8`
               );
             }}
           >

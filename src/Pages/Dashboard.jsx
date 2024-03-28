@@ -11,7 +11,6 @@ import { getStoreURL } from "../Redux/action";
 import { CarousalMain } from "../Components/CarousalMain";
 import { Pricing } from "../Components/Pricing";
 import { Footer } from "../Components/Footer";
-import { Coins } from "./Coins";
 import { CoinsComponent } from "../Components/CoinsComponent";
 import active from "../assets/active_badge.png";
 import regular from "../assets/regular_badge.png";
