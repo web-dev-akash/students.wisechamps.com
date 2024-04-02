@@ -9,7 +9,7 @@ export const CoinsComponent = () => {
       border={"1px solid #4E46E4"}
       padding={"1rem"}
       borderRadius={"10px"}
-      gridColumn={["unset", "unset", "1 / span 2", "1 / span 2"]}
+      // gridColumn={["unset", "unset", "1 / span 2", "1 / span 2"]}
     >
       <Text fontWeight={700} fontSize={["15px", "15px", "18px", "18px"]}>
         Coins

@@ -20,10 +20,11 @@ export const Dashboard = () => {
   const dispatch = useDispatch();
 
   useEffect(() => {
+    localStorage.setItem("wisechamps_current_path", window.location.pathname);
     dispatch(getStoreURL(user.email));
   }, []);
   return (
-    <Box padding={"2.3rem 15px 1rem 15px"} className="dashboard">
+    <Box padding={"2.3rem 11px 1rem 11px"} className="dashboard">
       <Header />
       <UserSystemStatics />
       <Box
@@ -107,8 +108,8 @@ export const Dashboard = () => {
         <Schedule />
         <Pricing />
         <MoreActions />
+        <Footer />
       </Box>
-      <Footer />
     </Box>
   );
 };

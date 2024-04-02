@@ -5,6 +5,7 @@ import {
   AccordionItem,
   AccordionPanel,
   Box,
+  Button,
   Table,
   TableCaption,
   TableContainer,
@@ -16,7 +17,7 @@ import {
   Tr,
 } from "@chakra-ui/react";
 import { FaPhoneAlt } from "react-icons/fa";
-import React from "react";
+import React, { useEffect } from "react";
 import { Header } from "../Components/Header";
 import { useSelector } from "react-redux";
 import { ReferralSteps } from "../Components/ReferralSteps";
@@ -24,8 +25,17 @@ import { GiTwoCoins } from "react-icons/gi";
 
 export const Referrals = () => {
   const referrals = useSelector((state) => state.user.referrals);
+  const user = useSelector((state) => state.user);
+
+  useEffect(() => {
+    localStorage.setItem("wisechamps_current_path", window.location.pathname);
+  }, []);
+
   return (
-    <Box padding={"1.5rem 15px 1rem 15px"}>
+    <Box
+      padding={"1.5rem 15px 5rem 15px"}
+      minHeight={["auto", "auto", "100vh", "100vh"]}
+    >
       <Header hidetags={true} />
       <Box
         className="animate__animated animate__fadeInUp"
@@ -154,7 +164,7 @@ export const Referrals = () => {
         {referrals.length === 0 && (
           <Box
             gridColumn={["unset", "unset", "1 / span 2", "1 / span 2"]}
-            minHeight={"300px"}
+            minHeight={["300px", "300px", "300px", "200px", "300px"]}
             display={"flex"}
             justifyContent={"center"}
             alignItems={"center"}
@@ -236,6 +246,53 @@ export const Referrals = () => {
             </Box>
           </Box>
         ))}
+      </Box>
+      <Box
+        className="animate__animated animate__fadeInUp"
+        width={"100%"}
+        display={"flex"}
+        boxSizing="border-box"
+        justifyContent={"center"}
+        alignItems={"center"}
+        backgroundColor={"rgba(255, 255, 255, .15)"}
+        position={"fixed"}
+        bottom={0}
+        left={0}
+        height={"65px"}
+        borderRadius={"10px 10px 0 0"}
+        padding={"0 12px"}
+        boxShadow={"0 0 20px 10px rgba(0, 0, 0, 0.6)"}
+        backdropFilter={"blur(3px)"}
+      ></Box>
+      <Box
+        className="animate__animated animate__fadeInUp"
+        width={"100%"}
+        display={"flex"}
+        boxSizing="border-box"
+        justifyContent={"center"}
+        alignItems={"center"}
+        background={"transparent"}
+        position={"fixed"}
+        bottom={0}
+        left={0}
+        height={"65px"}
+        borderRadius={"10px 10px 0 0"}
+        padding={"0 12px"}
+      >
+        <Button
+          mb={"10px"}
+          onClick={() =>
+            (window.location.href = `https://wa.me?text=Hi!%20I%20am%20learning%20a%20lot%20through%20Wisechamps%20Olympiad%20Practice%20Sessions.%20These%20quizzes%20are%20FUN%20%26%20INTERESTING%20way%20of%20LEARNING%20regularly.%20%0A%0AI%20am%20sure%20this%20time%20I%20will%20Ace%20my%20Qlympiad%20Math%20and%20Science%20Exams.%0A%0AWinners%20also%20get%20gifts!%20So%20Don%27t%20Miss%20out...%0A%0AClick%20here%20to%20register%20your%20name%20and%20participate%20in%20free%20sessions%20%F0%9F%91%87%0Ahttps%3A%2F%2Freferral.wisechamps.com%3FrefereeId%3D${user.phone}%20%0A%0ASee%20you%20there%20%F0%9F%92%A1`)
+          }
+          mt={3}
+          bg={"#4E46E4"}
+          color={"white"}
+          fontSize={"13px"}
+          fontWeight={400}
+          width={"100%"}
+        >
+          Invite a Cousin / Friend
+        </Button>
       </Box>
     </Box>
   );

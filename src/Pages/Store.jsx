@@ -9,6 +9,7 @@ export const Store = () => {
   const [forcedLoading, setForcedLoading] = useState(true);
 
   useEffect(() => {
+    localStorage.setItem("wisechamps_current_path", window.location.pathname);
     setTimeout(() => {
       setForcedLoading(false);
     }, 5000);
@@ -18,7 +19,7 @@ export const Store = () => {
     window.scrollTo({ top: 0 });
     return (
       <Box
-        height={"85vh"}
+        height={["95vh", "95vh", "95vh", "98vh"]}
         display={"flex"}
         justifyContent={"center"}
         alignItems={"center"}

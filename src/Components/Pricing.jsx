@@ -41,32 +41,22 @@ export const Pricing = () => {
           <Thead>
             <Tr>
               <Th id="plansPackage">
-                <Text fontSize={["10px", "10px", "13px", "15px"]}>Package</Text>
+                <Text fontSize={["10px", "10px", "13px", "13px"]}>Package</Text>
               </Th>
               <Th>
-                <Text fontSize={["10px", "10px", "13px", "15px"]}>Amount</Text>
+                <Text fontSize={["10px", "10px", "13px", "13px"]}>Amount</Text>
               </Th>
               <Th>
-                <Text fontSize={["10px", "10px", "13px", "15px"]}>Quizzes</Text>
+                <Text fontSize={["10px", "10px", "13px", "13px"]}>Quizzes</Text>
               </Th>
               <Th>
-                <Text fontSize={["10px", "10px", "13px", "15px"]}>
+                <Text fontSize={["10px", "10px", "13px", "13px"]}>
                   Validity
                 </Text>
               </Th>
             </Tr>
           </Thead>
-          <Tbody fontSize={["11px", "11px", "13px", "15px"]}>
-            <Tr>
-              <Td fontWeight={600} id="plansPackage">
-                Refer a Friend
-              </Td>
-              <Td>₹0</Td>
-              <Td>
-                5 Quizzes <br /> (₹0 per quiz)
-              </Td>
-              <Td>1 Month</Td>
-            </Tr>
+          <Tbody fontSize={["11px", "11px", "13px", "13px"]}>
             <Tr>
               <Td fontWeight={600} id="plansPackage">
                 Trial Package

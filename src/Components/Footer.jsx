@@ -6,7 +6,6 @@ export const Footer = () => {
   return (
     <>
       <Box
-        mt={3}
         background="white"
         border={"1px solid #4E46E4"}
         borderRadius={"10px"}
@@ -16,7 +15,7 @@ export const Footer = () => {
           Contact Us
         </Text>
         <Box display={"flex"} alignItems={"center"} gap={"10px"} mt={2}>
-          <FaEnvelope color=" #4E46E4" />
+          <FaEnvelope color="#4E46E4" />
           <Link
             href="mailto:rieti@wisechamps.com"
             fontSize={["12px", "12px", "14px", "15px"]}
@@ -25,7 +24,7 @@ export const Footer = () => {
           </Link>
         </Box>
         <Box display={"flex"} alignItems={"center"} gap={"10px"} mt={2}>
-          <BsTelephoneFill color=" #4E46E4" />
+          <BsTelephoneFill color="#4E46E4" />
           <Link
             href="tel:8527074411"
             fontSize={["12px", "12px", "14px", "15px"]}

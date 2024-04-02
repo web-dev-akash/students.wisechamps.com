@@ -15,7 +15,7 @@ export const Main = () => {
   const [email, setEmail] = useState(
     query.get("email") ? query.get("email") : localEmail
   );
-
+  const currentPath = localStorage.getItem("wisechamps_current_path") || null;
   const loading = useSelector((state) => state.loading);
   const error = useSelector((state) => state.error);
   const mode = useSelector((state) => state.mode);
@@ -43,7 +43,11 @@ export const Main = () => {
   }
 
   if (mode === "user") {
-    return <Navigate to={"/dashboard"} />;
+    return !currentPath ? (
+      <Navigate to={"/dashboard"} />
+    ) : (
+      <Navigate to={currentPath} />
+    );
   }
 
   return (

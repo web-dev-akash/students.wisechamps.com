@@ -60,9 +60,9 @@ export const Header = ({ hidetags }) => {
                 Quiz Balance : {user.credits}
               </Tag>
               <Button
-                fontSize={["10px", "10px", "13px", "15px"]}
-                width={["60px", "60px", "70px", "80px"]}
-                height={["25px", "25px", "25px", "30px"]}
+                fontSize={["10px", "10px", "13px", "13px"]}
+                width={["60px", "60px", "70px", "70px"]}
+                height={["25px", "25px", "25px", "25px"]}
                 background={"#4e46e4"}
                 color={"white"}
                 onClick={handleLogoutClick}

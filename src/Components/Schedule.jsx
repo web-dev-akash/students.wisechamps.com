@@ -37,13 +37,13 @@ export const Schedule = () => {
           >
             <Tr>
               <Th>
-                <Text fontSize={["10px", "10px", "13px", "15px"]}>Topic</Text>
+                <Text fontSize={["10px", "10px", "13px", "13px"]}>Topic</Text>
               </Th>
               <Th>
-                <Text fontSize={["10px", "10px", "13px", "15px"]}>Day</Text>
+                <Text fontSize={["10px", "10px", "13px", "13px"]}>Day</Text>
               </Th>
               <Th>
-                <Text fontSize={["10px", "10px", "13px", "15px"]}>Time</Text>
+                <Text fontSize={["10px", "10px", "13px", "13px"]}>Time</Text>
               </Th>
             </Tr>
           </Thead>

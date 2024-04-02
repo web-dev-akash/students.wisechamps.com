@@ -15,16 +15,21 @@ import {
   Thead,
   Tr,
 } from "@chakra-ui/react";
-import React from "react";
 import { Header } from "../Components/Header";
 import { useSelector } from "react-redux";
 import { GiTwoCoins } from "react-icons/gi";
 import { CgArrowTopRightR } from "react-icons/cg";
 import { BsArrowDownLeftCircle } from "react-icons/bs";
+import { useEffect } from "react";
 
 export const Coins = () => {
   const coinsHistory = useSelector((state) => state.user.coinsHistory);
   const coins = useSelector((state) => state.user.coins);
+
+  useEffect(() => {
+    localStorage.setItem("wisechamps_current_path", window.location.pathname);
+  }, []);
+
   return (
     <Box padding={"2.5rem 0px 0 0px"} bg={"#e7e6ff"}>
       <Header hidetags={true} />

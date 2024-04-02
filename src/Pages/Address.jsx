@@ -97,7 +97,9 @@ export const Address = () => {
     }
   };
 
-  useEffect(() => {}, [address.city, address.state, invalidPincode]);
+  useEffect(() => {
+    localStorage.setItem("wisechamps_current_path", window.location.pathname);
+  }, [address.city, address.state, invalidPincode]);
 
   if (loading) {
     return <Loading />;
