@@ -5,6 +5,7 @@ import {
   GET_USER_ERROR,
   GET_USER_LOADING,
   GET_USER_MODE,
+  GET_USER_ORDERS,
   GET_USER_STORE,
   SET_USER_LOADING,
 } from "./actionTypes";
@@ -36,13 +37,18 @@ export const setMode = (payload) => ({
   payload,
 });
 
-export const setStore = (payload) => ({
+export const setProducts = (payload) => ({
   type: GET_USER_STORE,
   payload,
 });
 
 export const setAlert = (payload) => ({
   type: GET_USER_ALERT,
+  payload,
+});
+
+export const setOrders = (payload) => ({
+  type: GET_USER_ORDERS,
   payload,
 });
 
@@ -129,18 +135,40 @@ export const fetchUser = (email) => async (dispatch) => {
   }
 };
 
-export const getStoreURL = (email) => async (dispatch) => {
+export const getProducts = () => async (dispatch) => {
   try {
-    const url = `https://backend.wisechamps.com/pointagram/hash`;
-    const res = await axios.post(url, { email: email });
+    const authToken = process.env.REACT_APP_AUTH_TOKEN;
+    const url = `https://backend.wisechamps.com/student/store`;
+    const config = {
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${authToken}`,
+      },
+    };
+    const res = await axios.get(url, config);
     if (res.data.status === 200) {
-      dispatch(
-        setStore(
-          `https://tv.pointagram.com/v/?showprofile=1&prid=${res.data.playerId}&ts=${res.data.timestamp}&client=${res.data.appId}&code=${res.data.hmac}&show=rewardstore`
-        )
-      );
+      dispatch(setProducts(res.data.products));
     }
   } catch (error) {
-    dispatch(getError());
+    console.log("Error :", error);
+  }
+};
+
+export const getOrders = (contactId) => async (dispatch) => {
+  try {
+    const authToken = process.env.REACT_APP_AUTH_TOKEN;
+    const url = `https://backend.wisechamps.com/student/store/orders`;
+    const config = {
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${authToken}`,
+      },
+    };
+    const res = await axios.post(url, { contactId: contactId }, config);
+    if (res.data.status === 200) {
+      dispatch(setOrders(res.data.orders));
+    }
+  } catch (error) {
+    console.log("Error :", error);
   }
 };

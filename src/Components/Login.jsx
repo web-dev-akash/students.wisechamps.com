@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { useDispatch } from "react-redux";
-import { fetchUser } from "../Redux/action";
+import { fetchUser, getProducts } from "../Redux/action";
 
 export const Login = () => {
   const dispatch = useDispatch();
@@ -14,6 +14,7 @@ export const Login = () => {
 
   const handleClick = async () => {
     dispatch(fetchUser(email));
+    dispatch(getProducts());
   };
 
   return (

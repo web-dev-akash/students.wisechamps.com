@@ -5,7 +5,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import { setMode } from "../Redux/action";
 
-export const Header = ({ hidetags }) => {
+export const Header = ({ hidetags, showStore }) => {
   const user = useSelector((state) => state.user);
   const mode = useSelector((state) => state.mode);
   const dispatch = useDispatch();
@@ -23,6 +23,7 @@ export const Header = ({ hidetags }) => {
           position: "absolute",
           top: "0.6rem",
           left: "15px",
+          zIndex: "9",
         }}
       >
         <img src={logo} alt="Wisechamps" width={"90px"} />
@@ -37,20 +38,35 @@ export const Header = ({ hidetags }) => {
           position={"absolute"}
           top={"12px"}
           right={"15px"}
+          zIndex={9}
         >
           {hidetags ? (
-            <Link to={"/dashboard"}>
-              <Text
-                fontSize={["11px", "11px", "13px", "14px"]}
-                padding={"1px 10px"}
-                background={"#4E46E4"}
-                border={"1px solid #4E46E4"}
-                borderRadius={"5px"}
-                color={"white"}
-              >
-                Dashboard
-              </Text>
-            </Link>
+            <>
+              <Link to={"/dashboard"}>
+                <Text
+                  fontSize={["11px", "11px", "13px", "14px"]}
+                  padding={"1px 10px"}
+                  background={"#4E46E4"}
+                  border={"1px solid #4E46E4"}
+                  borderRadius={"5px"}
+                  color={"white"}
+                >
+                  Dashboard
+                </Text>
+              </Link>
+              <Link to={showStore ? "/dashboard/store" : "/dashboard/orders"}>
+                <Text
+                  fontSize={["11px", "11px", "13px", "14px"]}
+                  padding={"1px 10px"}
+                  background={"#4E46E4"}
+                  border={"1px solid #4E46E4"}
+                  borderRadius={"5px"}
+                  color={"white"}
+                >
+                  {showStore ? "Gift Store" : "My Orders"}
+                </Text>
+              </Link>
+            </>
           ) : (
             <>
               <Tag

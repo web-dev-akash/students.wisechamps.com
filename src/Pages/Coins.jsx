@@ -290,30 +290,14 @@ export const Coins = () => {
                       justifyContent={"center"}
                       flexDirection={"column"}
                     >
-                      <Box display={"flex"} alignItems={"center"}>
-                        <Text
-                          fontWeight={600}
-                          fontSize={["13px", "13px", "14px", "15px"]}
-                          maxWidth={[
-                            "210px",
-                            "210px",
-                            "260px",
-                            "603px",
-                            "859px",
-                          ]}
-                          whiteSpace={"nowrap"}
-                          overflow={"hidden"}
-                        >
-                          {Description}
-                        </Text>
-                        <Text
-                          fontSize={["13px", "13px", "14px", "15px"]}
-                          display={["block", "block", "block", "none", "none"]}
-                        >
-                          {Description.length > 30 ? "..." : ""}
-                        </Text>
-                      </Box>
-
+                      <Text
+                        isTruncated
+                        fontWeight={600}
+                        fontSize={["13px", "13px", "14px", "15px"]}
+                        maxWidth={["215px", "400px", "600px", "900px"]}
+                      >
+                        {Description}
+                      </Text>
                       <Text fontSize={["11px", "11px", "12px", "13px"]}>
                         {Action_Type === "Credit"
                           ? `Coins Added`

@@ -2,18 +2,17 @@ html {
   background-color: #fff !important;
 }
 
-#submit-btn {
+#submit-btn,
+#submit-btn-active {
   width: 100%;
   text-decoration: none;
   border-radius: 8px;
   border: 2px solid transparent;
   padding: 0.6em 1.2em;
-  font-size: 1em;
   font-weight: 500;
   font-family: inherit;
-  cursor: pointer;
   transition: 0.5s ease;
-  background-color: rgba(129, 140, 248);
+  background-color: #4e46e4;
   color: white;
 }
 
@@ -21,9 +20,9 @@ html {
 #submit-btn:focus {
   outline: none;
   color: black;
-  border-color: rgba(129, 140, 248);
+  border-color: #4e46e4;
   background-color: #fff;
-  box-shadow: 0 0 0 5px rgb(129 140 248 / 30%);
+  box-shadow: 0 0 0 5px #4e46e450;
 }
 
 .input {
@@ -62,6 +61,7 @@ html {
 }
 
 .main h3 {
+  font-weight: 600;
   margin-bottom: 10px;
 }
 

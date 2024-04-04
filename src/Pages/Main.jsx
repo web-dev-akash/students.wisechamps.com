@@ -6,7 +6,7 @@ import { Navigate } from "react-router-dom";
 import { Login } from "../Components/Login";
 import { Loading } from "../Components/Loading";
 import { useDispatch, useSelector } from "react-redux";
-import { fetchUser } from "../Redux/action";
+import { fetchUser, getProducts } from "../Redux/action";
 
 export const Main = () => {
   const dispatch = useDispatch();
@@ -23,6 +23,7 @@ export const Main = () => {
   useEffect(() => {
     if (email) {
       dispatch(fetchUser(email));
+      dispatch(getProducts());
     }
   }, []);
 

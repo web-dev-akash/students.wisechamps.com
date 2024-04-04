@@ -7,7 +7,7 @@ import { ReferralComponent } from "../Components/ReferralComponent";
 import { UserSystemStatics } from "../Components/UserSystemStatics";
 import { Schedule } from "../Components/Schedule";
 import { MoreActions } from "../Components/MoreActions";
-import { getStoreURL } from "../Redux/action";
+import { getOrders, getProducts } from "../Redux/action";
 import { CarousalMain } from "../Components/CarousalMain";
 import { Pricing } from "../Components/Pricing";
 import { Footer } from "../Components/Footer";
@@ -17,11 +17,16 @@ import regular from "../assets/regular_badge.png";
 
 export const Dashboard = () => {
   const user = useSelector((state) => state.user);
+  const products = useSelector((state) => state.products);
   const dispatch = useDispatch();
 
   useEffect(() => {
+    dispatch(getOrders(user.id));
     localStorage.setItem("wisechamps_current_path", window.location.pathname);
-    dispatch(getStoreURL(user.email));
+    if (products?.length === 0) {
+      console.log("No Products");
+      dispatch(getProducts());
+    }
   }, []);
   return (
     <Box padding={"2.3rem 11px 1rem 11px"} className="dashboard">
