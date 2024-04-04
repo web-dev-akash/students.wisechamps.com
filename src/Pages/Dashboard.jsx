@@ -24,7 +24,6 @@ export const Dashboard = () => {
     dispatch(getOrders(user.id));
     localStorage.setItem("wisechamps_current_path", window.location.pathname);
     if (products?.length === 0) {
-      console.log("No Products");
       dispatch(getProducts());
     }
   }, []);

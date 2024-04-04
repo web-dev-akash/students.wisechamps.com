@@ -21,9 +21,9 @@ import preview from "../assets/preview.jpg";
 import { Link } from "react-router-dom";
 
 export const Orders = () => {
+  const dispatch = useDispatch();
   const orders = useSelector((state) => state.orders);
   const { id } = useSelector((state) => state.user);
-  const dispatch = useDispatch();
 
   useEffect(() => {
     if (orders?.length === 0) {

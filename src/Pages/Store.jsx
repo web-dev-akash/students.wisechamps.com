@@ -53,13 +53,13 @@ export const Store = () => {
   };
 
   useEffect(() => {
-    dispatch(getOrders(id));
     window.scrollTo({ top: 0 });
+    dispatch(getOrders(id));
     localStorage.setItem("wisechamps_current_path", window.location.pathname);
     if (tempMode === "thankyou") {
       setTimeout(() => {
         window.location.reload();
-      }, 5000);
+      }, 4000);
     }
   }, [tempMode]);
 
