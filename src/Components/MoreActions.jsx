@@ -35,7 +35,7 @@ export const MoreActions = () => {
             }}
             to={"/dashboard/store"}
           >
-            Redeem Coins
+            Gift Store (Redeem Coins)
           </Link>
         </Button>
 

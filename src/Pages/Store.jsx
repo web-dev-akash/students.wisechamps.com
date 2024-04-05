@@ -1,4 +1,11 @@
 import {
+  AlertDialog,
+  AlertDialogBody,
+  AlertDialogCloseButton,
+  AlertDialogContent,
+  AlertDialogFooter,
+  AlertDialogHeader,
+  AlertDialogOverlay,
   Box,
   Button,
   Card,
@@ -10,14 +17,15 @@ import {
   SimpleGrid,
   Stack,
   Text,
+  useDisclosure,
 } from "@chakra-ui/react";
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Link, Navigate } from "react-router-dom";
 import { Header } from "../Components/Header";
 import { GiTwoCoins } from "react-icons/gi";
 import preview from "../assets/preview.jpg";
-import { getError, getLoading, getOrders } from "../Redux/action";
+import { getError, getLoading, getOrders, setProducts } from "../Redux/action";
 import { Loading } from "../Components/Loading";
 import axios from "axios";
 import order_placed from "../assets/order_placed.gif";
@@ -29,6 +37,10 @@ export const Store = () => {
   const error = useSelector((state) => state.error);
   const loading = useSelector((state) => state.loading);
   const { coins, id } = useSelector((state) => state.user);
+  const { isOpen, onOpen, onClose } = useDisclosure();
+  const cancelRef = useRef();
+  const [showDescription, setShowDescription] = useState(null);
+  const [productId, setProductId] = useState(null);
 
   const handleProductPurchase = async (body) => {
     try {
@@ -210,10 +222,20 @@ export const Store = () => {
                   />
                 </Box>
                 <Stack mt="6" spacing="3">
-                  <Heading size="md">
+                  <Heading size="sm">
                     <Text>{Product_Name}</Text>
                   </Heading>
-                  <Text size="sm">{Description}</Text>
+                  <Text
+                    noOfLines={showDescription === Product_Id ? 99 : 4}
+                    onClick={() =>
+                      setShowDescription(
+                        showDescription === Product_Id ? "" : Product_Id
+                      )
+                    }
+                    fontSize={["12px", "13px", "13px", "13px"]}
+                  >
+                    {Description}
+                  </Text>
                   <Text
                     color={"#4e46e4"}
                     fontSize="30px"
@@ -240,15 +262,76 @@ export const Store = () => {
                   loadingText="Insufficient Coins"
                   spinnerPlacement="none"
                   fontSize={["13px", "13px", "14px", "15px"]}
-                  onClick={() =>
-                    handleProductPurchase({
-                      contactId: id,
-                      productId: Product_Id,
-                    })
-                  }
+                  onClick={onOpen}
                 >
-                  Buy Now
+                  <Text
+                    width={"100%"}
+                    height={"100%"}
+                    display={"flex"}
+                    alignItems={"center"}
+                    justifyContent={"center"}
+                    onClick={() => setProductId(Product_Id)}
+                  >
+                    Buy Now
+                  </Text>
                 </Button>
+                <AlertDialog
+                  id="alertDialogBoxMainDiv"
+                  motionPreset="slideInBottom"
+                  leastDestructiveRef={cancelRef}
+                  onClose={onClose}
+                  isOpen={isOpen && productId === Product_Id}
+                  closeOnOverlayClick
+                  isCentered
+                >
+                  <AlertDialogOverlay
+                    background={"transparent"}
+                    backdropFilter={"blur(5px)"}
+                  />
+                  <AlertDialogContent>
+                    <AlertDialogHeader
+                      fontSize={["18px", "18px", "20px", "22px"]}
+                    >
+                      Confirm Your Order
+                    </AlertDialogHeader>
+                    <AlertDialogCloseButton />
+                    <AlertDialogBody
+                      pt={0}
+                      fontSize={["14px", "15px", "16px", "18px"]}
+                    >
+                      This product costs {Unit_Price} coins. If you want to
+                      continue placing order, then select "YES".
+                    </AlertDialogBody>
+                    <AlertDialogFooter
+                      display={"flex"}
+                      justifyContent={"space-between"}
+                      alignItems={"center"}
+                    >
+                      <Button
+                        width={"100%"}
+                        colorScheme="gray"
+                        ref={cancelRef}
+                        onClick={onClose}
+                      >
+                        No
+                      </Button>
+                      <Button
+                        width={"100%"}
+                        color={"white"}
+                        bg={"#4e46e4"}
+                        ml={3}
+                        onClick={() =>
+                          handleProductPurchase({
+                            contactId: id,
+                            productId: Product_Id,
+                          })
+                        }
+                      >
+                        Yes
+                      </Button>
+                    </AlertDialogFooter>
+                  </AlertDialogContent>
+                </AlertDialog>
               </CardFooter>
             </Card>
           )

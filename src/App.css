@@ -16,8 +16,7 @@ html {
   color: white;
 }
 
-#submit-btn:hover,
-#submit-btn:focus {
+#submit-btn:hover {
   outline: none;
   color: black;
   border-color: #4e46e4;
@@ -369,4 +368,14 @@ select {
 
 #city {
   text-transform: capitalize;
+}
+
+@media screen and (max-width: 480px) {
+  #chakra-modal-alertDialogBoxMainDiv {
+    max-width: 330px !important;
+  }
+}
+#chakra-modal-alertDialogBoxMainDiv {
+  padding: 10px 0;
+  box-shadow: 0 0 10px 2px rgba(0, 0, 0, 0.3);
 }
