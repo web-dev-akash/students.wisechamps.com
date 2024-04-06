@@ -1,4 +1,9 @@
 import {
+  Accordion,
+  AccordionButton,
+  AccordionIcon,
+  AccordionItem,
+  AccordionPanel,
   AlertDialog,
   AlertDialogBody,
   AlertDialogCloseButton,
@@ -16,7 +21,15 @@ import {
   Image,
   SimpleGrid,
   Stack,
+  Table,
+  TableCaption,
+  TableContainer,
+  Tbody,
+  Td,
   Text,
+  Th,
+  Thead,
+  Tr,
   useDisclosure,
 } from "@chakra-ui/react";
 import React, { useEffect, useRef, useState } from "react";
@@ -161,9 +174,9 @@ export const Store = () => {
   }
 
   return (
-    <Box padding={"1rem 11px"}>
+    <Box padding={"1rem 11px"} bg={"#e7e6ff"}>
       <Header hidetags={true} showOrders={true} />
-      <Box mt={"40px"}>
+      <Box mt={"35px"}>
         <Box>
           <Text fontSize={["13px", "13px", "15px", "15px"]}>
             Available Coin Balance
@@ -185,6 +198,231 @@ export const Store = () => {
             />
           </Text>
         </Box>
+        <Accordion allowToggle mb={"25px"}>
+          <AccordionItem
+            border={"1px solid #4e46e4"}
+            borderRadius={"10px"}
+            overflow={"hidden"}
+          >
+            <h2
+              style={{
+                background: "white",
+                borderRadius: "10px 10px 0 0",
+              }}
+            >
+              <AccordionButton>
+                <Box
+                  as="span"
+                  flex="1"
+                  textAlign="left"
+                  fontSize={["13px", "13px", "14px", "15px"]}
+                  padding={"3px 0"}
+                >
+                  How to earn coins
+                </Box>
+                <AccordionIcon />
+              </AccordionButton>
+            </h2>
+            <AccordionPanel p={0}>
+              <TableContainer whiteSpace={"none"} maxWidth={"100%"}>
+                <Table
+                  variant="striped"
+                  bg={"purple.100"}
+                  fontSize={["11px", "11px", "13px", "14px"]}
+                >
+                  <TableCaption padding={"10px 0"} m={0} bg={"white"}>
+                    <Text fontSize={["13px", "13px", "14px", "15px"]}>
+                      Note : 10 Coins = ₹1
+                    </Text>
+                  </TableCaption>
+                  <Thead>
+                    <Tr>
+                      <Th>
+                        <Text>Criteria</Text>
+                      </Th>
+                      <Th>
+                        <Text>Coins</Text>
+                      </Th>
+                    </Tr>
+                  </Thead>
+                  <Tbody>
+                    <Tr>
+                      <Td>Lucky draw winner every day</Td>
+                      <Td>
+                        <Text
+                          display={"flex"}
+                          alignItems={"center"}
+                          gap={"5px"}
+                        >
+                          200{" "}
+                          <GiTwoCoins
+                            color={"gold"}
+                            style={{
+                              filter:
+                                "drop-shadow(0 0 0.5px rgba(0, 0, 0, 0.9))",
+                            }}
+                          />
+                        </Text>
+                      </Td>
+                    </Tr>
+                    <Tr>
+                      <Td>Complete 10 or more quizzes in a month</Td>
+                      <Td>
+                        <Text
+                          display={"flex"}
+                          alignItems={"center"}
+                          gap={"5px"}
+                        >
+                          300{" "}
+                          <GiTwoCoins
+                            color={"gold"}
+                            style={{
+                              filter:
+                                "drop-shadow(0 0 0.5px rgba(0, 0, 0, 0.9))",
+                            }}
+                          />
+                        </Text>
+                      </Td>
+                    </Tr>
+                    <Tr>
+                      <Td>Top 3 highest scorers every week</Td>
+                      <Td>
+                        <Text
+                          display={"flex"}
+                          alignItems={"center"}
+                          gap={"5px"}
+                        >
+                          300{" "}
+                          <GiTwoCoins
+                            color={"gold"}
+                            style={{
+                              filter:
+                                "drop-shadow(0 0 0.5px rgba(0, 0, 0, 0.9))",
+                            }}
+                          />
+                        </Text>
+                      </Td>
+                    </Tr>
+                    <Tr>
+                      <Td>Complete first 50 quizzes</Td>
+                      <Td>
+                        <Text
+                          display={"flex"}
+                          alignItems={"center"}
+                          gap={"5px"}
+                        >
+                          1000{" "}
+                          <GiTwoCoins
+                            color={"gold"}
+                            style={{
+                              filter:
+                                "drop-shadow(0 0 0.5px rgba(0, 0, 0, 0.9))",
+                            }}
+                          />
+                        </Text>
+                      </Td>
+                    </Tr>
+                    <Tr>
+                      <Td>Complete first 100 quizzes</Td>
+                      <Td>
+                        <Text
+                          display={"flex"}
+                          alignItems={"center"}
+                          gap={"5px"}
+                        >
+                          1500{" "}
+                          <GiTwoCoins
+                            color={"gold"}
+                            style={{
+                              filter:
+                                "drop-shadow(0 0 0.5px rgba(0, 0, 0, 0.9))",
+                            }}
+                          />
+                        </Text>
+                      </Td>
+                    </Tr>
+                    <Tr>
+                      <Td>Complete first 200 quizzes</Td>
+                      <Td>
+                        <Text
+                          display={"flex"}
+                          alignItems={"center"}
+                          gap={"5px"}
+                        >
+                          2000{" "}
+                          <GiTwoCoins
+                            color={"gold"}
+                            style={{
+                              filter:
+                                "drop-shadow(0 0 0.5px rgba(0, 0, 0, 0.9))",
+                            }}
+                          />
+                        </Text>
+                      </Td>
+                    </Tr>
+                    <Tr>
+                      <Td>Referral takes the first quiz</Td>
+                      <Td>
+                        <Text
+                          display={"flex"}
+                          alignItems={"center"}
+                          gap={"5px"}
+                        >
+                          300{" "}
+                          <GiTwoCoins
+                            color={"gold"}
+                            style={{
+                              filter:
+                                "drop-shadow(0 0 0.5px rgba(0, 0, 0, 0.9))",
+                            }}
+                          />
+                        </Text>
+                      </Td>
+                    </Tr>
+                    <Tr>
+                      <Td>Referral takes first 8 quizzes</Td>
+                      <Td>
+                        <Text
+                          display={"flex"}
+                          alignItems={"center"}
+                          gap={"5px"}
+                        >
+                          3000{" "}
+                          <GiTwoCoins
+                            color={"gold"}
+                            style={{
+                              filter:
+                                "drop-shadow(0 0 0.5px rgba(0, 0, 0, 0.9))",
+                            }}
+                          />
+                        </Text>
+                      </Td>
+                    </Tr>
+                    <Tr>
+                      <Td>5 Referrals take first 8 quizzes each</Td>
+                      <Td>
+                        <Text
+                          display={"flex"}
+                          alignItems={"center"}
+                          gap={"5px"}
+                        >
+                          5000{" "}
+                          <GiTwoCoins
+                            color={"gold"}
+                            style={{
+                              filter:
+                                "drop-shadow(0 0 0.5px rgba(0, 0, 0, 0.9))",
+                            }}
+                          />
+                        </Text>
+                      </Td>
+                    </Tr>
+                  </Tbody>
+                </Table>
+              </TableContainer>
+            </AccordionPanel>
+          </AccordionItem>
+        </Accordion>
       </Box>
       <SimpleGrid
         mt={"15px"}
@@ -205,10 +443,11 @@ export const Store = () => {
                 "rgb(204, 219, 232) 0px 0px 6px 1px, rgba(255, 255, 255, 0.5) -3px -3px 6px 1px"
               }
             >
-              <CardBody>
+              <CardBody pb={0}>
                 <Box
                   borderRadius={"lg"}
                   height={"300px"}
+                  width={"100%"}
                   overflow={"hidden"}
                   border={"1px solid #cfcfcf80"}
                 >
@@ -223,7 +462,16 @@ export const Store = () => {
                 </Box>
                 <Stack mt="6" spacing="3">
                   <Heading size="sm">
-                    <Text>{Product_Name}</Text>
+                    <Text
+                      noOfLines={showDescription === Product_Id ? 99 : 2}
+                      onClick={() =>
+                        setShowDescription(
+                          showDescription === Product_Id ? "" : Product_Id
+                        )
+                      }
+                    >
+                      {Product_Name}
+                    </Text>
                   </Heading>
                   <Text
                     noOfLines={showDescription === Product_Id ? 99 : 4}
@@ -236,24 +484,26 @@ export const Store = () => {
                   >
                     {Description}
                   </Text>
-                  <Text
-                    color={"#4e46e4"}
-                    fontSize="30px"
-                    fontWeight={700}
-                    display={"flex"}
-                    alignItems={"center"}
-                    gap={1}
-                  >
-                    {Unit_Price}{" "}
-                    <GiTwoCoins
-                      color={"gold"}
-                      style={{
-                        filter: "drop-shadow(0 0 0.8px rgba(0, 0, 0, 0.8))",
-                      }}
-                    />
-                  </Text>
                 </Stack>
               </CardBody>
+              <Box ml={"20px"} p={"10px 0"}>
+                <Text
+                  color={"#4e46e4"}
+                  fontSize="30px"
+                  fontWeight={700}
+                  display={"flex"}
+                  alignItems={"center"}
+                  gap={1}
+                >
+                  {Unit_Price}{" "}
+                  <GiTwoCoins
+                    color={"gold"}
+                    style={{
+                      filter: "drop-shadow(0 0 0.8px rgba(0, 0, 0, 0.8))",
+                    }}
+                  />
+                </Text>
+              </Box>
               <Divider />
               <CardFooter>
                 <Button
