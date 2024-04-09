@@ -506,25 +506,25 @@ export const Store = () => {
               </Box>
               <Divider />
               <CardFooter>
-                <Button
-                  id={coins < Unit_Price ? "submit-btn-active" : "submit-btn"}
-                  isLoading={coins < Unit_Price ? true : false}
-                  loadingText="Insufficient Coins"
-                  spinnerPlacement="none"
-                  fontSize={["13px", "13px", "14px", "15px"]}
-                  onClick={onOpen}
+                <Text
+                  width={"100%"}
+                  height={"100%"}
+                  display={"flex"}
+                  alignItems={"center"}
+                  justifyContent={"center"}
+                  onClick={() => setProductId(Product_Id)}
                 >
-                  <Text
-                    width={"100%"}
-                    height={"100%"}
-                    display={"flex"}
-                    alignItems={"center"}
-                    justifyContent={"center"}
-                    onClick={() => setProductId(Product_Id)}
+                  <Button
+                    id={coins < Unit_Price ? "submit-btn-active" : "submit-btn"}
+                    isLoading={coins < Unit_Price ? true : false}
+                    loadingText="Insufficient Coins"
+                    spinnerPlacement="none"
+                    fontSize={["13px", "13px", "14px", "15px"]}
+                    onClick={onOpen}
                   >
                     Buy Now
-                  </Text>
-                </Button>
+                  </Button>
+                </Text>
                 <AlertDialog
                   id="alertDialogBoxMainDiv"
                   motionPreset="slideInBottom"
