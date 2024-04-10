@@ -217,8 +217,9 @@ export const Store = () => {
                   textAlign="left"
                   fontSize={["13px", "13px", "14px", "15px"]}
                   padding={"3px 0"}
+                  fontWeight={600}
                 >
-                  How to earn coins
+                  How to earn coins ?
                 </Box>
                 <AccordionIcon />
               </AccordionButton>
