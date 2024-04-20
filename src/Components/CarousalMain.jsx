@@ -10,6 +10,7 @@ import { LowCredits } from "./Alerts/LowCredits";
 import { CoinsUpdated } from "./Alerts/CoinsUpdated";
 import { AddressUpdate } from "./Alerts/AddressUpdate";
 import { DoubtSession } from "./Alerts/DoubtSession";
+import { JoinCommunity } from "./Alerts/JoinCommunity";
 
 export const CarousalMain = () => {
   const alert = useSelector((state) => state.alert);
@@ -22,6 +23,7 @@ export const CarousalMain = () => {
       display={alert.length > 0 ? "block" : "none"}
     >
       <Carousel
+        dynamicHeight={true}
         autoPlay={true}
         centerMode={true}
         infiniteLoop={true}
@@ -29,6 +31,7 @@ export const CarousalMain = () => {
         showStatus={false}
         showThumbs={false}
         centerSlidePercentage={100}
+        interval={4000}
       >
         {alert.length > 0
           ? alert.map((alert, index) => {
@@ -40,6 +43,9 @@ export const CarousalMain = () => {
               }
               if (alert === "inProgress") {
                 return <MeetingInProgress key={index} />;
+              }
+              if (alert === "community") {
+                return <JoinCommunity key={index} />;
               }
               if (alert === "lowCredits") {
                 return <LowCredits key={index} />;

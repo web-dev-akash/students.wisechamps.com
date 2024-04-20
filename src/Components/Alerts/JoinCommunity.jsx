@@ -8,11 +8,9 @@ import {
   Text,
 } from "@chakra-ui/react";
 import React from "react";
-import { useSelector } from "react-redux";
-import { Link } from "react-router-dom";
+import { RiWhatsappFill } from "react-icons/ri";
 
-export const AddressUpdate = () => {
-  const user = useSelector((state) => state.user);
+export const JoinCommunity = () => {
   return (
     <Box display={"flex"} justifyContent={"center"} textAlign={"left"}>
       <Alert
@@ -21,7 +19,7 @@ export const AddressUpdate = () => {
         flexDirection={"column"}
         alignItems={"flex-start"}
         variant="subtle"
-        colorScheme={"purple"}
+        colorScheme={"whatsapp"}
         borderRadius={"10px"}
         position={"relative"}
       >
@@ -32,7 +30,7 @@ export const AddressUpdate = () => {
           gap={"5px"}
         >
           <AlertIcon margin={0} />
-          <AlertTitle>Add Your Address</AlertTitle>
+          <AlertTitle>Join Whatsapp Community</AlertTitle>
         </Box>
         <AlertDescription width={"100%"}>
           <Text
@@ -40,7 +38,8 @@ export const AddressUpdate = () => {
             m={"5px 0"}
             width={["100%", "100%", "100%", "70%"]}
           >
-            Please fill your mailing address to recieve gifts from Wisechamps.
+            Get Tips and Tricks about Olympiad preparation. Connect with expert
+            teachers and Get reminders about quizzes and important events.
           </Text>
           <Button
             fontSize={"13px"}
@@ -49,19 +48,18 @@ export const AddressUpdate = () => {
             bg={"white"}
             border={"none"}
             padding={0}
+            onClick={() => {
+              window.open(`https://chat.whatsapp.com/B8mYqAucdqW2EJverDWbrS`);
+            }}
           >
-            <Link
+            <RiWhatsappFill
+              fontSize={"25px"}
               style={{
-                width: "100%",
-                height: "100%",
-                display: "flex",
-                alignItems: "center",
-                justifyContent: "center",
+                marginRight: "5px",
+                color: "#40c050",
               }}
-              to={"/dashboard/address"}
-            >
-              Add Your Address
-            </Link>
+            />
+            Join Community
           </Button>
         </AlertDescription>
       </Alert>

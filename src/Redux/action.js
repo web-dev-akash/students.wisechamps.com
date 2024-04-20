@@ -88,8 +88,8 @@ export const fetchUser = (email) => async (dispatch) => {
     ) {
       alertObj.push("aboutToStart");
     }
-    if (res.data.credits <= 2 && !alertObj.includes("credits")) {
-      alertObj.push("lowCredits");
+    if (!res.data.joinedWisechamps) {
+      alertObj.push("community");
     }
     if (
       dayOfWeek === 6 &&
@@ -98,6 +98,9 @@ export const fetchUser = (email) => async (dispatch) => {
         (hours === 18 && minutes <= 0))
     ) {
       alertObj.push("doubt");
+    }
+    if (res.data.credits <= 2 && !alertObj.includes("credits")) {
+      alertObj.push("lowCredits");
     }
     if (!res.data.address || res.data.address === null) {
       alertObj.push("address");

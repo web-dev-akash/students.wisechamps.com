@@ -1,6 +1,5 @@
-import { RaceBy } from "@uiball/loaders";
 import React from "react";
-
+import { RaceBy } from "@uiball/loaders";
 export const Loading = () => {
   return (
     <div

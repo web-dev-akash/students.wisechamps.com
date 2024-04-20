@@ -337,8 +337,9 @@ select {
   background: #4e46e4 !important;
   box-shadow: none !important;
 }
+
 .carousel .control-dots {
-  margin: 1px 0 !important;
+  margin: 0 !important;
 }
 
 .scheduleTable th,
