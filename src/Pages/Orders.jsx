@@ -91,6 +91,8 @@ export const Orders = () => {
                             ? `Order Shipped`
                             : Order_Status === "Delivered"
                             ? `Order Delivered`
+                            : Order_Status === "Cancelled"
+                            ? "Order Cancelled"
                             : "Order in Process"}
                         </Text>
                         <Text>
@@ -146,6 +148,22 @@ export const Orders = () => {
                           maxWidth={["200px", "400px", "600px", "900px"]}
                         >
                           Order Delivered on{" "}
+                          {new Date(Expected_Delivery_Date).toLocaleDateString(
+                            "en-US",
+                            {
+                              day: "numeric",
+                              month: "long",
+                              year: "numeric",
+                            }
+                          )}
+                        </Text>
+                      ) : Order_Status === "Cancelled" ? (
+                        <Text
+                          pt={"5px"}
+                          fontSize={["11px", "12px", "13px", "14px"]}
+                          maxWidth={["200px", "400px", "600px", "900px"]}
+                        >
+                          Order Cancelled on{" "}
                           {new Date(Expected_Delivery_Date).toLocaleDateString(
                             "en-US",
                             {
