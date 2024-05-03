@@ -345,7 +345,7 @@ select {
 .scheduleTable th,
 .scheduleTable td {
   padding-left: 15px !important;
-  padding-right: 10px !important;
+  padding-right: 15px !important;
 }
 
 .plansTable th,

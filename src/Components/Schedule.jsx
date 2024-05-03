@@ -2,6 +2,7 @@ import {
   Box,
   Table,
   TableContainer,
+  Tag,
   Tbody,
   Td,
   Text,
@@ -14,6 +15,20 @@ import { useSelector } from "react-redux";
 
 export const Schedule = () => {
   const session = useSelector((state) => state.user.session);
+  console.log("Session Data :", session);
+
+  const getDateAndTime = (day) => {
+    const currentDate = new Date();
+    const currentDay = currentDate.getDay();
+    const diff = day === 0 ? day - currentDay + 7 : day - currentDay + 1;
+    currentDate.setDate(currentDate.getDate() + diff);
+    return currentDate.toLocaleDateString("en-US", {
+      weekday: "long",
+      month: "short",
+      day: "numeric",
+    });
+  };
+
   return (
     <Box background="white" border={"1px solid #4E46E4"} borderRadius={"10px"}>
       <Text
@@ -40,11 +55,24 @@ export const Schedule = () => {
                 <Text fontSize={["10px", "10px", "13px", "13px"]}>Topic</Text>
               </Th>
               <Th>
-                <Text fontSize={["10px", "10px", "13px", "13px"]}>Day</Text>
+                <Text fontSize={["10px", "10px", "13px", "13px"]}>Subject</Text>
               </Th>
-              <Th>
-                <Text fontSize={["10px", "10px", "13px", "13px"]}>Time</Text>
+              <Th
+                minWidth={[
+                  "150px !important",
+                  "150px !important",
+                  "180px !important",
+                  "200px !important",
+                  "200px !important",
+                ]}
+              >
+                <Text fontSize={["10px", "10px", "13px", "13px"]}>
+                  Date & Time
+                </Text>
               </Th>
+              {/* <Th>
+                <Text fontSize={["10px", "10px", "13px", "13px"]}>Topic</Text>
+              </Th> */}
             </Tr>
           </Thead>
           <Tbody fontSize={["11px", "11px", "13px", "15px"]}>
@@ -52,29 +80,29 @@ export const Schedule = () => {
               <Td width={"100%"}>
                 {session[0] ? session[0].Session_Name : "Science Live Quiz"}
               </Td>
-              <Td>Thursday</Td>
-              <Td>7PM</Td>
+              <Td>Science</Td>
+              <Td>{`${getDateAndTime(3)}, 7PM`}</Td>
             </Tr>
             <Tr>
               <Td width={"100%"}>
                 {session[1] ? session[1].Session_Name : "Maths Live Quiz"}
               </Td>
-              <Td>Friday</Td>
-              <Td>7PM</Td>
+              <Td>Maths</Td>
+              <Td>{`${getDateAndTime(4)}, 7PM`}</Td>
             </Tr>
             <Tr>
               <Td width={"100%"}>
                 {session[2] ? session[2].Session_Name : "Maths Live Quiz"}
               </Td>
-              <Td>Saturday</Td>
-              <Td>7PM</Td>
+              <Td>Maths</Td>
+              <Td>{`${getDateAndTime(5)}, 7PM`}</Td>
             </Tr>
             <Tr>
               <Td width={"100%"}>
                 {session[3] ? session[3].Session_Name : "Maths Live Quiz"}
               </Td>
-              <Td>Sunday</Td>
-              <Td>11AM</Td>
+              <Td>Maths</Td>
+              <Td>{`${getDateAndTime(0)}, 11AM`}</Td>
             </Tr>
           </Tbody>
         </Table>
