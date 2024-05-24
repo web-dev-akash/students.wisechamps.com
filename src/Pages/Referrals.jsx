@@ -135,7 +135,10 @@ export const Referrals = () => {
                         </Td>
                       </Tr>
                       <Tr>
-                        <Td>5 Referrals take first 8 quizzes each</Td>
+                        <Td>
+                          5 Referrals take first 8 quizzes each ( Get Additional
+                          Coins )
+                        </Td>
                         <Td>
                           <Text
                             display={"flex"}
