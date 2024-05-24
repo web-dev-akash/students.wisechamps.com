@@ -51,9 +51,6 @@ export const CarousalMain = () => {
               if (alert === "lowCredits") {
                 return <LowCredits key={index} />;
               }
-              if (alert === "survey") {
-                return <Survey key={index} />;
-              }
               if (alert === "coins") {
                 return <CoinsUpdated key={index} />;
               }

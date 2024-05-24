@@ -504,7 +504,6 @@ export const fetchUser = (email) => async (dispatch) => {
       localStorage.setItem("wise_coins", res.data.coins);
       alertObj.push("coins");
     }
-    alertObj.push("survey");
     dispatch(setAlert([...alertObj]));
     if (res.data.status === 200) {
       localStorage.setItem("wise_email", email);

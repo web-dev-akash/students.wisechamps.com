@@ -52,21 +52,6 @@ export const MoreActions = () => {
         >
           View Report
         </Button>
-        <Button
-          onClick={() =>
-            window.open(
-              `https://docs.google.com/forms/d/e/1FAIpQLSdWN260Scs8JNMbQzj8Z_UuFIR2g26tiUn4J-lJySjol3Ngjw/viewform`
-            )
-          }
-          mt={3}
-          bg={"#4E46E4"}
-          color={"white"}
-          fontSize={["13px", "13px", "15px", "15px"]}
-          fontWeight={400}
-          width={"100%"}
-        >
-          Give Feedback
-        </Button>
       </Box>
     </Box>
   );
