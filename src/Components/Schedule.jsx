@@ -10,24 +10,102 @@ import {
   Thead,
   Tr,
 } from "@chakra-ui/react";
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 
 export const Schedule = () => {
+  const [tempDate, setTempDate] = useState([]);
   const session = useSelector((state) => state.user.session);
-  console.log("Session Data :", session);
 
-  const getDateAndTime = (day) => {
-    const currentDate = new Date();
-    const currentDay = currentDate.getDay();
-    const diff = day === 0 ? day - currentDay + 7 : day - currentDay + 1;
-    currentDate.setDate(currentDate.getDate() + diff);
-    return currentDate.toLocaleDateString("en-US", {
-      weekday: "long",
-      month: "short",
-      day: "numeric",
-    });
+  const getDateAndTime = (dateTime) => {
+    const date = new Date(dateTime);
+
+    const daysOfWeek = [
+      "Sunday",
+      "Monday",
+      "Tuesday",
+      "Wednesday",
+      "Thursday",
+      "Friday",
+      "Saturday",
+    ];
+
+    const months = [
+      "Jan",
+      "Feb",
+      "Mar",
+      "Apr",
+      "May",
+      "Jun",
+      "Jul",
+      "Aug",
+      "Sep",
+      "Oct",
+      "Nov",
+      "Dec",
+    ];
+
+    const dayOfWeek = daysOfWeek[date.getDay()];
+    const month = months[date.getMonth()];
+    const day = date.getDate();
+    let hours = date.getHours();
+    const ampm = hours >= 12 ? "PM" : "AM";
+    hours = hours % 12;
+    hours = hours ? hours : 12;
+    const formattedDate = `${dayOfWeek}, ${month} ${day}, ${hours}${ampm}`;
+    return formattedDate;
   };
+
+  function getCurrentWeekDays() {
+    const result = [];
+    const today = new Date();
+    const daysOfWeek = [
+      "Sunday",
+      "Monday",
+      "Tuesday",
+      "Wednesday",
+      "Thursday",
+      "Friday",
+      "Saturday",
+    ];
+    const months = [
+      "Jan",
+      "Feb",
+      "Mar",
+      "Apr",
+      "May",
+      "Jun",
+      "Jul",
+      "Aug",
+      "Sep",
+      "Oct",
+      "Nov",
+      "Dec",
+    ];
+
+    const currentDayIndex = today.getDay();
+    let thursdayOffset = 4 - currentDayIndex;
+    if (thursdayOffset < 0) {
+      thursdayOffset += 0;
+    } else if (currentDayIndex === 0) {
+      thursdayOffset -= 7;
+    }
+    for (let i = thursdayOffset; i < thursdayOffset + 4; i++) {
+      const date = new Date(today);
+      date.setDate(today.getDate() + i);
+      const dayOfWeek = daysOfWeek[date.getDay()];
+      const month = months[date.getMonth()];
+      const day = date.getDate();
+      result.push(`${dayOfWeek}, ${month} ${day}`);
+    }
+    return result;
+  }
+
+  useEffect(() => {
+    if (!session[0]) {
+      setTempDate(getCurrentWeekDays());
+    }
+  }, []);
 
   return (
     <Box background="white" border={"1px solid #4E46E4"} borderRadius={"10px"}>
@@ -81,28 +159,44 @@ export const Schedule = () => {
                 {session[0] ? session[0].Session_Name : "Science Live Quiz"}
               </Td>
               <Td>Science</Td>
-              <Td>{`${getDateAndTime(3)}, 7PM`}</Td>
+              <Td>
+                {session[0]
+                  ? `${getDateAndTime(session[0].Session_Date_Time)}`
+                  : tempDate[0]}
+              </Td>
             </Tr>
             <Tr>
               <Td width={"100%"}>
                 {session[1] ? session[1].Session_Name : "Maths Live Quiz"}
               </Td>
               <Td>Maths</Td>
-              <Td>{`${getDateAndTime(4)}, 7PM`}</Td>
+              <Td>
+                {session[1]
+                  ? `${getDateAndTime(session[1].Session_Date_Time)}`
+                  : tempDate[1]}
+              </Td>
             </Tr>
             <Tr>
               <Td width={"100%"}>
                 {session[2] ? session[2].Session_Name : "Maths Live Quiz"}
               </Td>
               <Td>Maths</Td>
-              <Td>{`${getDateAndTime(5)}, 7PM`}</Td>
+              <Td>
+                {session[2]
+                  ? `${getDateAndTime(session[2].Session_Date_Time)}`
+                  : tempDate[2]}
+              </Td>
             </Tr>
             <Tr>
               <Td width={"100%"}>
                 {session[3] ? session[3].Session_Name : "Maths Live Quiz"}
               </Td>
               <Td>Maths</Td>
-              <Td>{`${getDateAndTime(0)}, 11AM`}</Td>
+              <Td>
+                {session[3]
+                  ? `${getDateAndTime(session[3].Session_Date_Time)}`
+                  : tempDate[3]}
+              </Td>
             </Tr>
           </Tbody>
         </Table>

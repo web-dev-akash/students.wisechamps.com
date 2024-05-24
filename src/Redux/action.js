@@ -454,8 +454,9 @@ export const fetchUser = (email) => async (dispatch) => {
     if (email === "teststudent@wisechamps.com") {
       dispatch(setAlert(dummyUserData.alert));
       dispatch(setUser(dummyUserData.user));
-      dispatch(setMode("user"));
       dispatch(setOrders(dummyUserData.orders));
+      dispatch(setMode("user"));
+      localStorage.setItem("wise_email", email);
       return;
     }
     dispatch(getLoading());
@@ -503,6 +504,7 @@ export const fetchUser = (email) => async (dispatch) => {
       localStorage.setItem("wise_coins", res.data.coins);
       alertObj.push("coins");
     }
+    alertObj.push("survey");
     dispatch(setAlert([...alertObj]));
     if (res.data.status === 200) {
       localStorage.setItem("wise_email", email);

@@ -286,7 +286,7 @@ export const Store = () => {
                       </Td>
                     </Tr>
                     <Tr>
-                      <Td>Top 3 highest scorers every week</Td>
+                      <Td>Top 5 highest scorers every week</Td>
                       <Td>
                         <Text
                           display={"flex"}

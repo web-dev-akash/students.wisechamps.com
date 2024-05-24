@@ -11,6 +11,7 @@ import { CoinsUpdated } from "./Alerts/CoinsUpdated";
 import { AddressUpdate } from "./Alerts/AddressUpdate";
 import { DoubtSession } from "./Alerts/DoubtSession";
 import { JoinCommunity } from "./Alerts/JoinCommunity";
+import { Survey } from "./Alerts/Survey";
 
 export const CarousalMain = () => {
   const alert = useSelector((state) => state.alert);
@@ -49,6 +50,9 @@ export const CarousalMain = () => {
               }
               if (alert === "lowCredits") {
                 return <LowCredits key={index} />;
+              }
+              if (alert === "survey") {
+                return <Survey key={index} />;
               }
               if (alert === "coins") {
                 return <CoinsUpdated key={index} />;
