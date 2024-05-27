@@ -472,14 +472,11 @@ export const fetchUser = (email) => async (dispatch) => {
     if (res.data.credits === 0) {
       alertObj.push("credits");
     }
-    if (
-      ((dayOfWeek >= 4 && dayOfWeek <= 6) || dayOfWeek === 0) &&
-      ((hours === 11 && minutes >= 0) || (hours === 11 && minutes < 30))
-    ) {
+    if ((hours === 11 && minutes >= 0) || (hours === 11 && minutes < 50)) {
       alertObj.push("inProgress");
     } else if (
-      ((dayOfWeek >= 4 && dayOfWeek <= 6) || dayOfWeek === 0) &&
-      ((hours === 10 && minutes >= 45) || (hours === 11 && minutes <= 0))
+      (hours === 10 && minutes >= 45) ||
+      (hours === 11 && minutes <= 0)
     ) {
       alertObj.push("aboutToStart");
     }
