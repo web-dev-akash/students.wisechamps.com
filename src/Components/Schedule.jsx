@@ -30,6 +30,8 @@ export const Schedule = () => {
       "Saturday",
     ];
 
+    console.log("Session", session);
+
     const months = [
       "Jan",
       "Feb",
@@ -154,50 +156,13 @@ export const Schedule = () => {
             </Tr>
           </Thead>
           <Tbody fontSize={["11px", "11px", "13px", "15px"]}>
-            <Tr>
-              <Td width={"100%"}>
-                {session[0] ? session[0].Session_Name : "Science Live Quiz"}
-              </Td>
-              <Td>Science</Td>
-              <Td>
-                {session[0]
-                  ? `${getDateAndTime(session[0].Session_Date_Time)}`
-                  : tempDate[0]}
-              </Td>
-            </Tr>
-            <Tr>
-              <Td width={"100%"}>
-                {session[1] ? session[1].Session_Name : "Maths Live Quiz"}
-              </Td>
-              <Td>Maths</Td>
-              <Td>
-                {session[1]
-                  ? `${getDateAndTime(session[1].Session_Date_Time)}`
-                  : tempDate[1]}
-              </Td>
-            </Tr>
-            <Tr>
-              <Td width={"100%"}>
-                {session[2] ? session[2].Session_Name : "Maths Live Quiz"}
-              </Td>
-              <Td>Maths</Td>
-              <Td>
-                {session[2]
-                  ? `${getDateAndTime(session[2].Session_Date_Time)}`
-                  : tempDate[2]}
-              </Td>
-            </Tr>
-            <Tr>
-              <Td width={"100%"}>
-                {session[3] ? session[3].Session_Name : "Maths Live Quiz"}
-              </Td>
-              <Td>Maths</Td>
-              <Td>
-                {session[3]
-                  ? `${getDateAndTime(session[3].Session_Date_Time)}`
-                  : tempDate[3]}
-              </Td>
-            </Tr>
+            {session?.map((item) => (
+              <Tr key={item.id}>
+                <Td width={"100%"}>{item.Session_Name}</Td>
+                <Td>{item.Subject}</Td>
+                <Td>{`${getDateAndTime(item.Session_Date_Time)}`}</Td>
+              </Tr>
+            ))}
           </Tbody>
         </Table>
       </TableContainer>
