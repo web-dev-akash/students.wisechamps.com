@@ -496,6 +496,49 @@ const dummyUserData = {
   alert: ["credits", "inProgress", "community", "address", "doubt"],
 };
 
+const checkTimeAlerts = () => {
+  const today = new Date();
+  const dayOfWeek = today.getDay();
+  const hours = today.getHours();
+  const minutes = today.getMinutes();
+  const alertObj = [];
+
+  const isTimeInRange = (startHour, startMinute, endHour, endMinute) => {
+    return (
+      (hours === startHour && minutes >= startMinute) ||
+      (hours > startHour && hours < endHour) ||
+      (hours === endHour && minutes < endMinute)
+    );
+  };
+
+  if (dayOfWeek >= 1 && dayOfWeek <= 6) {
+    // Monday to Saturday
+    if (isTimeInRange(18, 45, 19, 0)) {
+      alertObj.push("aboutToStart");
+    } else if (isTimeInRange(19, 0, 19, 50)) {
+      alertObj.push("inProgress");
+    }
+  } else if (dayOfWeek === 0) {
+    // Sunday
+    if (isTimeInRange(10, 45, 11, 0)) {
+      alertObj.push("aboutToStart");
+    } else if (isTimeInRange(11, 0, 11, 50)) {
+      alertObj.push("inProgress");
+    }
+  }
+
+  if (
+    dayOfWeek === 6 &&
+    ((hours > 16 && hours < 18) ||
+      (hours === 16 && minutes >= 45) ||
+      (hours === 18 && minutes <= 0))
+  ) {
+    alertObj.push("doubt");
+  }
+
+  return alertObj;
+};
+
 export const fetchUser = (email) => async (dispatch) => {
   try {
     if (!emailRegex.test(email)) {
@@ -511,49 +554,29 @@ export const fetchUser = (email) => async (dispatch) => {
       return;
     }
     dispatch(getLoading());
-    const today = new Date();
-    const dayOfWeek = today.getDay();
-    const hours = today.getHours();
-    const minutes = today.getMinutes();
     const previousCoins = Number(localStorage.getItem("wise_coins") || 0);
     const url = `https://backend.wisechamps.com/student`;
-    const res = await axios.post(url, { email: email });
-    const mode = res.data.mode;
+    const res = await axios.post(url, { email });
     const alertObj = [];
     if (res.data.credits === 0) {
       alertObj.push("credits");
     }
-    if ((hours === 19 && minutes >= 0) || (hours === 19 && minutes < 50)) {
-      alertObj.push("inProgress");
-    } else if (
-      (hours === 18 && minutes >= 45) ||
-      (hours === 19 && minutes <= 0)
-    ) {
-      alertObj.push("aboutToStart");
-    }
+    const timeAlerts = checkTimeAlerts();
+    alertObj.push(...timeAlerts);
     if (!res.data.joinedWisechamps) {
       alertObj.push("community");
-    }
-    if (
-      dayOfWeek === 6 &&
-      ((hours > 16 && hours < 18) ||
-        (hours === 16 && minutes >= 45) ||
-        (hours === 18 && minutes <= 0))
-    ) {
-      alertObj.push("doubt");
     }
     if (res.data.credits <= 2 && !alertObj.includes("credits")) {
       alertObj.push("lowCredits");
     }
-    if (!res.data.address || res.data.address === null) {
+    if (!res.data.address) {
       alertObj.push("address");
     }
     if (Number(res.data.coins) > previousCoins) {
       localStorage.setItem("wise_coins", res.data.coins);
       alertObj.push("coins");
     }
-    dispatch(setAlert([...alertObj]));
-    dummyUserData.user.session.push(res.data.session);
+    dispatch(setAlert(alertObj));
     if (res.data.status === 200) {
       localStorage.setItem("wise_email", email);
       dispatch(
@@ -561,7 +584,7 @@ export const fetchUser = (email) => async (dispatch) => {
           name: res.data.name,
           credits: res.data.credits,
           coins: res.data.coins,
-          email: email,
+          email,
           phone: res.data.phone,
           id: res.data.contactId,
           studentName: res.data.studentName,
@@ -576,7 +599,7 @@ export const fetchUser = (email) => async (dispatch) => {
         })
       );
     }
-    dispatch(setMode(mode));
+    dispatch(setMode(res.data.mode));
   } catch (error) {
     dispatch(getError());
   }

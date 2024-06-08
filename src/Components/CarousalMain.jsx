@@ -32,7 +32,8 @@ export const CarousalMain = () => {
         showStatus={false}
         showThumbs={false}
         centerSlidePercentage={100}
-        interval={4000}
+        interval={3000}
+        stopOnHover={false}
       >
         {alert.length > 0
           ? alert.map((alert, index) => {
