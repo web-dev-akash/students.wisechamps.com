@@ -523,11 +523,11 @@ export const fetchUser = (email) => async (dispatch) => {
     if (res.data.credits === 0) {
       alertObj.push("credits");
     }
-    if ((hours === 11 && minutes >= 0) || (hours === 11 && minutes < 50)) {
+    if ((hours === 19 && minutes >= 0) || (hours === 19 && minutes < 50)) {
       alertObj.push("inProgress");
     } else if (
-      (hours === 10 && minutes >= 45) ||
-      (hours === 11 && minutes <= 0)
+      (hours === 18 && minutes >= 45) ||
+      (hours === 19 && minutes <= 0)
     ) {
       alertObj.push("aboutToStart");
     }
