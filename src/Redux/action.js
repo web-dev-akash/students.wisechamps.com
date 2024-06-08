@@ -64,49 +64,49 @@ const dummyUserData = {
     address: null,
     referrals: [
       {
-        Student_Name: "Referral 1",
+        Student_Name: "Advik",
         Phone: "91XXXXXX1254",
         id: "1",
         quizAttempted: 0,
       },
       {
-        Student_Name: "Referral 2",
+        Student_Name: "Simran",
         Phone: "91XXXXXX1254",
         id: "2",
         quizAttempted: 1,
       },
       {
-        Student_Name: "Referral 3",
+        Student_Name: "Raman",
         Phone: "91XXXXXX1254",
         id: "3",
         quizAttempted: 2,
       },
       {
-        Student_Name: "Referral 4",
+        Student_Name: "Shiv",
         Phone: "91XXXXXX1254",
         id: "4",
         quizAttempted: 3,
       },
       {
-        Student_Name: "Referral 5",
+        Student_Name: "Rahul",
         Phone: "91XXXXXX1254",
         id: "5",
         quizAttempted: 5,
       },
       {
-        Student_Name: "Referral 6",
+        Student_Name: "Rashmi",
         Phone: "91XXXXXX1254",
         id: "6",
         quizAttempted: 6,
       },
       {
-        Student_Name: "Referral 7",
+        Student_Name: "Aarav",
         Phone: "91XXXXXX1254",
         id: "7",
         quizAttempted: 7,
       },
       {
-        Student_Name: "Referral 8",
+        Student_Name: "Vivek",
         Phone: "91XXXXXX1254",
         id: "8",
         quizAttempted: 8,
@@ -115,7 +115,58 @@ const dummyUserData = {
     quizzes: 45,
     age: 213,
     category: "Active",
-    session: [],
+    session: [
+      {
+        Session_Name: "Vocabulary",
+        Total_Questions: 12,
+        id: "4878003000022106041",
+        Subject: "English",
+        Session_Date_Time: "2024-06-03T11:00:00+05:30",
+      },
+      {
+        Session_Name: "The World of Living",
+        Total_Questions: 10,
+        id: "4878003000022106046",
+        Subject: "Science",
+        Session_Date_Time: "2024-06-04T11:00:00+05:30",
+      },
+      {
+        Session_Name: "Playing with Numbers",
+        Total_Questions: 10,
+        id: "4878003000022127101",
+        Subject: "Math",
+        Session_Date_Time: "2024-06-05T11:00:00+05:30",
+      },
+      {
+        Session_Name: "Verbs",
+        Total_Questions: 12,
+        id: "4878003000022127106",
+        Subject: "English",
+        Session_Date_Time: "2024-06-06T11:00:00+05:30",
+      },
+      {
+        Session_Name:
+          "Paper Folding and Paper Cutting, Cubes and Dice, Dot situation",
+        Total_Questions: 10,
+        id: "4878003000022127111",
+        Subject: "Math",
+        Session_Date_Time: "2024-06-07T11:00:00+05:30",
+      },
+      {
+        Session_Name: "Fibre to Fabric",
+        Total_Questions: 10,
+        id: "4878003000022127116",
+        Subject: "Science",
+        Session_Date_Time: "2024-06-08T11:00:00+05:30",
+      },
+      {
+        Session_Name: "Data Handling",
+        Total_Questions: 10,
+        id: "4878003000022127121",
+        Subject: "Math",
+        Session_Date_Time: "2024-06-09T11:00:00+05:30",
+      },
+    ],
     coinsHistory: [
       {
         Coins: 1500,
@@ -502,6 +553,7 @@ export const fetchUser = (email) => async (dispatch) => {
       alertObj.push("coins");
     }
     dispatch(setAlert([...alertObj]));
+    dummyUserData.user.session.push(res.data.session);
     if (res.data.status === 200) {
       localStorage.setItem("wise_email", email);
       dispatch(
