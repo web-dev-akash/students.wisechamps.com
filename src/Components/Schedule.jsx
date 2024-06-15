@@ -30,8 +30,6 @@ export const Schedule = () => {
       "Saturday",
     ];
 
-    console.log("Session", session);
-
     const months = [
       "Jan",
       "Feb",
@@ -51,10 +49,17 @@ export const Schedule = () => {
     const month = months[date.getMonth()];
     const day = date.getDate();
     let hours = date.getHours();
+    const minutes = date.getMinutes();
     const ampm = hours >= 12 ? "PM" : "AM";
     hours = hours % 12;
     hours = hours ? hours : 12;
-    const formattedDate = `${dayOfWeek}, ${month} ${day}, ${hours}${ampm}`;
+
+    let formattedTime = `${hours}${ampm}`;
+    if (minutes > 0) {
+      formattedTime = `${hours}:${minutes.toString().padStart(2, "0")}${ampm}`;
+    }
+
+    const formattedDate = `${dayOfWeek}, ${month} ${day}, ${formattedTime}`;
     return formattedDate;
   };
 
