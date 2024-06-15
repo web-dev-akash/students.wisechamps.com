@@ -31,7 +31,12 @@ export const NoUserFound = () => {
         Please use a registered Email Address
       </p>
       <div style={{ width: "90%" }}>
-        <Link id="submit-btn" to={"/"} style={{ maxWidth: "400px" }}>
+        <Link
+          id="submit-btn"
+          to={"/"}
+          onClick={() => localStorage.removeItem("wise_email")}
+          style={{ maxWidth: "400px" }}
+        >
           Try Again
         </Link>
         <Link

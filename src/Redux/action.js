@@ -515,7 +515,7 @@ const checkTimeAlerts = () => {
     // Monday to Saturday
     if (isTimeInRange(18, 45, 19, 0)) {
       alertObj.push("aboutToStart");
-    } else if (isTimeInRange(19, 0, 19, 50)) {
+    } else if (isTimeInRange(19, 0, 20, 50)) {
       alertObj.push("inProgress");
     }
   } else if (dayOfWeek === 0) {
