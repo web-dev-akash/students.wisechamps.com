@@ -12,7 +12,11 @@ export const UserSystemStatics = () => {
         justifyContent={"flex-end"}
         gap={"5px"}
         mt={"8px"}
+        flexWrap={"wrap"}
       >
+        <Tag colorScheme="purple" fontSize={["9px", "9px", "12px", "14px"]}>
+          Coins : {user.coins}
+        </Tag>
         <Tag
           colorScheme="purple"
           fontSize={["9px", "9px", "12px", "14px"]}
@@ -21,7 +25,7 @@ export const UserSystemStatics = () => {
           Quiz Taken : {user.quizzes}
         </Tag>
         <Tag colorScheme="purple" fontSize={["9px", "9px", "12px", "14px"]}>
-          Coins : {user.coins}
+          Grade : {user.grade}
         </Tag>
         <Tag
           colorScheme="purple"

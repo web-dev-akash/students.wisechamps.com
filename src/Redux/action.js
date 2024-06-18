@@ -545,14 +545,14 @@ export const fetchUser = (email) => async (dispatch) => {
       alert("Please Enter a Valid Email");
       return;
     }
-    if (email === "teststudent@wisechamps.com") {
-      dispatch(setAlert(dummyUserData.alert));
-      dispatch(setUser(dummyUserData.user));
-      dispatch(setOrders(dummyUserData.orders));
-      dispatch(setMode("user"));
-      localStorage.setItem("wise_email", email);
-      return;
-    }
+    // if (email === "teststudent@wisechamps.com") {
+    //   dispatch(setAlert(dummyUserData.alert));
+    //   dispatch(setUser(dummyUserData.user));
+    //   dispatch(setOrders(dummyUserData.orders));
+    //   dispatch(setMode("user"));
+    //   localStorage.setItem("wise_email", email);
+    //   return;
+    // }
     dispatch(getLoading());
     const previousCoins = Number(localStorage.getItem("wise_coins") || 0);
     const url = `https://backend.wisechamps.com/student`;
@@ -579,6 +579,30 @@ export const fetchUser = (email) => async (dispatch) => {
     dispatch(setAlert(alertObj));
     if (res.data.status === 200) {
       localStorage.setItem("wise_email", email);
+      if (email === "teststudent@wisechamps.com") {
+        dispatch(
+          setUser({
+            name: dummyUserData.user.name,
+            credits: dummyUserData.user.credits,
+            coins: dummyUserData.user.coins,
+            email,
+            phone: dummyUserData.user.phone,
+            id: res.data.contactId,
+            studentName: dummyUserData.user.studentName,
+            grade: res.data.grade,
+            address: res.data.address,
+            referrals: dummyUserData.user.referrals,
+            quizzes: dummyUserData.user.quizzes,
+            age: dummyUserData.user.age,
+            category: dummyUserData.user.category,
+            session: res.data.session,
+            coinsHistory: dummyUserData.user.coinsHistory,
+          })
+        );
+        dispatch(setOrders(dummyUserData.orders));
+        dispatch(setMode(res.data.mode));
+        return;
+      }
       dispatch(
         setUser({
           name: res.data.name,
@@ -588,6 +612,7 @@ export const fetchUser = (email) => async (dispatch) => {
           phone: res.data.phone,
           id: res.data.contactId,
           studentName: res.data.studentName,
+          grade: res.data.grade,
           address: res.data.address,
           referrals: res.data.referrals === 0 ? [] : res.data.referrals,
           quizzes: res.data.quizzes,
