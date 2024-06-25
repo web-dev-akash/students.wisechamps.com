@@ -1,6 +1,6 @@
 import React from "react";
 import logo from "../assets/logo.png";
-import { Box, Button, Tag, Text } from "@chakra-ui/react";
+import { Box, Button, Image, Tag, Text } from "@chakra-ui/react";
 import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import { setMode } from "../Redux/action";
@@ -26,7 +26,11 @@ export const Header = ({ hidetags, showStore }) => {
           zIndex: "9",
         }}
       >
-        <img src={logo} alt="Wisechamps" width={"90px"} />
+        <Image
+          src={logo}
+          alt="Wisechamps"
+          width={["110px", "120px", "150px", "160px"]}
+        />
       </header>
       {mode === "user" && (
         <Box

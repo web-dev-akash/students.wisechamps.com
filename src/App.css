@@ -200,41 +200,6 @@ html {
   padding: 2rem 2rem 2.5rem 2rem !important;
 }
 
-@media (max-width: 768px) {
-  .radio-input-wrapper {
-    padding-inline: 2.5rem;
-    padding-block: 1.5rem;
-  }
-  .main_div {
-    padding: unset !important;
-    padding-top: 10px !important;
-    padding-bottom: 20px !important;
-  }
-  .label-text {
-    font-size: 13px;
-  }
-  .main-div-btn #submit-btn {
-    width: 90%;
-    margin: 0 auto;
-  }
-  .main-div-btn {
-    flex-direction: column;
-    gap: 15px;
-  }
-  .radio-input-wrapper > p {
-    width: 92%;
-    margin: 5px auto;
-    font-size: 15px;
-    font-weight: 600;
-  }
-  .radio-input-wrapper #submit-btn {
-    width: 80% !important;
-  }
-  .radio-input-wrapper .label {
-    margin: auto 10px;
-  }
-}
-
 .radio-input-wrapper #submit-btn {
   width: 40%;
 }
@@ -379,4 +344,46 @@ select {
 #chakra-modal-alertDialogBoxMainDiv {
   padding: 10px 0;
   box-shadow: 0 0 10px 2px rgba(0, 0, 0, 0.3);
+}
+
+@media (max-width: 768px) {
+  .radio-input-wrapper {
+    padding-inline: 2.5rem;
+    padding-block: 1.5rem;
+  }
+
+  .main_div {
+    padding: unset !important;
+    padding-top: 10px !important;
+    padding-bottom: 20px !important;
+  }
+  .label-text {
+    font-size: 13px;
+  }
+  .main-div-btn #submit-btn {
+    width: 90%;
+    margin: 0 auto;
+  }
+  .main-div-btn {
+    flex-direction: column;
+    gap: 15px;
+  }
+  .radio-input-wrapper > p {
+    width: 92%;
+    margin: 5px auto;
+    font-size: 15px;
+    font-weight: 600;
+  }
+  .radio-input-wrapper #submit-btn {
+    width: 80% !important;
+  }
+  .radio-input-wrapper .label {
+    margin: auto 10px;
+  }
+}
+
+@media (min-width: 768px) {
+  #quizScroller::-webkit-scrollbar {
+    display: none;
+  }
 }

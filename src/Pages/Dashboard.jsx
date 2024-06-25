@@ -14,6 +14,7 @@ import { Footer } from "../Components/Footer";
 import { CoinsComponent } from "../Components/CoinsComponent";
 import active from "../assets/active_badge.png";
 import regular from "../assets/regular_badge.png";
+import { WeeklyQuiz } from "../Components/WeeklyQuiz";
 
 export const Dashboard = () => {
   const user = useSelector((state) => state.user);
@@ -107,9 +108,10 @@ export const Dashboard = () => {
         gap={["10px", "10px", "20px", "20px"]}
       >
         <CarousalMain />
+        <WeeklyQuiz />
         <ReferralComponent />
         <CoinsComponent />
-        <Schedule />
+        {/* <Schedule /> */}
         <Pricing />
         <MoreActions />
         <Footer />

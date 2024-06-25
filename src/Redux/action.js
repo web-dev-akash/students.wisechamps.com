@@ -545,14 +545,6 @@ export const fetchUser = (email) => async (dispatch) => {
       alert("Please Enter a Valid Email");
       return;
     }
-    // if (email === "teststudent@wisechamps.com") {
-    //   dispatch(setAlert(dummyUserData.alert));
-    //   dispatch(setUser(dummyUserData.user));
-    //   dispatch(setOrders(dummyUserData.orders));
-    //   dispatch(setMode("user"));
-    //   localStorage.setItem("wise_email", email);
-    //   return;
-    // }
     dispatch(getLoading());
     const previousCoins = Number(localStorage.getItem("wise_coins") || 0);
     const url = `https://backend.wisechamps.com/student`;
@@ -597,6 +589,7 @@ export const fetchUser = (email) => async (dispatch) => {
             category: dummyUserData.user.category,
             session: res.data.session,
             coinsHistory: dummyUserData.user.coinsHistory,
+            weeklyQuizzes: res.data.weeklyQuizzes,
           })
         );
         dispatch(setOrders(dummyUserData.orders));
@@ -621,6 +614,7 @@ export const fetchUser = (email) => async (dispatch) => {
           session: res.data.session,
           coinsHistory:
             res.data.coinsHistory === 0 ? [] : res.data.coinsHistory,
+          weeklyQuizzes: res.data.weeklyQuizzes,
         })
       );
     }

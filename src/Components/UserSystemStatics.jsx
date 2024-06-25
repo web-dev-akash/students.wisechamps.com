@@ -27,7 +27,7 @@ export const UserSystemStatics = () => {
         <Tag colorScheme="purple" fontSize={["9px", "9px", "12px", "14px"]}>
           Grade : {user.grade}
         </Tag>
-        <Tag
+        {/* <Tag
           colorScheme="purple"
           fontSize={["9px", "9px", "12px", "14px"]}
           fontWeight={500}
@@ -42,7 +42,7 @@ export const UserSystemStatics = () => {
               ? `${Math.floor(user.age / 30)} months`
               : `${Math.floor(user.age / 30)} month`
             : `${user.age} days`}{" "}
-        </Tag>
+        </Tag> */}
       </Box>
     </>
   );
