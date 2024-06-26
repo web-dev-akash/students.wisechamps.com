@@ -33,7 +33,9 @@ export const Referrals = () => {
 
   return (
     <Box
-      padding={"1.5rem 15px 5rem 15px"}
+      pt={["1.5rem", "1.5rem", "2.7rem", "2.7rem"]}
+      paddingInline={"15px"}
+      pb={"5rem"}
       minHeight={["auto", "auto", "100vh", "100vh"]}
     >
       <Header hidetags={true} />

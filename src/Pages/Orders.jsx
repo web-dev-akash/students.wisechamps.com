@@ -33,7 +33,11 @@ export const Orders = () => {
   }, []);
 
   return (
-    <Box p={"3.5rem 11px 1rem 11px"}>
+    <Box
+      pt={["3.5rem", "3.5rem", "4.2rem", "4.2rem"]}
+      paddingInline={"11px"}
+      pb={"1rem"}
+    >
       <Header hidetags={true} showStore={true} />
       {orders.length > 0 ? (
         <Card

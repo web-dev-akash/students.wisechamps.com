@@ -31,7 +31,7 @@ export const Coins = () => {
   }, []);
 
   return (
-    <Box padding={"2.5rem 0px 0 0px"} bg={"#e7e6ff"}>
+    <Box pt={["2.5rem", "2.5rem", "3.5rem", "3.5rem"]} bg={"#e7e6ff"}>
       <Header hidetags={true} />
       <Box
         className="animate__animated animate__fadeInUp"
@@ -45,7 +45,9 @@ export const Coins = () => {
         // gap={"10px"}
       >
         <Box padding={"12px"}>
-          <Text fontSize={["13px", "13px", "15px", "15px"]}>Coin Balance</Text>
+          <Text fontWeight={500} fontSize={["14px", "14px", "16px", "16px"]}>
+            Coin Balance
+          </Text>
           <Text
             fontWeight={700}
             display={"flex"}

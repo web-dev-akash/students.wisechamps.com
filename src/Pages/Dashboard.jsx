@@ -1,5 +1,5 @@
 import { Box, Heading, Image, Tag, Text } from "@chakra-ui/react";
-import React, { useEffect } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Header } from "../Components/Header";
 import hi from "../assets/hi.gif";
@@ -7,7 +7,7 @@ import { ReferralComponent } from "../Components/ReferralComponent";
 import { UserSystemStatics } from "../Components/UserSystemStatics";
 import { Schedule } from "../Components/Schedule";
 import { MoreActions } from "../Components/MoreActions";
-import { getOrders, getProducts } from "../Redux/action";
+import { getOrders, getProducts, setAlert } from "../Redux/action";
 import { CarousalMain } from "../Components/CarousalMain";
 import { Pricing } from "../Components/Pricing";
 import { Footer } from "../Components/Footer";
@@ -19,7 +19,69 @@ import { WeeklyQuiz } from "../Components/WeeklyQuiz";
 export const Dashboard = () => {
   const user = useSelector((state) => state.user);
   const products = useSelector((state) => state.products);
+  const weeklyQuizzes = useSelector((state) => state.user.weeklyQuizzes);
+  const alert = useSelector((state) => state.alert);
+  const newUser = useSelector((state) => state.user.newUser);
+  const timersRef = useRef([]);
   const dispatch = useDispatch();
+
+  useEffect(() => {
+    const now = new Date();
+    const initialIndex = weeklyQuizzes.findIndex((quiz) => {
+      const quizDate = new Date(quiz.Session_Date_Time);
+      return quizDate.toDateString() === now.toDateString();
+    });
+    const sessionDateTimeStr =
+      initialIndex === -1 ? 0 : weeklyQuizzes[initialIndex].Session_Date_Time;
+    const sessionDate = new Date(sessionDateTimeStr);
+    const sessionTime = sessionDate.getTime();
+
+    const twentyMinutesBefore = new Date(sessionTime - 20 * 60 * 1000);
+    const zeroMinutesAfter = new Date(sessionTime + 0 * 60 * 1000);
+
+    timersRef.current.forEach((timer) => clearTimeout(timer));
+    timersRef.current = [];
+
+    if (now >= twentyMinutesBefore && now <= zeroMinutesAfter) {
+      if (newUser && !alert.includes("newToWisechamps")) {
+        const newAlerts = ["newToWisechamps", ...alert];
+        dispatch(setAlert(newAlerts));
+      }
+    } else {
+      if (alert.includes("newToWisechamps")) {
+        const newAlerts = alert.filter((item) => item !== "newToWisechamps");
+        dispatch(setAlert(newAlerts));
+      }
+    }
+
+    if (now < twentyMinutesBefore) {
+      timersRef.current.push(
+        setTimeout(() => {
+          if (!alert.includes("newToWisechamps")) {
+            const newAlerts = ["newToWisechamps", ...alert];
+            dispatch(setAlert(newAlerts));
+          }
+        }, twentyMinutesBefore - now)
+      );
+    }
+
+    if (now < zeroMinutesAfter) {
+      timersRef.current.push(
+        setTimeout(() => {
+          if (alert.includes("newToWisechamps")) {
+            const newAlerts = alert.filter(
+              (item) => item !== "newToWisechamps"
+            );
+            dispatch(setAlert(newAlerts));
+          }
+        }, zeroMinutesAfter - now)
+      );
+    }
+
+    return () => {
+      timersRef.current.forEach((timer) => clearTimeout(timer));
+    };
+  }, [alert]);
 
   useEffect(() => {
     dispatch(getOrders(user.id));
@@ -28,8 +90,15 @@ export const Dashboard = () => {
       dispatch(getProducts());
     }
   }, []);
+
   return (
-    <Box padding={"2.3rem 11px 1rem 11px"} className="dashboard">
+    <Box
+      padding={"2.3rem 11px 1rem 11px"}
+      pt={["2.3rem", "2.3rem", "2.7rem", "2.7rem"]}
+      paddingInline={"11px"}
+      pb={"1rem"}
+      className="dashboard"
+    >
       <Header />
       <UserSystemStatics />
       <Box
@@ -38,25 +107,29 @@ export const Dashboard = () => {
         justifyContent={"space-between"}
         m={"10px 0"}
       >
-        <Box display={"flex"} gap={"5px"}>
-          <Heading
-            fontSize={["20px", "20px", "25px", "25px", "25px"]}
+        <Box display={"flex"} gap={"5px"} alignItems={"center"}>
+          <Text
+            fontSize={["18px", "18px", "22px", "20px", "22px"]}
             fontWeight={400}
             textTransform={"capitalize"}
           >
             Hi, {user.studentName}
-          </Heading>
+          </Text>
+
           <Image
             position={"relative"}
-            bottom={["4px", "4px", "0", "0"]}
+            bottom={"2px"}
             src={hi}
             alt="👋"
             width={"30px"}
+            height={"auto"}
+            objectFit={"cover"}
           />
         </Box>
         {user.category && user.category !== "" && (
           <Tag
-            fontSize={["10px", "10px", "15px", "15px"]}
+            size={["md", "md", "lg", "lg", "lg"]}
+            fontSize={["11px", "11px", "15px", "15px"]}
             colorScheme={
               user.category === "Active"
                 ? "green"

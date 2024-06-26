@@ -503,29 +503,29 @@ const checkTimeAlerts = () => {
   const minutes = today.getMinutes();
   const alertObj = [];
 
-  const isTimeInRange = (startHour, startMinute, endHour, endMinute) => {
-    return (
-      (hours === startHour && minutes >= startMinute) ||
-      (hours > startHour && hours < endHour) ||
-      (hours === endHour && minutes < endMinute)
-    );
-  };
+  // const isTimeInRange = (startHour, startMinute, endHour, endMinute) => {
+  //   return (
+  //     (hours === startHour && minutes >= startMinute) ||
+  //     (hours > startHour && hours < endHour) ||
+  //     (hours === endHour && minutes < endMinute)
+  //   );
+  // };
 
-  if (dayOfWeek >= 1 && dayOfWeek <= 6) {
-    // Monday to Saturday
-    if (isTimeInRange(18, 45, 19, 0)) {
-      alertObj.push("aboutToStart");
-    } else if (isTimeInRange(19, 0, 20, 50)) {
-      alertObj.push("inProgress");
-    }
-  } else if (dayOfWeek === 0) {
-    // Sunday
-    if (isTimeInRange(10, 45, 11, 0)) {
-      alertObj.push("aboutToStart");
-    } else if (isTimeInRange(11, 0, 11, 50)) {
-      alertObj.push("inProgress");
-    }
-  }
+  // if (dayOfWeek >= 1 && dayOfWeek <= 6) {
+  //   // Monday to Saturday
+  //   if (isTimeInRange(18, 45, 19, 0)) {
+  //     alertObj.push("aboutToStart");
+  //   } else if (isTimeInRange(19, 0, 20, 50)) {
+  //     alertObj.push("inProgress");
+  //   }
+  // } else if (dayOfWeek === 0) {
+  //   // Sunday
+  //   if (isTimeInRange(10, 45, 11, 0)) {
+  //     alertObj.push("aboutToStart");
+  //   } else if (isTimeInRange(11, 0, 11, 50)) {
+  //     alertObj.push("inProgress");
+  //   }
+  // }
 
   if (
     dayOfWeek === 6 &&
@@ -553,22 +553,29 @@ export const fetchUser = (email) => async (dispatch) => {
     if (res.data.credits === 0) {
       alertObj.push("credits");
     }
+
     const timeAlerts = checkTimeAlerts();
     alertObj.push(...timeAlerts);
+
     if (!res.data.joinedWisechamps) {
       alertObj.push("community");
     }
-    if (res.data.credits <= 2 && !alertObj.includes("credits")) {
+
+    if (!alertObj.includes("credits") && res.data.credits <= 2) {
       alertObj.push("lowCredits");
     }
+
     if (!res.data.address) {
       alertObj.push("address");
     }
+
     if (Number(res.data.coins) > previousCoins) {
       localStorage.setItem("wise_coins", res.data.coins);
       alertObj.push("coins");
     }
+
     dispatch(setAlert(alertObj));
+
     if (res.data.status === 200) {
       localStorage.setItem("wise_email", email);
       if (email === "teststudent@wisechamps.com") {
@@ -590,12 +597,14 @@ export const fetchUser = (email) => async (dispatch) => {
             session: res.data.session,
             coinsHistory: dummyUserData.user.coinsHistory,
             weeklyQuizzes: res.data.weeklyQuizzes,
+            newUser: res.data.newUser,
           })
         );
         dispatch(setOrders(dummyUserData.orders));
         dispatch(setMode(res.data.mode));
         return;
       }
+
       dispatch(
         setUser({
           name: res.data.name,
@@ -615,9 +624,11 @@ export const fetchUser = (email) => async (dispatch) => {
           coinsHistory:
             res.data.coinsHistory === 0 ? [] : res.data.coinsHistory,
           weeklyQuizzes: res.data.weeklyQuizzes,
+          newUser: res.data.newUser,
         })
       );
     }
+
     dispatch(setMode(res.data.mode));
   } catch (error) {
     dispatch(getError());

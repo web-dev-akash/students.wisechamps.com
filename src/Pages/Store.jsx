@@ -174,11 +174,16 @@ export const Store = () => {
   }
 
   return (
-    <Box padding={"1rem 11px"} bg={"#e7e6ff"}>
+    <Box
+      pt={["1rem", "1rem", "2.5rem", "2.5rem"]}
+      paddingInline={"11px"}
+      pb={"1rem"}
+      bg={"#e7e6ff"}
+    >
       <Header hidetags={true} showOrders={true} />
       <Box mt={"35px"}>
         <Box>
-          <Text fontSize={["13px", "13px", "15px", "15px"]}>
+          <Text fontWeight={500} fontSize={["14px", "14px", "16px", "16px"]}>
             Available Coin Balance
           </Text>
           <Text
