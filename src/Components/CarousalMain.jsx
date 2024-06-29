@@ -10,6 +10,7 @@ import { AddressUpdate } from "./Alerts/AddressUpdate";
 import { DoubtSession } from "./Alerts/DoubtSession";
 import { JoinCommunity } from "./Alerts/JoinCommunity";
 import { useEffect } from "react";
+import { QuizInProgress } from "./Alerts/QuizInProgress";
 
 export const CarousalMain = () => {
   const alert = useSelector((state) => state.alert);
@@ -33,7 +34,7 @@ export const CarousalMain = () => {
         showStatus={false}
         showThumbs={false}
         centerSlidePercentage={100}
-        interval={2500}
+        interval={3000}
         stopOnHover={false}
       >
         {alert.length > 0

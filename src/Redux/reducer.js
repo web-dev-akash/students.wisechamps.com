@@ -135,7 +135,7 @@ const initialState = {
       {
         Session_Video_Link: "https://youtu.be/nVEw3gW2RQc?si=aQdbMUrZ0BeLHOfu",
         Session_Image_Link:
-          "https://cdn1.byjus.com/wp-content/uploads/2023/07/Parts-Of-Plants-Leaf.png",
+          "https://cdn.sketchbubble.com/pub/media/catalog/product/optimized1/6/c/6c2f8292b66d3362e1f674f3fb2af2fcda63f95ab6be0200b46481c1e3da40e6/animals-theme-slide1.png",
         Session_Name: "Vocabulary",
         id: "4878003000022486086",
         LMS_Survey_ID: "53292",
@@ -145,7 +145,7 @@ const initialState = {
       {
         Session_Video_Link: "https://youtu.be/nVEw3gW2RQc?si=aQdbMUrZ0BeLHOfu",
         Session_Image_Link:
-          "https://cdn1.byjus.com/wp-content/uploads/2023/07/Parts-Of-Plants-Leaf.png",
+          "https://cdn.sketchbubble.com/pub/media/catalog/product/optimized1/6/c/6c2f8292b66d3362e1f674f3fb2af2fcda63f95ab6be0200b46481c1e3da40e6/animals-theme-slide1.png",
         Session_Name: "Figure Matrix  Venn diagram",
         id: "4878003000022486091",
         LMS_Survey_ID: "53292",
@@ -155,7 +155,7 @@ const initialState = {
       {
         Session_Video_Link: "https://youtu.be/nVEw3gW2RQc?si=aQdbMUrZ0BeLHOfu",
         Session_Image_Link:
-          "https://cdn1.byjus.com/wp-content/uploads/2023/07/Parts-Of-Plants-Leaf.png",
+          "https://cdn.sketchbubble.com/pub/media/catalog/product/optimized1/6/c/6c2f8292b66d3362e1f674f3fb2af2fcda63f95ab6be0200b46481c1e3da40e6/animals-theme-slide1.png",
         Session_Name: "Sorting and Separation of Materials",
         id: "4878003000022486096",
         LMS_Survey_ID: "53292",
@@ -165,7 +165,7 @@ const initialState = {
       {
         Session_Video_Link: "https://youtu.be/nVEw3gW2RQc?si=aQdbMUrZ0BeLHOfu",
         Session_Image_Link:
-          "https://cdn1.byjus.com/wp-content/uploads/2023/07/Parts-Of-Plants-Leaf.png",
+          "https://cdn.sketchbubble.com/pub/media/catalog/product/optimized1/6/c/6c2f8292b66d3362e1f674f3fb2af2fcda63f95ab6be0200b46481c1e3da40e6/animals-theme-slide1.png",
         Session_Name: "Perimeter",
         id: "4878003000022797021",
         LMS_Survey_ID: "53292",
@@ -175,7 +175,7 @@ const initialState = {
       {
         Session_Video_Link: "https://youtu.be/nVEw3gW2RQc?si=aQdbMUrZ0BeLHOfu",
         Session_Image_Link:
-          "https://cdn1.byjus.com/wp-content/uploads/2023/07/Parts-Of-Plants-Leaf.png",
+          "https://cdn.sketchbubble.com/pub/media/catalog/product/optimized1/6/c/6c2f8292b66d3362e1f674f3fb2af2fcda63f95ab6be0200b46481c1e3da40e6/animals-theme-slide1.png",
         Session_Name: "Plants and Animals",
         id: "4878003000023039189",
         LMS_Survey_ID: "53292",
@@ -187,7 +187,7 @@ const initialState = {
       {
         Session_Video_Link: "Test",
         Session_Image_Link:
-          "https://cdn1.byjus.com/wp-content/uploads/2023/07/Parts-Of-Plants-Leaf.png",
+          "https://cdn.sketchbubble.com/pub/media/catalog/product/optimized1/6/c/6c2f8292b66d3362e1f674f3fb2af2fcda63f95ab6be0200b46481c1e3da40e6/animals-theme-slide1.png",
         Session_Name: "Knowing our Numbers",
         id: "4878003000023135021",
         LMS_Survey_ID: "53292",
@@ -197,7 +197,7 @@ const initialState = {
       {
         Session_Video_Link: "https://youtu.be/nVEw3gW2RQc?si=aQdbMUrZ0BeLHOfu",
         Session_Image_Link:
-          "https://cdn1.byjus.com/wp-content/uploads/2023/07/Parts-Of-Plants-Leaf.png",
+          "https://cdn.sketchbubble.com/pub/media/catalog/product/optimized1/6/c/6c2f8292b66d3362e1f674f3fb2af2fcda63f95ab6be0200b46481c1e3da40e6/animals-theme-slide1.png",
         Session_Name: "Nouns and Pronouns",
         id: "4878003000023135111",
         LMS_Survey_ID: "53292",
@@ -207,7 +207,7 @@ const initialState = {
       {
         Session_Video_Link: "https://youtu.be/nVEw3gW2RQc?si=aQdbMUrZ0BeLHOfu",
         Session_Image_Link:
-          "https://cdn1.byjus.com/wp-content/uploads/2023/07/Parts-Of-Plants-Leaf.png",
+          "https://cdn.sketchbubble.com/pub/media/catalog/product/optimized1/6/c/6c2f8292b66d3362e1f674f3fb2af2fcda63f95ab6be0200b46481c1e3da40e6/animals-theme-slide1.png",
         Session_Name: "Coding Decoding",
         id: "4878003000023135116",
         LMS_Survey_ID: "53292",
@@ -217,7 +217,7 @@ const initialState = {
       {
         Session_Video_Link: "https://youtu.be/nVEw3gW2RQc?si=aQdbMUrZ0BeLHOfu",
         Session_Image_Link:
-          "https://cdn1.byjus.com/wp-content/uploads/2023/07/Parts-Of-Plants-Leaf.png",
+          "https://cdn.sketchbubble.com/pub/media/catalog/product/optimized1/6/c/6c2f8292b66d3362e1f674f3fb2af2fcda63f95ab6be0200b46481c1e3da40e6/animals-theme-slide1.png",
         Session_Name: "Sorting and Separation of Materials",
         id: "4878003000023135121",
         LMS_Survey_ID: "53292",
@@ -227,12 +227,73 @@ const initialState = {
       {
         Session_Video_Link: "https://youtu.be/nVEw3gW2RQc?si=aQdbMUrZ0BeLHOfu",
         Session_Image_Link:
-          "https://cdn1.byjus.com/wp-content/uploads/2023/07/Parts-Of-Plants-Leaf.png",
+          "https://cdn.sketchbubble.com/pub/media/catalog/product/optimized1/6/c/6c2f8292b66d3362e1f674f3fb2af2fcda63f95ab6be0200b46481c1e3da40e6/animals-theme-slide1.png",
         Session_Name: "Integers",
         id: "4878003000023135126",
         LMS_Survey_ID: "53292",
         Subject: "Math",
         Session_Date_Time: "2024-06-29T11:00:00+05:30",
+      },
+
+      {
+        Session_Video_Link: "https://youtu.be/nVEw3gW2RQc?si=aQdbMUrZ0BeLHOfu",
+        Session_Image_Link:
+          "https://cdn.sketchbubble.com/pub/media/catalog/product/optimized1/6/c/6c2f8292b66d3362e1f674f3fb2af2fcda63f95ab6be0200b46481c1e3da40e6/animals-theme-slide1.png",
+        Session_Name: "Coding Decoding",
+        id: "4878003000023135116",
+        LMS_Survey_ID: "53292",
+        Subject: "Math",
+        Session_Date_Time: "2024-06-30T20:00:00+05:30",
+      },
+      {
+        Session_Video_Link: "https://youtu.be/nVEw3gW2RQc?si=aQdbMUrZ0BeLHOfu",
+        Session_Image_Link:
+          "https://cdn.sketchbubble.com/pub/media/catalog/product/optimized1/6/c/6c2f8292b66d3362e1f674f3fb2af2fcda63f95ab6be0200b46481c1e3da40e6/animals-theme-slide1.png",
+        Session_Name: "Sorting and Separation of Materials",
+        id: "4878003000023135121",
+        LMS_Survey_ID: "53292",
+        Subject: "Science",
+        Session_Date_Time: "2024-07-01T20:00:00+05:30",
+      },
+      {
+        Session_Video_Link: "https://youtu.be/nVEw3gW2RQc?si=aQdbMUrZ0BeLHOfu",
+        Session_Image_Link:
+          "https://cdn.sketchbubble.com/pub/media/catalog/product/optimized1/6/c/6c2f8292b66d3362e1f674f3fb2af2fcda63f95ab6be0200b46481c1e3da40e6/animals-theme-slide1.png",
+        Session_Name: "Integers",
+        id: "4878003000023135126",
+        LMS_Survey_ID: "53292",
+        Subject: "Math",
+        Session_Date_Time: "2024-07-02T11:00:00+05:30",
+      },
+      {
+        Session_Video_Link: "https://youtu.be/nVEw3gW2RQc?si=aQdbMUrZ0BeLHOfu",
+        Session_Image_Link:
+          "https://cdn.sketchbubble.com/pub/media/catalog/product/optimized1/6/c/6c2f8292b66d3362e1f674f3fb2af2fcda63f95ab6be0200b46481c1e3da40e6/animals-theme-slide1.png",
+        Session_Name: "Coding Decoding",
+        id: "4878003000023135116",
+        LMS_Survey_ID: "53292",
+        Subject: "Math",
+        Session_Date_Time: "2024-07-03T20:00:00+05:30",
+      },
+      {
+        Session_Video_Link: "https://youtu.be/nVEw3gW2RQc?si=aQdbMUrZ0BeLHOfu",
+        Session_Image_Link:
+          "https://cdn.sketchbubble.com/pub/media/catalog/product/optimized1/6/c/6c2f8292b66d3362e1f674f3fb2af2fcda63f95ab6be0200b46481c1e3da40e6/animals-theme-slide1.png",
+        Session_Name: "Sorting and Separation of Materials",
+        id: "4878003000023135121",
+        LMS_Survey_ID: "53292",
+        Subject: "Science",
+        Session_Date_Time: "2024-07-04T20:00:00+05:30",
+      },
+      {
+        Session_Video_Link: "https://youtu.be/nVEw3gW2RQc?si=aQdbMUrZ0BeLHOfu",
+        Session_Image_Link:
+          "https://cdn.sketchbubble.com/pub/media/catalog/product/optimized1/6/c/6c2f8292b66d3362e1f674f3fb2af2fcda63f95ab6be0200b46481c1e3da40e6/animals-theme-slide1.png",
+        Session_Name: "Integers",
+        id: "4878003000023135126",
+        LMS_Survey_ID: "53292",
+        Subject: "Math",
+        Session_Date_Time: "2024-07-05T11:00:00+05:30",
       },
     ],
     newUser: true,

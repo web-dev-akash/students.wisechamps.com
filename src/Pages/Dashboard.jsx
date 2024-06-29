@@ -1,11 +1,10 @@
-import { Box, Heading, Image, Tag, Text } from "@chakra-ui/react";
+import { Box, Image, Tag, Text } from "@chakra-ui/react";
 import React, { useEffect, useRef, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Header } from "../Components/Header";
 import hi from "../assets/hi.gif";
 import { ReferralComponent } from "../Components/ReferralComponent";
 import { UserSystemStatics } from "../Components/UserSystemStatics";
-import { Schedule } from "../Components/Schedule";
 import { MoreActions } from "../Components/MoreActions";
 import { getOrders, getProducts, setAlert } from "../Redux/action";
 import { CarousalMain } from "../Components/CarousalMain";

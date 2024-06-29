@@ -3,6 +3,7 @@ import axios from "axios";
 import React, { useEffect, useRef, useState } from "react";
 import { useSelector } from "react-redux";
 import { LuChevronLeftCircle, LuChevronRightCircle } from "react-icons/lu";
+import previewImage from "../assets/preview.jpg";
 
 const months = {
   0: "Jan",
@@ -47,11 +48,12 @@ export const WeeklyQuiz = () => {
     }
     const fiveMinutesBefore = sessionTime - 5 * 60 * 1000;
     const tenMinutesAfter = sessionTime + 70 * 60 * 1000;
+
     if (currentTime >= fiveMinutesBefore && currentTime <= tenMinutesAfter) {
       return "active";
     }
+
     if (currentTime > tenMinutesAfter) {
-      console.log("Entered Ended");
       return "ended";
     }
 
@@ -133,7 +135,6 @@ export const WeeklyQuiz = () => {
       config
     );
     const finalLink = res.data.finalLink;
-    console.log("Final Link :", finalLink);
     sessionStorage.setItem("wise_lms_logged_in", true);
     window.open(finalLink, "_blank");
     setLoadingStates((prevLoadingStates) => ({
@@ -176,7 +177,7 @@ export const WeeklyQuiz = () => {
       initialIndex === -1
         ? 0
         : screenWidth > 1621
-        ? initialIndex - 2
+        ? initialIndex - 3
         : screenWidth > 768
         ? initialIndex - 1
         : initialIndex
@@ -240,17 +241,11 @@ export const WeeklyQuiz = () => {
 
   return (
     <Box
-      background="white"
-      border={"1px solid #4E46E4"}
-      padding={"1rem"}
-      borderRadius={"10px"}
-      gridColumn={["unset", "unset", "1 / span 2", "1 / span 2"]}
-      overflow={"hidden"}
       position={"relative"}
+      overflow={"hidden"}
+      gridColumn={["unset", "unset", "1 / span 2", "1 / span 2"]}
+      mt={"2px"}
     >
-      <Text fontWeight={700} fontSize={["15px", "15px", "18px", "18px"]}>
-        Quizzes
-      </Text>
       <Box
         display={"flex"}
         alignItems={"center"}
@@ -260,7 +255,6 @@ export const WeeklyQuiz = () => {
         scrollSnapType={"x mandatory"}
         width={"100%"}
         maxWidth={"100%"}
-        mt={"10px"}
         ref={containerRef}
         id="quizScroller"
       >
@@ -285,12 +279,12 @@ export const WeeklyQuiz = () => {
               <Box
                 key={id}
                 bg={"#f7f6fa"}
-                padding={"15px"}
+                padding={"10px 15px 15px"}
                 borderRadius={"20px"}
                 alignSelf={"stretch"}
                 ref={itemRefs.current[idx]}
                 scrollSnapAlign={"center"}
-                minWidth={["100%", "300px", "350px", "350px"]}
+                minWidth={"260px"}
                 position={"relative"}
               >
                 <Box
@@ -327,23 +321,26 @@ export const WeeklyQuiz = () => {
                 </Box>
 
                 <Image
-                  src={Session_Image_Link}
+                  src={Session_Image_Link ? Session_Image_Link : previewImage}
                   alt=""
                   width={"100%"}
-                  maxHeight={"150px"}
+                  maxWidth={"100%"}
+                  maxHeight={"180px"}
                   borderRadius={"10px"}
                   objectFit={"cover"}
                   m={"10px 0"}
                 />
-                {/* <Text
-                  mt={Session_Image_Link ? "8px" : "20px"}
-                  mb={"8px"}
-                  fontSize={["14px", "14px", "15px", "16px"]}
-                  fontWeight={600}
-                  textAlign={"center"}
-                >
-                  {Session_Name}
-                </Text> */}
+                {!Session_Image_Link && (
+                  <Text
+                    mt={"8px"}
+                    mb={"8px"}
+                    fontSize={["14px", "14px", "15px", "16px"]}
+                    fontWeight={600}
+                    textAlign={"center"}
+                  >
+                    {Session_Name}
+                  </Text>
+                )}
                 <Box
                   display={"flex"}
                   alignItems={"center"}
@@ -353,19 +350,17 @@ export const WeeklyQuiz = () => {
                   {Session_Video_Link && (
                     <Button
                       id="submit-btn"
-                      fontSize={["12px", "13px", "14px", "14px"]}
+                      fontSize={"12px"}
                       mb={"8px"}
                       onClick={() => window.open(Session_Video_Link, "_blank")}
                     >
-                      {Session_Video_Link_2
-                        ? "Preview Video 1"
-                        : "Preview Video"}
+                      Preview Video
                     </Button>
                   )}
                   {Session_Video_Link_2 && (
                     <Button
                       id="submit-btn"
-                      fontSize={["12px", "13px", "14px", "14px"]}
+                      fontSize={"12px"}
                       mb={"8px"}
                       onClick={() =>
                         window.open(Session_Video_Link_2, "_blank")
@@ -391,7 +386,7 @@ export const WeeklyQuiz = () => {
                           ? "submit-btn-active"
                           : "submit-btn"
                       }
-                      fontSize={["12px", "13px", "14px", "14px"]}
+                      fontSize={"12px"}
                       isLoading={
                         getSessionStatus(Session_Date_Time) === "inactive" ||
                         getSessionStatus(Session_Date_Time) === "ended"
@@ -417,11 +412,12 @@ export const WeeklyQuiz = () => {
                   {(getColorScheme(Session_Date_Time) === "linkedin" ||
                     getSessionStatus(Session_Date_Time) === "ended") && (
                     <Button
-                      id="submit-btn"
+                      id={LMS_Survey_ID ? "submit-btn" : "submit-btn"}
                       fontSize={["12px", "13px", "14px", "14px"]}
                       onClick={() => loginLink(LMS_Survey_ID, id)}
                       isLoading={loadingStates[id]}
                       loadingText={""}
+                      isDisabled={!LMS_Survey_ID}
                     >
                       Missed Quiz
                     </Button>
@@ -435,9 +431,7 @@ export const WeeklyQuiz = () => {
       <Button
         onClick={handlePrev}
         m={"10px"}
-        isLoading={isAtStart}
-        spinnerPlacement="none"
-        loadingText={<LuChevronLeftCircle />}
+        isDisabled={isAtStart}
         bg={"none"}
         fontSize={"28px"}
         position={"absolute"}
@@ -453,9 +447,7 @@ export const WeeklyQuiz = () => {
         <LuChevronLeftCircle />
       </Button>
       <Button
-        isLoading={isAtEnd}
-        spinnerPlacement="none"
-        loadingText={<LuChevronRightCircle />}
+        isDisabled={isAtEnd}
         onClick={handleNext}
         m={"10px"}
         bg={"none"}
@@ -473,5 +465,6 @@ export const WeeklyQuiz = () => {
         <LuChevronRightCircle />
       </Button>
     </Box>
+    // </Box>
   );
 };
