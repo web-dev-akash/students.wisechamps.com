@@ -32,6 +32,7 @@ export const WeeklyQuiz = () => {
   const [isAtEnd, setIsAtEnd] = useState(false);
   const [activeBtn, setActiveBtn] = useState(false);
   const timersRef = useRef([]);
+  const [remainingTime, setRemainingTime] = useState(null);
 
   const getSessionStatus = (sessionDateTime) => {
     const now = new Date();
@@ -60,7 +61,7 @@ export const WeeklyQuiz = () => {
     return "inactive";
   };
 
-  function formatDateTime(Session_Date_Time) {
+  function formatDateTime(Session_Date_Time, timeOnly) {
     const dateObj = new Date(Session_Date_Time);
     const day = dateObj.getDate();
     const month = months[dateObj.getMonth()];
@@ -78,7 +79,9 @@ export const WeeklyQuiz = () => {
 
     const formattedMinutes = minutes < 10 ? `0${minutes}` : `${minutes}`;
     const formattedDateTime = `${day} ${month}, ${hours}:${formattedMinutes} ${period}`;
-
+    if (timeOnly) {
+      return `${hours}:${formattedMinutes} ${period}`;
+    }
     return formattedDateTime;
   }
 
@@ -157,6 +160,7 @@ export const WeeklyQuiz = () => {
         ? container.scrollWidth - containerWidth
         : 0;
       const newScrollLeft = (prevIndex + 1) * itemWidth;
+      console.log(newScrollLeft, maxScrollLeft);
       if (newScrollLeft > maxScrollLeft) {
         setIsAtEnd(true);
         return prevIndex;
@@ -165,6 +169,73 @@ export const WeeklyQuiz = () => {
       }
     });
   };
+
+  const getRemainingTime = (sessionDateTime) => {
+    const now = new Date();
+    const sessionDate = new Date(sessionDateTime);
+    const timeDiff = sessionDate.getTime() - now.getTime();
+    if (timeDiff > 0) {
+      const minutes = Math.floor(timeDiff / (1000 * 60));
+      const seconds = Math.floor((timeDiff % (1000 * 60)) / 1000);
+      return { minutes, seconds };
+    }
+    return null;
+  };
+
+  const renderJoinNowButton = (Session_Date_Time) => {
+    const fiveMinutesBefore =
+      new Date(Session_Date_Time).getTime() - 5 * 60 * 1000;
+
+    if (remainingTime) {
+      if (remainingTime.minutes > 30) {
+        const quizStartTime = new Date(fiveMinutesBefore);
+        return (
+          <Button fontSize={"12px"} isDisabled id={"submit-btn-active"}>
+            Quiz starts at {formatDateTime(quizStartTime, true)}
+          </Button>
+        );
+      } else {
+        return (
+          <Button fontSize={"12px"} isDisabled id={"submit-btn-active"}>
+            Quiz starting in {remainingTime.minutes.toString().padStart(2, "0")}
+            :{remainingTime.seconds.toString().padStart(2, "0")} min
+          </Button>
+        );
+      }
+    }
+
+    return (
+      <Button
+        isDisabled={
+          getSessionStatus(Session_Date_Time) === "active" ? false : true
+        }
+        id="submit-btn"
+        fontSize={"12px"}
+        onClick={() =>
+          window.open(`https://zoom.wisechamps.com?email=${email}`, "_blank")
+        }
+      >
+        Join Now
+      </Button>
+    );
+  };
+
+  useEffect(() => {
+    const now = new Date();
+    const initialIndex = weeklyQuizzes.findIndex((quiz) => {
+      const quizDate = new Date(quiz.Session_Date_Time);
+      return quizDate.toDateString() === now.toDateString();
+    });
+    const sessionDateTimeStr =
+      initialIndex === -1 ? 0 : weeklyQuizzes[initialIndex].Session_Date_Time;
+    const sessionDate = new Date(sessionDateTimeStr);
+    const timer = setInterval(() => {
+      const time = getRemainingTime(sessionDate);
+      setRemainingTime(time);
+    }, 1000);
+
+    return () => clearInterval(timer);
+  }, []);
 
   useEffect(() => {
     const today = new Date();
@@ -176,8 +247,8 @@ export const WeeklyQuiz = () => {
     setIndex(
       initialIndex === -1
         ? 0
-        : screenWidth > 1621
-        ? initialIndex - 3
+        : screenWidth > 1406
+        ? initialIndex - 2
         : screenWidth > 768
         ? initialIndex - 1
         : initialIndex
@@ -378,42 +449,13 @@ export const WeeklyQuiz = () => {
                 >
                   {(getSessionStatus(Session_Date_Time) === "active" ||
                     getSessionStatus(Session_Date_Time) === "inactive" ||
-                    getSessionStatus(Session_Date_Time) === "ended") && (
-                    <Button
-                      id={
-                        getSessionStatus(Session_Date_Time) === "inactive" ||
-                        getSessionStatus(Session_Date_Time) === "ended"
-                          ? "submit-btn-active"
-                          : "submit-btn"
-                      }
-                      fontSize={"12px"}
-                      isLoading={
-                        getSessionStatus(Session_Date_Time) === "inactive" ||
-                        getSessionStatus(Session_Date_Time) === "ended"
-                          ? true
-                          : false
-                      }
-                      spinnerPlacement="none"
-                      loadingText={
-                        getSessionStatus(Session_Date_Time) === "ended"
-                          ? "Today's Quiz Ended"
-                          : "Quiz not started yet"
-                      }
-                      onClick={() =>
-                        window.open(
-                          `https://zoom.wisechamps.com?email=${email}`,
-                          "_blank"
-                        )
-                      }
-                    >
-                      Join Now
-                    </Button>
-                  )}
+                    getSessionStatus(Session_Date_Time) === "ended") &&
+                    renderJoinNowButton(Session_Date_Time)}
                   {(getColorScheme(Session_Date_Time) === "linkedin" ||
                     getSessionStatus(Session_Date_Time) === "ended") && (
                     <Button
-                      id={LMS_Survey_ID ? "submit-btn" : "submit-btn"}
-                      fontSize={["12px", "13px", "14px", "14px"]}
+                      id={LMS_Survey_ID ? "submit-btn" : "submit-btn-active"}
+                      fontSize={"12px"}
                       onClick={() => loginLink(LMS_Survey_ID, id)}
                       isLoading={loadingStates[id]}
                       loadingText={""}
