@@ -37,6 +37,7 @@ export const Survey = () => {
             fontSize={["13px", "13px", "15px", "15px"]}
             m={"5px 0"}
             width={["100%", "100%", "100%", "70%"]}
+            fontWeight={500}
           >
             Here's Your chance to Win another 500 coins into your child's
             Wisechamps account. We request parents to please take out a few

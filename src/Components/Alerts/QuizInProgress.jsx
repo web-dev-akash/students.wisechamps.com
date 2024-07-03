@@ -39,6 +39,7 @@ export const QuizInProgress = () => {
             fontSize={["13px", "13px", "15px", "15px"]}
             m={"5px 0"}
             width={["100%", "100%", "100%", "80%"]}
+            fontWeight={500}
           >
             Meeting is about to start in some time. Click the below button to
             join today's quiz.

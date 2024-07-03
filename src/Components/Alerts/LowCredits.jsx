@@ -38,6 +38,7 @@ export const LowCredits = () => {
             fontSize={["13px", "13px", "15px", "15px"]}
             m={"5px 0"}
             width={["100%", "100%", "100%", "80%"]}
+            fontWeight={500}
           >
             You have {user.credits} quiz balance left. Add more to enjoy
             uninterrupted quiz.

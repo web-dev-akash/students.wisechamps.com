@@ -37,6 +37,7 @@ export const CoinsUpdated = () => {
             fontSize={["13px", "13px", "15px", "15px"]}
             m={"5px 0"}
             width={["100%", "100%", "100%", "80%"]}
+            fontWeight={500}
           >
             Coins added successfully. Your coins have updated to {user.coins}.
           </Text>

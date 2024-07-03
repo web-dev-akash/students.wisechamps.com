@@ -37,6 +37,7 @@ export const JoinCommunity = () => {
             fontSize={["13px", "13px", "15px", "15px"]}
             m={"5px 0"}
             width={["100%", "100%", "100%", "70%"]}
+            fontWeight={500}
           >
             Connect with expert teachers. Get reminders of quizzes and important
             events.

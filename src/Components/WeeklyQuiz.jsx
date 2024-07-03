@@ -244,6 +244,8 @@ export const WeeklyQuiz = () => {
     setIndex(
       initialIndex === -1
         ? 0
+        : screenWidth > 1777
+        ? initialIndex - 3
         : screenWidth > 1406
         ? initialIndex - 2
         : screenWidth > 768
@@ -464,7 +466,7 @@ export const WeeklyQuiz = () => {
                     getSessionStatus(Session_Date_Time) === "inactive" ||
                     getSessionStatus(Session_Date_Time) === "ended") &&
                     renderJoinNowButton(Session_Date_Time)}
-                  {(getColorScheme(Session_Date_Time) === "linkedin" ||
+                  {/* {(getColorScheme(Session_Date_Time) === "linkedin" ||
                     getSessionStatus(Session_Date_Time) === "ended") && (
                     <Button
                       id={LMS_Survey_ID ? "submit-btn" : "submit-btn-active"}
@@ -476,7 +478,7 @@ export const WeeklyQuiz = () => {
                     >
                       Missed Quiz
                     </Button>
-                  )}
+                  )} */}
                 </Box>
               </Box>
             );

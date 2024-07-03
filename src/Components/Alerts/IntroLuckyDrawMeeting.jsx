@@ -62,9 +62,10 @@ export const IntroLuckyDrawMeeting = () => {
             fontSize={["13px", "13px", "15px", "15px"]}
             m={"5px 0"}
             width={["100%", "100%", "100%", "80%"]}
+            fontWeight={500}
           >
-            Join our Intro Lucky Draw Meeting and get a change to win Wisechamps
-            Coins
+            Join our INTRODUCTION MEETING, learn the BENEFITS of Wisechamps Live
+            quizzing and participate in LUCKY DRAW and WIN GIFTS
           </Text>
           <Button
             fontSize={"13px"}

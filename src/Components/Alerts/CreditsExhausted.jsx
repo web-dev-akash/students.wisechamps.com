@@ -38,6 +38,7 @@ export const CreditsExhausted = () => {
             fontSize={["13px", "13px", "15px", "15px"]}
             m={"5px 0"}
             width={["100%", "100%", "100%", "70%"]}
+            fontWeight={500}
           >
             You have 0 quiz balance left. Add more to join today's quiz.
           </Text>
