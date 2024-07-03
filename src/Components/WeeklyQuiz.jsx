@@ -186,7 +186,7 @@ export const WeeklyQuiz = () => {
     const fiveMinutesBefore =
       new Date(Session_Date_Time).getTime() - 5 * 60 * 1000;
 
-    if (remainingTime) {
+    if (remainingTime && remainingTime.minutes >= 5) {
       if (remainingTime.minutes > 30) {
         const quizStartTime = new Date(fiveMinutesBefore);
         return (
@@ -206,9 +206,6 @@ export const WeeklyQuiz = () => {
 
     return (
       <Button
-        isDisabled={
-          getSessionStatus(Session_Date_Time) === "active" ? false : true
-        }
         id="submit-btn"
         fontSize={"12px"}
         onClick={() =>

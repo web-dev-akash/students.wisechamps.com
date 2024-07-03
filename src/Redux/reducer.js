@@ -107,7 +107,6 @@ const initialState = {
 //     quizzes: 45,
 //     age: 213,
 //     category: "Active",
-//     session: [],
 //     coinsHistory: [
 //       {
 //         Coins: 500,
@@ -273,7 +272,7 @@ const initialState = {
 //         id: "4878003000023135116",
 //         LMS_Survey_ID: "53292",
 //         Subject: "Math",
-//         Session_Date_Time: "2024-07-03T20:00:00+05:30",
+//         Session_Date_Time: "2024-07-03T12:27:00+05:30",
 //       },
 //       {
 //         Session_Video_Link: "https://youtu.be/nVEw3gW2RQc?si=aQdbMUrZ0BeLHOfu",

@@ -35,8 +35,8 @@ export const Dashboard = () => {
     const sessionDate = new Date(sessionDateTimeStr);
     const sessionTime = sessionDate.getTime();
 
-    const twentyMinutesBefore = new Date(sessionTime - 20 * 60 * 1000);
-    const zeroMinutesAfter = new Date(sessionTime + 0 * 60 * 1000);
+    const twentyMinutesBefore = new Date(sessionTime - 35 * 60 * 1000);
+    const zeroMinutesAfter = new Date(sessionTime - 5 * 60 * 1000);
 
     timersRef.current.forEach((timer) => clearTimeout(timer));
     timersRef.current = [];
