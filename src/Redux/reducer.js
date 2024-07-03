@@ -25,7 +25,6 @@ const initialState = {
     quizzes: 0,
     age: 0,
     category: "",
-    session: [],
     coinsHistory: [],
     weeklyQuizzes: [],
     newUser: false,

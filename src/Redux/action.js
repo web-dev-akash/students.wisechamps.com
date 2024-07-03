@@ -503,30 +503,6 @@ const checkTimeAlerts = () => {
   const minutes = today.getMinutes();
   const alertObj = [];
 
-  // const isTimeInRange = (startHour, startMinute, endHour, endMinute) => {
-  //   return (
-  //     (hours === startHour && minutes >= startMinute) ||
-  //     (hours > startHour && hours < endHour) ||
-  //     (hours === endHour && minutes < endMinute)
-  //   );
-  // };
-
-  // if (dayOfWeek >= 1 && dayOfWeek <= 6) {
-  //   // Monday to Saturday
-  //   if (isTimeInRange(18, 45, 19, 0)) {
-  //     alertObj.push("aboutToStart");
-  //   } else if (isTimeInRange(19, 0, 20, 50)) {
-  //     alertObj.push("inProgress");
-  //   }
-  // } else if (dayOfWeek === 0) {
-  //   // Sunday
-  //   if (isTimeInRange(10, 45, 11, 0)) {
-  //     alertObj.push("aboutToStart");
-  //   } else if (isTimeInRange(11, 0, 11, 50)) {
-  //     alertObj.push("inProgress");
-  //   }
-  // }
-
   if (
     dayOfWeek === 6 &&
     ((hours > 16 && hours < 18) ||
@@ -594,7 +570,6 @@ export const fetchUser = (email) => async (dispatch) => {
             quizzes: dummyUserData.user.quizzes,
             age: dummyUserData.user.age,
             category: dummyUserData.user.category,
-            session: res.data.session,
             coinsHistory: dummyUserData.user.coinsHistory,
             weeklyQuizzes: res.data.weeklyQuizzes,
             newUser: res.data.newUser,
@@ -620,7 +595,6 @@ export const fetchUser = (email) => async (dispatch) => {
           quizzes: res.data.quizzes,
           age: res.data.age,
           category: res.data.category,
-          session: res.data.session,
           coinsHistory:
             res.data.coinsHistory === 0 ? [] : res.data.coinsHistory,
           weeklyQuizzes: res.data.weeklyQuizzes,
