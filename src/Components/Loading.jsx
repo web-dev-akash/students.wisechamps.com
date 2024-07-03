@@ -1,33 +1,26 @@
 import React from "react";
-import { RaceBy } from "@uiball/loaders";
+import { ring } from "ldrs";
+import { Box } from "@chakra-ui/react";
+ring.register();
 export const Loading = () => {
   return (
-    <div
+    <Box
       style={{
         overflow: "hidden",
         display: "flex",
         justifyContent: "center",
         alignItems: "center",
         flexDirection: "column",
-        height: "90vh",
       }}
+      height={["90vh", "90vh", "100vh"]}
     >
-      <p
-        style={{
-          fontSize: "18px",
-          width: "90%",
-          textAlign: "center",
-          marginBottom: "10px",
-        }}
-      >
-        Loading Please Wait...
-      </p>
-      <RaceBy
-        size={300}
-        lineWeight={20}
-        speed={1.4}
-        color="rgba(129, 140, 248)"
-      />
-    </div>
+      <l-ring
+        size="50"
+        stroke="8"
+        bg-opacity="0.2"
+        speed="2"
+        color="#5838fc"
+      ></l-ring>
+    </Box>
   );
 };

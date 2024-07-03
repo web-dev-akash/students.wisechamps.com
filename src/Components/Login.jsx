@@ -17,6 +17,12 @@ export const Login = () => {
     dispatch(getProducts());
   };
 
+  const handleKeyDown = (e) => {
+    if (e.key === "Enter") {
+      handleClick();
+    }
+  };
+
   return (
     <div className="main animate__animated animate__fadeInRight">
       <h3>Email</h3>
@@ -27,6 +33,7 @@ export const Login = () => {
           placeholder="Enter Email"
           inputMode="email"
           onChange={handleChange}
+          onKeyDown={handleKeyDown}
         />
         <p>* Please use the registered Email.</p>
         <button id="submit-btn" onClick={() => handleClick(email)}>
