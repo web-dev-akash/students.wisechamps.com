@@ -390,34 +390,50 @@ export const WeeklyQuiz = () => {
                     {formatDateTime(Session_Date_Time)}
                   </Tag>
                 </Box>
-
-                <Image
-                  src={Session_Image_Link ? Session_Image_Link : previewImage}
-                  alt=""
-                  width={"100%"}
-                  maxWidth={"100%"}
-                  maxHeight={"180px"}
-                  borderRadius={"10px"}
-                  objectFit={"cover"}
-                  m={"10px 0"}
-                />
-                {!Session_Image_Link && (
-                  <Text
-                    mt={"8px"}
-                    mb={"8px"}
-                    fontSize={["14px", "14px", "15px", "16px"]}
-                    fontWeight={600}
-                    textAlign={"center"}
-                  >
-                    {Session_Name}
-                  </Text>
-                )}
+                <Box position={"relative"}>
+                  <Image
+                    src={Session_Image_Link ? Session_Image_Link : previewImage}
+                    alt=""
+                    width={"100%"}
+                    maxWidth={"100%"}
+                    maxHeight={Session_Image_Link ? "180px" : "172.5px"}
+                    borderRadius={"10px"}
+                    objectFit={"cover"}
+                    m={"10px 0"}
+                  />
+                  {!Session_Image_Link && (
+                    <Text
+                      position={"absolute"}
+                      top={"80%"}
+                      left={"50%"}
+                      transform={"translate(-50%, -50%)"}
+                      zIndex={9}
+                      fontSize={"14px"}
+                      fontWeight={700}
+                      textAlign={"center"}
+                      minWidth={"200px"}
+                      textTransform={"uppercase"}
+                    >
+                      {Session_Name}
+                    </Text>
+                  )}
+                </Box>
                 <Box
                   display={"flex"}
                   alignItems={"center"}
                   justifyContent={"space-between"}
                   gap={"10px"}
                 >
+                  {!Session_Video_Link && !Session_Video_Link_2 && (
+                    <Button
+                      id="submit-btn-active"
+                      isDisabled
+                      fontSize={"12px"}
+                      mb={"8px"}
+                    >
+                      No Preview Video
+                    </Button>
+                  )}
                   {Session_Video_Link && (
                     <Button
                       id="submit-btn"

@@ -38,8 +38,8 @@ export const JoinCommunity = () => {
             m={"5px 0"}
             width={["100%", "100%", "100%", "70%"]}
           >
-            Get Tips and Tricks about Olympiad preparation. Connect with expert
-            teachers and Get reminders about quizzes and important events.
+            Connect with expert teachers. Get reminders of quizzes and important
+            events.
           </Text>
           <Button
             fontSize={"13px"}
