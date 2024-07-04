@@ -13,6 +13,7 @@ import { Box, Heading, Text } from "@chakra-ui/react";
 import { Coins } from "./Pages/Coins";
 import { Address } from "./Pages/Address";
 import { Orders } from "./Pages/Orders";
+import { Missed } from "./Pages/Missed";
 
 export const App = () => {
   return (
@@ -64,6 +65,14 @@ export const App = () => {
           element={
             <PrivateRoute>
               <Orders />
+            </PrivateRoute>
+          }
+        ></Route>
+        <Route
+          path="/dashboard/missed"
+          element={
+            <PrivateRoute>
+              <Missed />
             </PrivateRoute>
           }
         ></Route>

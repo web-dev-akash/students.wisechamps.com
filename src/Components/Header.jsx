@@ -5,7 +5,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import { setMode } from "../Redux/action";
 
-export const Header = ({ hidetags, showStore }) => {
+export const Header = ({ hidetags, showStore, bgWhite }) => {
   const user = useSelector((state) => state.user);
   const mode = useSelector((state) => state.mode);
   const dispatch = useDispatch();
@@ -16,16 +16,29 @@ export const Header = ({ hidetags, showStore }) => {
   };
 
   return (
-    <Box>
-      <header
-        className="animate__animated animate__fadeInLeft"
-        style={{
-          position: "absolute",
-          top: "0.6rem",
-          left: "15px",
-          zIndex: "9",
-        }}
-      >
+    <Box
+      display={"flex"}
+      justifyContent={"space-between"}
+      alignItems={"center"}
+      position={bgWhite ? "fixed" : "absolute"}
+      width={"100%"}
+      padding={
+        bgWhite
+          ? [
+              "15px 11px 35px 11px",
+              "15px 11px 35px 11px",
+              "15px 11px 30px 11px",
+              "15px 11px 15px 11px",
+              "15px 11px 20px 11px",
+            ]
+          : ["10px 11px", "10px 11px", "5px 11px", "5px 11px"]
+      }
+      bg={bgWhite ? "white" : ""}
+      top={0}
+      left={0}
+      zIndex={99999}
+    >
+      <header className="animate__animated animate__fadeInLeft">
         <Image
           src={logo}
           alt="Wisechamps"
@@ -39,10 +52,6 @@ export const Header = ({ hidetags, showStore }) => {
           justifyContent={"center"}
           alignItems={"center"}
           gap={"7px"}
-          position={"absolute"}
-          top={"12px"}
-          right={"15px"}
-          zIndex={9}
         >
           {hidetags ? (
             <>

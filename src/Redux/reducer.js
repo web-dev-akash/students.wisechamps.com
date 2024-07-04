@@ -137,7 +137,8 @@ const initialState = {
 //           "https://cdn.sketchbubble.com/pub/media/catalog/product/optimized1/6/c/6c2f8292b66d3362e1f674f3fb2af2fcda63f95ab6be0200b46481c1e3da40e6/animals-theme-slide1.png",
 //         Session_Name: "Vocabulary",
 //         id: "4878003000022486086",
-//         LMS_Survey_ID: "53292",
+//         Vevox_Survey_Link:
+//           "https://vevox.app/#/m/169126184/survey/4bb0032b-f260-47e6-b9e7-7a4bb204365d",
 //         Subject: "English",
 //         Session_Date_Time: "2024-06-20T19:30:00+05:30",
 //       },
@@ -147,7 +148,8 @@ const initialState = {
 //           "https://cdn.sketchbubble.com/pub/media/catalog/product/optimized1/6/c/6c2f8292b66d3362e1f674f3fb2af2fcda63f95ab6be0200b46481c1e3da40e6/animals-theme-slide1.png",
 //         Session_Name: "Figure Matrix  Venn diagram",
 //         id: "4878003000022486091",
-//         LMS_Survey_ID: "53292",
+//         Vevox_Survey_Link:
+//           "https://vevox.app/#/m/169126184/survey/4bb0032b-f260-47e6-b9e7-7a4bb204365d",
 //         Subject: "Math",
 //         Session_Date_Time: "2024-06-21T19:30:00+05:30",
 //       },
@@ -157,7 +159,8 @@ const initialState = {
 //           "https://cdn.sketchbubble.com/pub/media/catalog/product/optimized1/6/c/6c2f8292b66d3362e1f674f3fb2af2fcda63f95ab6be0200b46481c1e3da40e6/animals-theme-slide1.png",
 //         Session_Name: "Sorting and Separation of Materials",
 //         id: "4878003000022486096",
-//         LMS_Survey_ID: "53292",
+//         Vevox_Survey_Link:
+//           "https://vevox.app/#/m/169126184/survey/4bb0032b-f260-47e6-b9e7-7a4bb204365d",
 //         Subject: "Science",
 //         Session_Date_Time: "2024-06-22T19:30:00+05:30",
 //       },
@@ -167,7 +170,8 @@ const initialState = {
 //           "https://cdn.sketchbubble.com/pub/media/catalog/product/optimized1/6/c/6c2f8292b66d3362e1f674f3fb2af2fcda63f95ab6be0200b46481c1e3da40e6/animals-theme-slide1.png",
 //         Session_Name: "Perimeter",
 //         id: "4878003000022797021",
-//         LMS_Survey_ID: "53292",
+//         Vevox_Survey_Link:
+//           "https://vevox.app/#/m/169126184/survey/4bb0032b-f260-47e6-b9e7-7a4bb204365d",
 //         Subject: "Math",
 //         Session_Date_Time: "2024-06-23T19:30:00+05:30",
 //       },
@@ -177,7 +181,8 @@ const initialState = {
 //           "https://cdn.sketchbubble.com/pub/media/catalog/product/optimized1/6/c/6c2f8292b66d3362e1f674f3fb2af2fcda63f95ab6be0200b46481c1e3da40e6/animals-theme-slide1.png",
 //         Session_Name: "Plants and Animals",
 //         id: "4878003000023039189",
-//         LMS_Survey_ID: "53292",
+//         Vevox_Survey_Link:
+//           "https://vevox.app/#/m/169126184/survey/4bb0032b-f260-47e6-b9e7-7a4bb204365d",
 //         Subject: "Science",
 //         Session_Date_Time: "2024-06-24T20:00:00+05:30",
 //         Session_Video_Link_2:
@@ -189,7 +194,8 @@ const initialState = {
 //           "https://cdn.sketchbubble.com/pub/media/catalog/product/optimized1/6/c/6c2f8292b66d3362e1f674f3fb2af2fcda63f95ab6be0200b46481c1e3da40e6/animals-theme-slide1.png",
 //         Session_Name: "Knowing our Numbers",
 //         id: "4878003000023135021",
-//         LMS_Survey_ID: "53292",
+//         Vevox_Survey_Link:
+//           "https://vevox.app/#/m/169126184/survey/4bb0032b-f260-47e6-b9e7-7a4bb204365d",
 //         Subject: "Math",
 //         Session_Date_Time: "2024-06-25T17:55:00+05:30",
 //       },
@@ -199,7 +205,8 @@ const initialState = {
 //           "https://cdn.sketchbubble.com/pub/media/catalog/product/optimized1/6/c/6c2f8292b66d3362e1f674f3fb2af2fcda63f95ab6be0200b46481c1e3da40e6/animals-theme-slide1.png",
 //         Session_Name: "Nouns and Pronouns",
 //         id: "4878003000023135111",
-//         LMS_Survey_ID: "53292",
+//         Vevox_Survey_Link:
+//           "https://vevox.app/#/m/169126184/survey/4bb0032b-f260-47e6-b9e7-7a4bb204365d",
 //         Subject: "English",
 //         Session_Date_Time: "2024-06-26T20:00:00+05:30",
 //       },
@@ -209,7 +216,8 @@ const initialState = {
 //           "https://cdn.sketchbubble.com/pub/media/catalog/product/optimized1/6/c/6c2f8292b66d3362e1f674f3fb2af2fcda63f95ab6be0200b46481c1e3da40e6/animals-theme-slide1.png",
 //         Session_Name: "Coding Decoding",
 //         id: "4878003000023135116",
-//         LMS_Survey_ID: "53292",
+//         Vevox_Survey_Link:
+//           "https://vevox.app/#/m/169126184/survey/4bb0032b-f260-47e6-b9e7-7a4bb204365d",
 //         Subject: "Math",
 //         Session_Date_Time: "2024-06-27T20:00:00+05:30",
 //       },
@@ -219,7 +227,8 @@ const initialState = {
 //           "https://cdn.sketchbubble.com/pub/media/catalog/product/optimized1/6/c/6c2f8292b66d3362e1f674f3fb2af2fcda63f95ab6be0200b46481c1e3da40e6/animals-theme-slide1.png",
 //         Session_Name: "Sorting and Separation of Materials",
 //         id: "4878003000023135121",
-//         LMS_Survey_ID: "53292",
+//         Vevox_Survey_Link:
+//           "https://vevox.app/#/m/169126184/survey/4bb0032b-f260-47e6-b9e7-7a4bb204365d",
 //         Subject: "Science",
 //         Session_Date_Time: "2024-06-28T20:00:00+05:30",
 //       },
@@ -229,7 +238,8 @@ const initialState = {
 //           "https://cdn.sketchbubble.com/pub/media/catalog/product/optimized1/6/c/6c2f8292b66d3362e1f674f3fb2af2fcda63f95ab6be0200b46481c1e3da40e6/animals-theme-slide1.png",
 //         Session_Name: "Integers",
 //         id: "4878003000023135126",
-//         LMS_Survey_ID: "53292",
+//         Vevox_Survey_Link:
+//           "https://vevox.app/#/m/169126184/survey/4bb0032b-f260-47e6-b9e7-7a4bb204365d",
 //         Subject: "Math",
 //         Session_Date_Time: "2024-06-29T11:00:00+05:30",
 //       },
@@ -240,7 +250,8 @@ const initialState = {
 //           "https://cdn.sketchbubble.com/pub/media/catalog/product/optimized1/6/c/6c2f8292b66d3362e1f674f3fb2af2fcda63f95ab6be0200b46481c1e3da40e6/animals-theme-slide1.png",
 //         Session_Name: "Coding Decoding",
 //         id: "4878003000023135116",
-//         LMS_Survey_ID: "53292",
+//         Vevox_Survey_Link:
+//           "https://vevox.app/#/m/169126184/survey/4bb0032b-f260-47e6-b9e7-7a4bb204365d",
 //         Subject: "Math",
 //         Session_Date_Time: "2024-06-30T20:00:00+05:30",
 //       },
@@ -250,7 +261,8 @@ const initialState = {
 //           "https://cdn.sketchbubble.com/pub/media/catalog/product/optimized1/6/c/6c2f8292b66d3362e1f674f3fb2af2fcda63f95ab6be0200b46481c1e3da40e6/animals-theme-slide1.png",
 //         Session_Name: "Sorting and Separation of Materials",
 //         id: "4878003000023135121",
-//         LMS_Survey_ID: "53292",
+//         Vevox_Survey_Link:
+//           "https://vevox.app/#/m/169126184/survey/4bb0032b-f260-47e6-b9e7-7a4bb204365d",
 //         Subject: "Science",
 //         Session_Date_Time: "2024-07-01T20:00:00+05:30",
 //       },
@@ -260,7 +272,8 @@ const initialState = {
 //           "https://cdn.sketchbubble.com/pub/media/catalog/product/optimized1/6/c/6c2f8292b66d3362e1f674f3fb2af2fcda63f95ab6be0200b46481c1e3da40e6/animals-theme-slide1.png",
 //         Session_Name: "Integers",
 //         id: "4878003000023135126",
-//         LMS_Survey_ID: "53292",
+//         Vevox_Survey_Link:
+//           "https://vevox.app/#/m/169126184/survey/4bb0032b-f260-47e6-b9e7-7a4bb204365d",
 //         Subject: "Math",
 //         Session_Date_Time: "2024-07-02T17:50:00+05:30",
 //       },
@@ -270,7 +283,8 @@ const initialState = {
 //           "https://cdn.sketchbubble.com/pub/media/catalog/product/optimized1/6/c/6c2f8292b66d3362e1f674f3fb2af2fcda63f95ab6be0200b46481c1e3da40e6/animals-theme-slide1.png",
 //         Session_Name: "Coding Decoding",
 //         id: "4878003000023135116",
-//         LMS_Survey_ID: "53292",
+//         Vevox_Survey_Link:
+//           "https://vevox.app/#/m/169126184/survey/4bb0032b-f260-47e6-b9e7-7a4bb204365d",
 //         Subject: "Math",
 //         Session_Date_Time: "2024-07-03T12:27:00+05:30",
 //       },
@@ -280,7 +294,8 @@ const initialState = {
 //           "https://cdn.sketchbubble.com/pub/media/catalog/product/optimized1/6/c/6c2f8292b66d3362e1f674f3fb2af2fcda63f95ab6be0200b46481c1e3da40e6/animals-theme-slide1.png",
 //         Session_Name: "Sorting and Separation of Materials",
 //         id: "4878003000023135121",
-//         LMS_Survey_ID: "53292",
+//         Vevox_Survey_Link:
+//           "https://vevox.app/#/m/169126184/survey/4bb0032b-f260-47e6-b9e7-7a4bb204365d",
 //         Subject: "Science",
 //         Session_Date_Time: "2024-07-04T20:00:00+05:30",
 //       },
@@ -290,7 +305,8 @@ const initialState = {
 //           "https://cdn.sketchbubble.com/pub/media/catalog/product/optimized1/6/c/6c2f8292b66d3362e1f674f3fb2af2fcda63f95ab6be0200b46481c1e3da40e6/animals-theme-slide1.png",
 //         Session_Name: "Integers",
 //         id: "4878003000023135126",
-//         LMS_Survey_ID: "53292",
+//         Vevox_Survey_Link:
+//           "https://vevox.app/#/m/169126184/survey/4bb0032b-f260-47e6-b9e7-7a4bb204365d",
 //         Subject: "Math",
 //         Session_Date_Time: "2024-07-05T11:00:00+05:30",
 //       },

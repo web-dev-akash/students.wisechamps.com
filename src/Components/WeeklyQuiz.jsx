@@ -4,6 +4,7 @@ import React, { useEffect, useRef, useState } from "react";
 import { useSelector } from "react-redux";
 import { LuChevronLeftCircle, LuChevronRightCircle } from "react-icons/lu";
 import previewImage from "../assets/preview.jpg";
+import { Link, Navigate } from "react-router-dom";
 
 const months = {
   0: "Jan",
@@ -110,40 +111,6 @@ export const WeeklyQuiz = () => {
     }
 
     return "whatsapp";
-  };
-
-  const loginLink = async (surveyId, id) => {
-    const alreadyLoggedIn = sessionStorage.getItem("wise_lms_logged_in");
-    if (alreadyLoggedIn) {
-      window.open(
-        `https://wisechamps.app/mod/lti/view.php?id=${surveyId}`,
-        "_blank"
-      );
-      return;
-    }
-    setLoadingStates((prevLoadingStates) => ({
-      ...prevLoadingStates,
-      [id]: true,
-    }));
-    const config = {
-      headers: {
-        "Content-Type": "application/json",
-        Authorization: `Bearer ${authToken}`,
-      },
-    };
-    const url = `https://backend.wisechamps.com/quiz/loginLink`;
-    const res = await axios.post(
-      url,
-      { email: email, surveyId: surveyId },
-      config
-    );
-    const finalLink = res.data.finalLink;
-    sessionStorage.setItem("wise_lms_logged_in", true);
-    window.open(finalLink, "_blank");
-    setLoadingStates((prevLoadingStates) => ({
-      ...prevLoadingStates,
-      [id]: false,
-    }));
   };
 
   const handlePrev = () => {
@@ -335,7 +302,7 @@ export const WeeklyQuiz = () => {
               Session_Image_Link,
               Session_Name,
               id,
-              LMS_Survey_ID,
+              Vevox_Survey_Link,
               Subject,
               Session_Date_Time,
               Session_Video_Link_2,
@@ -466,19 +433,31 @@ export const WeeklyQuiz = () => {
                     getSessionStatus(Session_Date_Time) === "inactive" ||
                     getSessionStatus(Session_Date_Time) === "ended") &&
                     renderJoinNowButton(Session_Date_Time)}
-                  {/* {(getColorScheme(Session_Date_Time) === "linkedin" ||
+                  {(getColorScheme(Session_Date_Time) === "linkedin" ||
                     getSessionStatus(Session_Date_Time) === "ended") && (
                     <Button
-                      id={LMS_Survey_ID ? "submit-btn" : "submit-btn-active"}
+                      id={
+                        Vevox_Survey_Link ? "submit-btn" : "submit-btn-active"
+                      }
                       fontSize={"12px"}
-                      onClick={() => loginLink(LMS_Survey_ID, id)}
                       isLoading={loadingStates[id]}
                       loadingText={""}
-                      isDisabled={!LMS_Survey_ID}
+                      isDisabled={!Vevox_Survey_Link}
+                      padding={"0 !important"}
                     >
-                      Missed Quiz
+                      <Link
+                        style={{
+                          width: "100%",
+                          padding: "10px 25px",
+                        }}
+                        to={`/dashboard/missed?link=${encodeURIComponent(
+                          Vevox_Survey_Link
+                        )}`}
+                      >
+                        Missed Quiz
+                      </Link>
                     </Button>
-                  )} */}
+                  )}
                 </Box>
               </Box>
             );
