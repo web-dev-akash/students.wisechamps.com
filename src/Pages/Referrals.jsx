@@ -68,8 +68,9 @@ export const Referrals = () => {
                     textAlign="left"
                     fontSize={["13px", "13px", "14px", "15px"]}
                     padding={"3px 0"}
+                    fontWeight={600}
                   >
-                    How does the coin system work
+                    How to earn coins ?
                   </Box>
                   <AccordionIcon />
                 </AccordionButton>

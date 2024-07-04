@@ -235,6 +235,7 @@ export const Store = () => {
                   variant="striped"
                   bg={"purple.100"}
                   fontSize={["11px", "11px", "13px", "14px"]}
+                  fontWeight={[500, 500, 450, 450]}
                 >
                   <TableCaption padding={"10px 0"} m={0} bg={"white"}>
                     <Text fontSize={["13px", "13px", "14px", "15px"]}>
@@ -291,7 +292,34 @@ export const Store = () => {
                       </Td>
                     </Tr>
                     <Tr>
-                      <Td>Top 5 highest scorers every week</Td>
+                      <Td>Top 3 highest scorers weekly</Td>
+                      <Td>
+                        <Text
+                          display={"flex"}
+                          alignItems={"center"}
+                          gap={"5px"}
+                        >
+                          300{" "}
+                          <GiTwoCoins
+                            color={"gold"}
+                            style={{
+                              filter:
+                                "drop-shadow(0 0 0.5px rgba(0, 0, 0, 0.9))",
+                            }}
+                          />
+                        </Text>
+                      </Td>
+                    </Tr>
+                    <Tr>
+                      <Td>
+                        Top 3 highest percentage weekly{" "}
+                        <Text
+                          as={"span"}
+                          fontSize={["9px", "9px", "13px", "14px"]}
+                        >
+                          (Total Score / Total Questions Attempted)
+                        </Text>
+                      </Td>
                       <Td>
                         <Text
                           display={"flex"}
@@ -367,7 +395,7 @@ export const Store = () => {
                       </Td>
                     </Tr>
                     <Tr>
-                      <Td>Referral takes the first quiz</Td>
+                      <Td>Referral takes the 1st quiz</Td>
                       <Td>
                         <Text
                           display={"flex"}

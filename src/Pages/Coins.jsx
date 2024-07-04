@@ -74,8 +74,9 @@ export const Coins = () => {
                     textAlign="left"
                     fontSize={["13px", "13px", "14px", "15px"]}
                     padding={"3px 0"}
+                    fontWeight={600}
                   >
-                    How does the coin system work
+                    How to earn coins ?
                   </Box>
                   <AccordionIcon />
                 </AccordionButton>
@@ -143,7 +144,34 @@ export const Coins = () => {
                         </Td>
                       </Tr>
                       <Tr>
-                        <Td>Top 5 highest scorers every week</Td>
+                        <Td>Top 3 highest scorers weekly</Td>
+                        <Td>
+                          <Text
+                            display={"flex"}
+                            alignItems={"center"}
+                            gap={"5px"}
+                          >
+                            300{" "}
+                            <GiTwoCoins
+                              color={"gold"}
+                              style={{
+                                filter:
+                                  "drop-shadow(0 0 0.5px rgba(0, 0, 0, 0.9))",
+                              }}
+                            />
+                          </Text>
+                        </Td>
+                      </Tr>
+                      <Tr>
+                        <Td>
+                          Top 3 highest percentage weekly{" "}
+                          <Text
+                            as={"span"}
+                            fontSize={["9px", "9px", "13px", "14px"]}
+                          >
+                            (Total Score / Total Questions Attempted)
+                          </Text>
+                        </Td>
                         <Td>
                           <Text
                             display={"flex"}
