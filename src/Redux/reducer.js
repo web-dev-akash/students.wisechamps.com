@@ -294,8 +294,7 @@ const initialState = {
 //           "https://cdn.sketchbubble.com/pub/media/catalog/product/optimized1/6/c/6c2f8292b66d3362e1f674f3fb2af2fcda63f95ab6be0200b46481c1e3da40e6/animals-theme-slide1.png",
 //         Session_Name: "Sorting and Separation of Materials",
 //         id: "4878003000023135121",
-//         Vevox_Survey_Link:
-//           "https://vevox.app/#/m/169126184/survey/4bb0032b-f260-47e6-b9e7-7a4bb204365d",
+//         Vevox_Survey_Link: "",
 //         Subject: "Science",
 //         Session_Date_Time: "2024-07-04T20:00:00+05:30",
 //       },
@@ -308,7 +307,7 @@ const initialState = {
 //         Vevox_Survey_Link:
 //           "https://vevox.app/#/m/169126184/survey/4bb0032b-f260-47e6-b9e7-7a4bb204365d",
 //         Subject: "Math",
-//         Session_Date_Time: "2024-07-05T11:00:00+05:30",
+//         Session_Date_Time: "2024-07-05T12:00:00+05:30",
 //       },
 //     ],
 //     newUser: true,

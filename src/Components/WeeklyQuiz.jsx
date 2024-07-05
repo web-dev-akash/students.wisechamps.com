@@ -173,8 +173,9 @@ export const WeeklyQuiz = () => {
 
     return (
       <Button
-        id="submit-btn"
+        id={!activeBtn ? "submit-btn-active" : "submit-btn"}
         fontSize={"12px"}
+        isDisabled={!activeBtn}
         onClick={() =>
           window.open(`https://zoom.wisechamps.com?email=${email}`, "_blank")
         }
@@ -435,28 +436,27 @@ export const WeeklyQuiz = () => {
                     renderJoinNowButton(Session_Date_Time)}
                   {(getColorScheme(Session_Date_Time) === "linkedin" ||
                     getSessionStatus(Session_Date_Time) === "ended") && (
-                    <Button
-                      id={
-                        Vevox_Survey_Link ? "submit-btn" : "submit-btn-active"
-                      }
-                      fontSize={"12px"}
-                      isLoading={loadingStates[id]}
-                      loadingText={""}
-                      isDisabled={!Vevox_Survey_Link}
-                      padding={"0 !important"}
+                    <Link
+                      style={{
+                        width: "100%",
+                      }}
+                      to={`/dashboard/missed?link=${encodeURIComponent(
+                        Vevox_Survey_Link
+                      )}`}
                     >
-                      <Link
-                        style={{
-                          width: "100%",
-                          padding: "10px 25px",
-                        }}
-                        to={`/dashboard/missed?link=${encodeURIComponent(
-                          Vevox_Survey_Link
-                        )}`}
+                      <Button
+                        id={
+                          Vevox_Survey_Link ? "submit-btn" : "submit-btn-active"
+                        }
+                        fontSize={"12px"}
+                        isLoading={loadingStates[id]}
+                        loadingText={""}
+                        isDisabled={!Vevox_Survey_Link}
+                        padding={"0 !important"}
                       >
                         Missed Quiz
-                      </Link>
-                    </Button>
+                      </Button>
+                    </Link>
                   )}
                 </Box>
               </Box>
