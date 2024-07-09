@@ -261,7 +261,7 @@ export const Store = () => {
                           alignItems={"center"}
                           gap={"5px"}
                         >
-                          200{" "}
+                          100{" "}
                           <GiTwoCoins
                             color={"gold"}
                             style={{

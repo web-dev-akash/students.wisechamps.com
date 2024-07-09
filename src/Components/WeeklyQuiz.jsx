@@ -127,7 +127,6 @@ export const WeeklyQuiz = () => {
         ? container.scrollWidth - containerWidth
         : 0;
       const newScrollLeft = (prevIndex + 1) * itemWidth;
-      console.log(newScrollLeft, maxScrollLeft);
       if (newScrollLeft > maxScrollLeft) {
         setIsAtEnd(true);
         return prevIndex;
@@ -474,11 +473,11 @@ export const WeeklyQuiz = () => {
         top={"50%"}
         transform={"translateY(-50%)"}
         left={"-10px"}
-        border={"none"}
         outline={"none"}
         padding={"0"}
         cursor={"pointer"}
         as={"p"}
+        zIndex={999}
       >
         <LuChevronLeftCircle />
       </Button>
@@ -492,11 +491,11 @@ export const WeeklyQuiz = () => {
         top={"50%"}
         transform={"translateY(-50%)"}
         right={"-10px"}
-        border={"none"}
         outline={"none"}
         padding={"0"}
         cursor={"pointer"}
         as={"p"}
+        zIndex={999}
       >
         <LuChevronRightCircle />
       </Button>
